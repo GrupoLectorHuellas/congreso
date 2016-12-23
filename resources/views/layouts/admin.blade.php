@@ -14,7 +14,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{url('administration/fonts/ionicons.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{url('administration/dist/css/AdminLTE.min.css')}}">
+    <link rel="stylesheet" href="{{url('administration/dist/css/AdminLTE.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{url('administration/dist/css/skins/_all-skins.min.css')}}">
@@ -152,27 +152,26 @@
     <div class="content-wrapper">
     @yield('title')
     <!-- Main content -->
-        <section class="content">
+
 
             <div class="row">
                 <div class="col-md-12">
                     @yield('title-panel')
                         <!-- /.box-header -->
-                        <div class="box-body">
                             <div class="row">
                                 <div class="col-md-12">
                                     <!--Contenido-->
+                                    <section class="content">
                                     @yield('contenido')
                                     <!--Fin Contenido-->
+                                    </section><!-- /.content -->
                                 </div>
                             </div>
 
-                        </div>
                     </div><!-- /.row -->
                 </div><!-- /.box-body -->
-            </div><!-- /.box -->
 
-        </section><!-- /.content -->
+
     </div><!-- /.content-wrapper -->
     <!--Fin-Contenido-->
 
@@ -210,14 +209,16 @@
     <!-- FastClick -->
     <script src="{{url('administration/plugins/fastclick/fastclick.min.js')}}"></script>
 
+    <script src="{{url('administration/plugins/chartjs/Chart.min.js')}}"></script>
+
+
     <!-- AdminLTE App -->
     <script src="{{url('administration/dist/js/app.min.js')}}"></script>
 
     <!-- AdminLTE for demo purposes -->
     <script src="{{url('administration/dist/js/demo.js')}}"></script>
-
+    @yield('script')
+    </div>
 </body>
 </html>
 
-</body>
-</html>
