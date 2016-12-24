@@ -22,6 +22,8 @@ Route::post('register', ['as' => 'auth/register', 'uses' => 'Auth\AuthController
 Route::get('administracion', function(){
     return view('administracion.index');
 });
+Route::get('administracion/usuario/agregar','UsuarioController@getRegister');
+
 Route::resource('administracion/categorias','CategoriaController');
 Route::get('carreras/{id}','Auth\AuthController@getCarreras');
 
