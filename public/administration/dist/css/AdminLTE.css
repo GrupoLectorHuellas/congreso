@@ -95,14 +95,11 @@ body {
 }
 .content-wrapper,
 .right-side {
-  min-height: 100%;
+  height: 100%;
   background-color: #ecf0f5;
   z-index: 800;
 }
-.main-footer {
-  background: #ecf0f5;
-  color: #444;
-}
+
 /* Fixed layout */
 .fixed .main-header,
 .fixed .main-sidebar,

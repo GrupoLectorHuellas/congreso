@@ -27,3 +27,5 @@ Route::get('administracion/usuario/agregar','UsuarioController@getRegister');
 Route::resource('administracion/categorias','CategoriaController');
 Route::get('carreras/{id}','Auth\AuthController@getCarreras');
 
+Route::get('administracion/usuario/carreras/{id}','Auth\AuthController@getCarreras');
+

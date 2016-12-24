@@ -30,7 +30,7 @@
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
                             <label>Ocupacion</label>
-                            <select class="form-control select2" style="width: 100%;">
+                            <select class="form-control select2" style="width: 100%;" id ="ocupacion">
                                 <option value="" disabled selected>Seleccione la ocupación</option>
                                 <option value="Estudiante">Estudiante</option>
                                 <option value="Profesional">Profesional</option>
@@ -75,7 +75,7 @@
                     </div>
                 </div><!--Fin de row -->
                 <div class="row"><!--Inicio de row -->
-                    <div class="col-md-6 col-xs-12" id ="facultad">
+                    <div class="col-md-6 col-xs-12" id ="facultad" style="display:none;">
                         <div class="form-group">
                             <label>Titulo</label>
                             <select class="form-control select2" name="facultad" id="facultades" style="width: 100%;">
@@ -86,10 +86,10 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-12 " id ="carrera">
+                    <div class="col-md-6 col-xs-12 " id ="carrera" style="display:none;">
                         <div class="form-group">
                             <label>Carrera</label>
-                            <select class="form-control select2" name="carrera"  style="width: 100%;">
+                            <select class="form-control select2" name="carrera" id ="carreras" style="width: 100%;">
                                 <option value="" disabled selected>Seleccione la carrera</option>
                             </select>
                         </div>

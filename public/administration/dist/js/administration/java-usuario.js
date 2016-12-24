@@ -1,16 +1,16 @@
-$(document).ready(function() {
-    $("input[type=radio]").click(function(event){
-        var valor = $(event.target).val();
-        if(valor =="Estudiante"){
-            $("#carrera").show();
-            $("#facultad").show();
-            $("#titulo").hide();
-        } else if (valor == "Profesional") {
-            $("#carrera").hide();
-            $("#facultad").hide();
-            $("#titulo").show();
-        }
-    });
+
+$("#ocupacion").change(function (event) {
+    var valor = document.getElementById("ocupacion").value;
+    if(valor =="Estudiante"){
+        $("#carrera").show();
+        $("#facultad").show();
+        $("#titulo").hide();
+    } else if (valor == "Profesional") {
+        $("#carrera").hide();
+        $("#facultad").hide();
+        $("#titulo").show();
+    }
+
 });
 $("#facultades").change(function (event) {
     var cod = document.getElementById("facultades").value;
