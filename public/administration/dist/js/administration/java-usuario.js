@@ -12,6 +12,7 @@ $("#ocupacion").change(function (event) {
     }
 
 });
+
 $("#facultades").change(function (event) {
     var cod = document.getElementById("facultades").value;
     if(cod==''){
