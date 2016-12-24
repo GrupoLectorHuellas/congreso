@@ -150,28 +150,13 @@
     <!--Contenido-->
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+
+
     @yield('title')
     <!-- Main content -->
-
-
-            <div class="row">
-                <div class="col-md-12">
-                    @yield('title-panel')
-                        <!-- /.box-header -->
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!--Contenido-->
-                                    <section class="content">
-                                    @yield('contenido')
-                                    <!--Fin Contenido-->
-                                    </section><!-- /.content -->
-                                </div>
-                            </div>
-
-                    </div><!-- /.row -->
-                </div><!-- /.box-body -->
-
-
+        <section class="content">
+            @yield('contenido')
+        </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
     <!--Fin-Contenido-->
 

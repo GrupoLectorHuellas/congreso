@@ -88,7 +88,7 @@
             </div>
             <div class="form-group has-feedback" id ="facultad">
                 <label>Facultad</label>
-                <select name="facultad" id="facultades" >
+                <select class="form-control select2" name="facultad" id="facultades" style="width: 100%" >
                     <option value="" disabled selected>Seleccione la facultad</option>
                     @foreach($facultades as $facultad)
                         <option value="{{$facultad->id}}"> {{ $facultad->nombre }} </option>
@@ -98,7 +98,7 @@
             </div>
             <div class="form-group has-feedback" id ="carrera">
                 <label>Carrera</label>
-                <select name="carrera" id="carreras" style="width: 300px">
+                <select class="form-control select2" name="carrera" id="carreras" style="width: 100%">
                     <option value="" disabled selected>Seleccione la carrera</option>
                 </select>
             </div>
