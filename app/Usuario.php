@@ -10,9 +10,14 @@ class Usuario extends Authenticatable
     use Notifiable;
 
     protected $table='usuarios';
+    protected $primaryKey = 'id';
+
+
     protected $fillable = [
-        'cedula', 'email', 'password',
+        'id', 'email', 'password',
     ];
+    public $incrementing = false;
+
 
     /**
      * The attributes that should be hidden for arrays.

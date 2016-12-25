@@ -9,6 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Congreso\Usuario;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,10 +23,17 @@ Route::post('register', ['as' => 'auth/register', 'uses' => 'Auth\AuthController
 Route::get('administracion', function(){
     return view('administracion.index');
 });
-Route::get('administracion/usuario/agregar','UsuarioController@getRegister');
+Route::get('administracion/usuarios/agregar','UsuarioController@getRegister');
 
 Route::resource('administracion/categorias','CategoriaController');
+Route::resource('administracion/usuarios','UsuarioController');
+
 Route::get('carreras/{id}','Auth\AuthController@getCarreras');
 
 Route::get('administracion/usuario/carreras/{id}','Auth\AuthController@getCarreras');
+
+Route::get('administracion/usuarios/ajax/usuarios',function(){
+    $usuarios= Usuario::where('estado',1)->paginate(1);
+    return View::make('administracion.usuarios.for-usuarios',['usuarios' => $usuarios])->render();
+});
 

@@ -40,8 +40,8 @@
     <link rel="shortcut icon" href="{{url('administration/img/favicon.png')}}">
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+<body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5 !important;">
+<div class="wrapper" id="contenido_principal">
 
     <header class="main-header">
 
@@ -110,13 +110,13 @@
 
                 </li>
                 <li class="treeview">
-                    <a href="#">
+                    <a href="">
                         <i class="fa fa-user-circle-o"></i>
                         <span>Usuarios</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href=""><i class="fa fa-circle-o"></i> Agregar</a></li>
+                        <li><a href="{{url ('login')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
                     </ul>
                 </li>
 
@@ -149,13 +149,15 @@
 
     <!--Contenido-->
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="background: #ecf0f5 !important;">
 
 
     @yield('title')
     <!-- Main content -->
-        <section class="content">
+        <section class="content" style="background: #ecf0f5 !important;">
+
             @yield('contenido')
+
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
     <!--Fin-Contenido-->
