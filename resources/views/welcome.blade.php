@@ -92,7 +92,7 @@
         <!-- /branding -->
 
         <!-- logo -->
-        <a href="index.html" class="escuela">
+        <a href="{{url ('/')}}" class="escuela">
           <img src="{{url('frontend/images/escuela.png')}}" alt="">
          
         </a>
@@ -118,11 +118,11 @@
             </li>
             
             <li>
-              <a href="javascript:;">Ingresar</a>
+              <a href="{{url ('login')}}">Ingresar</a>
             </li>
             <li>
               
-              <a href="javascript:;" class="nav-btn btn btn-success btn-rounded">Registrarse</a> 
+              <a href="{{url ('register')}}" class="nav-btn btn btn-success btn-rounded">Registrarse</a> 
             </li>
           </ul>
         </div>
