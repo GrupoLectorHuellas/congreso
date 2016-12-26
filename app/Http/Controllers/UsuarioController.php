@@ -17,23 +17,24 @@ class UsuarioController extends Controller
     {
     }
     public function index(Request $request){
-
         $usuarios= Usuario::where('estado',1)->paginate(1);
         if($request->ajax()){
             return response()->json(view('administracion.usuarios.ajax-usuarios',compact('usuarios'))->render());
         }
-
         return view('administracion.usuarios.index',compact('usuarios'));
-
-
-
     }
 
-
-    public function getRegister(){
+    public function create(){
         $facultades = Facultad::all();
         $carreras = Carrera::pluck('nombre','id');
-
         return view("administracion.usuarios.nuevo_usuario",compact('facultades','carreras'));
+
     }
+
+    public function store(Request $request){
+        return "capturado";
+
+    }
+
+
 }

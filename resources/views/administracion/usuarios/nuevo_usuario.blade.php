@@ -24,7 +24,7 @@
 
         <div id="notificacion_resul_fanu"></div>
         <div class="box-body">
-            <form  id="f_nuevo_usuario"  method="post"  action="agregar_nuevo_usuario"  >
+            <form  id="f_nuevo_usuario"  method="post"  action="{{action('UsuarioController@store')}}"  >
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <div class="row">
                     <div class="col-md-6 col-xs-12">

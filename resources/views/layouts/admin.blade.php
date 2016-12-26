@@ -116,7 +116,8 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{url ('login')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
+                        <li><a href="{{route('usuarios.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
+                        <li><a href="{{route('usuarios.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
                     </ul>
                 </li>
 
