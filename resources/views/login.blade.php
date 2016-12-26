@@ -19,6 +19,12 @@
   <link rel="stylesheet" href="{{url('administration/dist/css/AdminLTE.min.css')}}">
   <!-- iCheck -->
   <link rel="stylesheet" href="{{url('administration/plugins/iCheck/flat/blue.css')}}">
+  <link rel="stylesheet" href="{{url('frontend/styles/font-awesome.css')}}">
+  <link rel="stylesheet" href="{{url('frontend/styles/themify-icons.css')}}">
+  <link rel="stylesheet" href="{{url('frontend/styles/animate.css')}}">
+  <link rel="stylesheet" href="{{url('frontend/styles/sublime.css')}}">
+  <link rel="stylesheet" href="{{url('frontend/styles/skin.css')}}">
+  <link rel="stylesheet" href="{{url('frontend/styles/fonts.css')}}">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,7 +34,7 @@
   <![endif]-->
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
+<div class="login-box" style="margin-bottom: 25px; margin-top: 40px;">
   <div class="login-logo">
     <a href="#"><b>Utmach </b>Eventos</a>
   </div><!-- /.login-logo -->
@@ -65,7 +71,7 @@
         <input type="text" class="form-control" name="cedula" value="{{old('cedula')}}">
       </div>
       <div class="form-group has-feedback">
-        <label>contraseña</label>
+        <label>Contraseña</label>
         <input type="password" class="form-control" name="password" value="{{old('password')}}">
       </div>
 
@@ -73,16 +79,23 @@
       <div class="row">
         <div class="col-xs-12">
           <center>
-            <button type="submit" class="btn btn-primary ">Ingresar</button>
+            <button type="submit" class="btn btn-primary" style='width:100px; height:45px'>Ingresar</button>
+            <button type="submit" class="btn btn-primary" style='width:100px; height:45px'>Salir</button>
           </center>
         </div><!-- /.col -->
 
+        
+       
+
       </div>
+
+
       <div class="row">
         <div class="account" >
 
           <center>
-            <p>Tienes problemas ? <a href="">Olvidaste la contraseña ?</a></p>
+          <br>
+            <p>Tienes problemas? <a href=""> Olvidaste la contraseña ?</a></p>
           </center>
         </div>
 
@@ -95,6 +108,39 @@
 
   </div><!-- /.login-box-body -->
 </div><!-- /.login-box -->
+
+<!-- footer -->
+  <footer class="light lighten">
+
+    <div class="container">
+    <br>
+
+      <div class="row text-center">
+
+        <div class="col-sm-12 mb25">
+
+          <a class="btn btn-social-icon btn-facebook btn-rounded btn-sm ml5 mr5" href="javascript:;">
+            <i class="fa fa-facebook"></i>
+          </a>
+
+          <a class="btn btn-social-icon btn-twitter btn-rounded btn-sm ml5 mr5" href="javascript:;">
+            <i class="fa fa-twitter"></i>
+          </a>
+
+          <a class="btn btn-social-icon btn-google-plus btn-rounded btn-sm ml5 mr5" href="javascript:;">
+            <i class="fa fa-google-plus"></i>
+          </a>
+
+        </div>
+
+        <div class="col-sm-12 mb25">
+          <p>Hecho con &nbsp;<i class="ti-heart text-danger"></i>&nbsp;en Ingenieria de Sistemas</p>
+          <small class="show">&copy;&nbsp;Copyright&nbsp;Octavo A&nbsp;<span class="year"></span>. Todos los derechos reservados</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- /footer -->
 
 <!-- jQuery 2.1.4 -->
 <script src="{{url('administration/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>

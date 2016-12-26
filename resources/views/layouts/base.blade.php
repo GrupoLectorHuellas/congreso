@@ -170,30 +170,13 @@
     </div>
   </footer>
   <!-- /footer -->
-
+  
   <!-- build:js({.tmp,app}) scripts/app.min.js -->
   <script src="{{url('frontend/vendor/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{url('frontend/vendor/jquery/dist/jquery.js')}}"></script>
   
   <script src="{{url('frontend/vendor/bootstrap/dist/js/bootstrap.js')}}"></script>
-   <!-- 
-  <script src="{{url('frontend/vendor/jquery.easing/jquery.easing.js')}}"></script>
-  -->
-
-  <!-- 
-  <script src="{{url('frontend/vendor/jquery_appear/jquery.appear.js')}}"></script>
-
-  <script src="{{url('frontend/vendor/jquery.placeholder.js')}}"></script>
-  <script src="{{url('frontend/vendor/fastclick/lib/fastclick.js')}}"></script>
-     -->
-  <!-- 
-  <script src="{{url('frontend/vendor/jQuery-One-Page-Nav/jquery.nav.js')}}"></script>
-    -->
-  <!-- endbuild -->
-
-  <!-- 
-  <script src="{{url('frontend/vendor/jquery-parallax/scripts/jquery.parallax-1.1.3.js')}}"></script>
-  -->
+  
 
   <!-- template scripts -->
   <script src="{{url('frontend/scripts/main.js')}}"></script>

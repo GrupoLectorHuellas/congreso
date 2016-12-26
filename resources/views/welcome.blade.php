@@ -234,7 +234,21 @@
                         </div>
                         <div class="[ info-card-detail ]">
                           <!-- Description -->
-                          <p> Docente de la carrera de ingeniería de sistemas.</p>
+                                <div class="feature-icon bordered">
+                                     <i class="ti-cloud color"></i>
+                                </div>
+                                <p style="font-weight: bold; font-size: 125%;"> Al terminar este curso vas a aprender</p>
+
+                                <p align=justify>Aprenderá conceptos básicos de redes wan y lan, de igual forma
+                                  comprenderá los comandos necesarios para la administración y mantenimiento de las mismas
+                                   dfdfdfdffdfdffdfdfdffdffdffddfdfdfdfdfdfdfdfdfdfddddddd
+                                   dddddddddddddddddddddddddddddd
+                                   
+                                  
+                                 </p>
+
+                                 <a href="#" class="btn btn-primary" role="button">Más Información</a>
+                          
                           
 
                           
@@ -253,7 +267,21 @@
                           </div>
                           <div class="[ info-card-detail ]">
                             <!-- Description -->
-                            <p> Al </p>
+                            <div class="feature-icon bordered">
+                                     <i class="ti-cloud color"></i>
+                                </div>
+                                <p style="font-weight: bold; font-size: 125%;"> Al terminar este curso vas a aprender</p>
+
+                                <p align=justify>Aprenderá conceptos básicos de redes wan y lan, de igual forma
+                                  comprenderá los comandos necesarios para la administración y mantenimiento de las mismas
+                                   dfdfdfdffdfdffdfdfdffdffdffddfdfdfdfdfdfdfdfdfdfddddddd
+                                   dddddddddddddddddddddddddddddd
+                                   
+                                  
+                                 </p>
+
+                                 <a href="#" class="btn btn-primary" role="button">Más Información</a>
+                          
                             
 
                             
