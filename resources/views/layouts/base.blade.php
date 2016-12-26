@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="{{url('frontend/styles/skin.css')}}">
   <link rel="stylesheet" href="{{url('frontend/styles/fonts.css')}}">
   <link rel="shortcut icon" href="{{url('administration/img/favicon.png')}}">
+   <script src="{{url('frontend/vendor/jquery/dist/jquery-latest.js')}}"></script>
   <!-- endbuild -->
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -32,12 +33,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  <!-- load modernizer -->
-  <script src="{{url('frontend/vendor/modernizr.js')}}"></script>
-  <script>
+     <script>
     //Se encarga de mostrar el botón cuando se hace scroll
     $(window).scroll(function(){
-      if ($(this).scrollTop() > 50) {
+      if ($(this).scrollTop() > 150) {
             $('.arrowtop').fadeIn();
       } else {
             $('.arrowtop').fadeOut();
@@ -48,7 +47,13 @@
       $("html, body").animate({ scrollTop: 0 }, 600);
         return false;
     }
-   </script>
+  </script>
+
+  <!-- load modernizer -->
+  <script src="{{url('frontend/vendor/modernizr.js')}}"></script>
+  
+  
+
 
    @yield('head')
 </head>
@@ -75,23 +80,18 @@
           </button>
           <!-- /toggle menu -->
 
-         
-        </div>
-        <!-- /branding -->
-
-        <!-- links -->
-        <!-- logo -->
-        <a href="{{url('/')}}" class="escuela">
+          <!-- logo -->
+        <a href="{{url ('/')}}" class="escuela">
           <img src="{{url('frontend/images/escuela.png')}}" alt="">
          
         </a>
         <!-- /logo -->
+        </div>
+        <!-- /branding -->
 
         <!-- links -->
         <div class="navigation spy">
-          
           <ul class="nav">
-           
 
             <li class="hide">
               <a href="#top"></a>
@@ -107,12 +107,13 @@
             </li>
             
             <li>
-              <a href="{{url('login')}}">Ingresar</a>
+              <a href="{{url ('login')}}">Ingresar</a>
             </li>
             <li>
               
-              <a href="{{url('register')}}" class="nav-btn btn btn-success btn-rounded">Registrarse</a> 
+              <a href="{{url ('register')}}" class="nav-btn btn btn-success btn-rounded">Registrarse</a> 
             </li>
+            
           </ul>
         </div>
         <!-- /links -->
@@ -173,8 +174,9 @@
   <!-- /footer -->
 
   <!-- build:js({.tmp,app}) scripts/app.min.js -->
-  <script src="{{url('frontend/vendor/jquery/dist/jquery.js')}}"></script>
   <script src="{{url('frontend/vendor/jquery/dist/jquery.min.js')}}"></script>
+  <script src="{{url('frontend/vendor/jquery/dist/jquery.js')}}"></script>
+  
   <script src="{{url('frontend/vendor/bootstrap/dist/js/bootstrap.js')}}"></script>
   <script src="{{url('frontend/vendor/jquery.easing/jquery.easing.js')}}"></script>
   <script src="{{url('frontend/vendor/jquery_appear/jquery.appear.js')}}"></script>
