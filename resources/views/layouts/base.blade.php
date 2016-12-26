@@ -136,7 +136,7 @@
  
 
  <!-- footer -->
-  <footer class="content-section light lighten">
+  <footer class="light lighten">
 
     <div class="container">
 
@@ -144,9 +144,7 @@
 
         <div class="col-sm-12 mb25">
 
-          <a class="btn btn-primary btn-social-icon btn-rounded btn-outline btn-sm smooth-scroll mb25 ir-arriba" href="#top">
-            <i class="ti-angle-up"></i>
-          </a>
+          
 
           <br>
 
@@ -178,16 +176,24 @@
   <script src="{{url('frontend/vendor/jquery/dist/jquery.js')}}"></script>
   
   <script src="{{url('frontend/vendor/bootstrap/dist/js/bootstrap.js')}}"></script>
+   <!-- 
   <script src="{{url('frontend/vendor/jquery.easing/jquery.easing.js')}}"></script>
+  -->
+
+  <!-- 
   <script src="{{url('frontend/vendor/jquery_appear/jquery.appear.js')}}"></script>
+
   <script src="{{url('frontend/vendor/jquery.placeholder.js')}}"></script>
   <script src="{{url('frontend/vendor/fastclick/lib/fastclick.js')}}"></script>
+     -->
+  <!-- 
   <script src="{{url('frontend/vendor/jQuery-One-Page-Nav/jquery.nav.js')}}"></script>
+    -->
   <!-- endbuild -->
 
-  <!-- page level scripts -->
+  <!-- 
   <script src="{{url('frontend/vendor/jquery-parallax/scripts/jquery.parallax-1.1.3.js')}}"></script>
-  <!-- /page level scripts -->
+  -->
 
   <!-- template scripts -->
   <script src="{{url('frontend/scripts/main.js')}}"></script>
@@ -195,12 +201,12 @@
 
   <!-- page script -->
   <!-- /page script -->
-
+<a onClick="arriba();" class="arrowtop ti-arrow-up"></a>
   
 
    @yield('script')
 
-   <a onClick="arriba();" class="arrowtop ti-arrow-up"></a>
+   
 
 
 </body>

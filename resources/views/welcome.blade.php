@@ -32,7 +32,7 @@
   <script>
     //Se encarga de mostrar el botón cuando se hace scroll
     $(window).scroll(function(){
-      if ($(this).scrollTop() > 800) {
+      if ($(this).scrollTop() > 500) {
             $('.arrowtop').fadeIn();
       } else {
             $('.arrowtop').fadeOut();
@@ -164,8 +164,10 @@
   <!-- /hero -->
 
   <!-- seccion de los cursos  -->
-  <section id="how" class="content-section">
-    
+  <section id="how">
+    <br>
+    <br>
+    <br>
     <div class="container">
 
               <div class="col-md-8 col-md-offset-2">
@@ -268,13 +270,19 @@
       
 
     </div>
+    <br>
+    <br>
+    <br>
   </section>
 
 
   
 
   <!-- seccion de servicios -->
-  <section id="features" class="content-section features feature light">
+  <section id="features" class="features feature light">
+  <br>
+    <br>
+    <br>
     <div class="container">
 
       <div class="col-md-8 col-md-offset-2">
@@ -382,7 +390,8 @@
 
 
   <!-- footer -->
-  <footer class="content-section light lighten">
+  <footer class="light lighten">
+ 
 
     <div class="container">
 
@@ -390,9 +399,7 @@
 
         <div class="col-sm-12 mb25">
 
-          <a class="btn btn-primary btn-social-icon btn-rounded btn-outline btn-sm smooth-scroll mb25 ir-arriba" href="#top">
-            <i class="ti-angle-up"></i>
-          </a>
+          
 
           <br>
 
