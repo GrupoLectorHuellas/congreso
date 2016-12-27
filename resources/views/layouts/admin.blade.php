@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="{{url('administration/plugins/daterangepicker/daterangepicker-bs3.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{url('administration/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+    <link rel="stylesheet" href="{{url('administration/dist/css/mensajes.css')}}">
 
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -46,7 +47,7 @@
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="{{url('administracion')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>AD</b></span>
             <!-- logo for regular state and mobile devices -->
@@ -103,7 +104,7 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
                 <li class="treeview">
-                    <a href="#">
+                    <a href="{{url('administracion')}}">
                         <i class="fa fa-laptop"></i>
                         <span>Inicio</span>
                     </a>

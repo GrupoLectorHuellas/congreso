@@ -30,6 +30,6 @@ Route::resource('administracion/usuarios','UsuarioController');
 
 #para el select carrera-facultad
 Route::get('carreras/{id}','Auth\AuthController@getCarreras');
-Route::get('administracion/usuario/carreras/{id}','Auth\AuthController@getCarreras');
+Route::get('administracion/usuarios/carreras/{id}','Auth\AuthController@getCarreras');
 
 

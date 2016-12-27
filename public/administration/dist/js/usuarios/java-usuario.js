@@ -1,4 +1,3 @@
-
 $("#ocupacion").change(function (event) {
     var valor = document.getElementById("ocupacion").value;
     if(valor =="Estudiante"){
@@ -42,6 +41,27 @@ $(document).on('click','.pagination a',function(e){
         dataType: 'json',
         success: function(data){
             $(".ajax-tabla").html(data);
+        }
+    });
+});
+$("#registro").click(function(){
+    var dato = $("#cedula").val();
+    var route = window.location;
+    var token = $("#token").val();
+
+    $.ajax({
+        url: route,
+        headers: {'X-CSRF-TOKEN': token},
+        type: 'POST',
+        dataType: 'json',
+        data:{cedula: dato},
+
+        success:function(){
+            $("#msj-success").fadeIn();
+        },
+        error:function(msj){
+            $("#msj").html(msj.responseJSON.genre);
+            $("#msj-error").fadeIn();
         }
     });
 });
