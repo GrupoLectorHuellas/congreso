@@ -128,7 +128,7 @@ class AuthController extends Controller
                 $user->apellidos=$data['apellidos'];
                 $user->ciudad=$data['ciudad'];
                 $user->telefono=$data['telefono'];
-                $user->id_facultades=$data['facultad'];
+                $user->id_carreras=$data['carrera'];
                 $user->email=$data['email'];
                 $user->password=bcrypt($data['password']);
                 $user->estado=1;

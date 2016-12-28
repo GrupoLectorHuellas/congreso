@@ -1,6 +1,7 @@
 <?php
 
 namespace Congreso\Http\Controllers;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Congreso\Usuario;
 use Congreso\Facultad;
@@ -18,7 +19,7 @@ class UsuarioController extends Controller
     {
     }
     public function index(Request $request){
-        $usuarios= Usuario::where('estado',1)->paginate(1);
+        $usuarios= Usuario::where('estado',1)->paginate(5);
         if($request->ajax()){
             return response()->json(view('administracion.usuarios.ajax-usuarios',compact('usuarios'))->render());
         }
@@ -99,6 +100,13 @@ class UsuarioController extends Controller
             return Redirect::to('administracion/usuarios/create')->with('mensaje-registro', 'Usuario Registrado Correctamente');
 
         }
+
+    }
+
+    public function edit($id){
+        $usuario= Usuario::find($id);
+        return View('administracion.usuarios.edit',compact('usuario'));
+
 
     }
 

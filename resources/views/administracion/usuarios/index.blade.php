@@ -48,7 +48,7 @@
                         @foreach($usuarios as $usuario)
                             <tr>
                                 <td class="sorting_1">{{$usuario->id}}</td>
-                                <td "><i class="fa fa-user"></i>&nbsp;&nbsp{{$usuario->nombres." ".$usuario->apellidos}}</td>
+                                <td><i class="fa fa-user"></i>&nbsp;&nbsp{{$usuario->nombres." ".$usuario->apellidos}}</td>
                                 <td>{{$usuario->ciudad}}</td>
                                 <td>{{$usuario->telefono}}</td>
                                 <td>{{$usuario->email}}</td>
@@ -57,16 +57,14 @@
                                 @else
                                     <td>Profesional</td>
                                 @endif
-                                <td><button class="btn  btn-skin-green btn-xs" onclick="mostrarficha(<?= $usuario->id; ?>);" ><i class="fa fa-fw fa-eye"></i>Ver</button></td>
+                                <td>
+                                    {!!link_to_route('usuarios.edit', $title = 'Editar', $parameters = $usuario->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
+                                    {!!link_to_route('usuarios.edit', $title = 'Eliminar', $parameters = $usuario->id, $attributes = ['class'=>'btn  btn-danger btn-sm'])!!}
 
+                                </td>
 
                             </tr>
                         @endforeach
-
-
-
-
-
                     </table>
                     {{$usuarios->links()}}
                 </div>
@@ -82,5 +80,5 @@
 
 @endsection
 @section('script')
-    <script src="{{url('administration/dist/js/administration/java-usuario.js')}}"></script>
+    <script src="{{url('administration/dist/js/usuarios/java-usuario.js')}}"></script>
 @endsection

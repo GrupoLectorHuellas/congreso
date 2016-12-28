@@ -19,15 +19,15 @@ class CreateUsuariosTable extends Migration
             $table->string('apellidos',50);
             $table->string('ciudad',25);
             $table->string('telefono',10);
-            $table->integer('id_facultades')->unsigned()->nullable();
+            $table->integer('id_carreras')->unsigned()->nullable();
             $table->string('titulo')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->char('estado',1);
             $table->rememberToken();
             $table->primary('id');
-            $table->foreign('id_facultades')
-                ->references('id')->on('facultades');
+            $table->foreign('id_carreras')
+                ->references('id')->on('carreras');
         });
     }
 

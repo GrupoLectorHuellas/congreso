@@ -12,7 +12,7 @@
         @foreach($usuarios as $usuario)
             <tr>
                 <td class="sorting_1">{{$usuario->id}}</td>
-                <td "><i class="fa fa-user"></i>&nbsp;&nbsp{{$usuario->nombres." ".$usuario->apellidos}}</td>
+                <td><i class="fa fa-user"></i>&nbsp;&nbsp{{$usuario->nombres." ".$usuario->apellidos}}</td>
                 <td>{{$usuario->ciudad}}</td>
                 <td>{{$usuario->telefono}}</td>
                 <td>{{$usuario->email}}</td>
@@ -21,7 +21,7 @@
                 @else
                     <td>Profesional</td>
                 @endif
-                <td><button class="btn  btn-skin-green btn-xs" onclick="mostrarficha(<?= $usuario->id; ?>);" ><i class="fa fa-fw fa-eye"></i>Ver</button></td>
+                <td>{!!link_to_route('usuarios.edit', $title = 'Editar', $parameters = $usuario->id, $attributes = ['class'=>'btn  btn-skin-green fa fa-fw fa-eye'])!!}</td>
 
 
             </tr>
