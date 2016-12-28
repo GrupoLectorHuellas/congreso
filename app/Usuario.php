@@ -4,6 +4,8 @@ namespace Congreso;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Usuario extends Authenticatable
 {
@@ -15,14 +17,14 @@ class Usuario extends Authenticatable
     public $incrementing = false;
 
     protected $fillable = [
-        'id', 'nombres', 'apellidos','ciudad','telefono','email', 'password',
+        'id', 'nombres', 'apellidos','ciudad','telefono','id_carreras','email', 'password',
     ];
 
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    public function Facultad(){
-        return $this->belongsTo('Facultad');
+    public function carrera(){
+        return $this->belongsTo(Carrera::class,'id_carreras','id');
     }
 }

@@ -28,8 +28,7 @@ class UsuarioController extends Controller
 
     public function create(){
         $facultades = Facultad::all();
-        $carreras = Carrera::pluck('nombre','id');
-        return view("administracion.usuarios.nuevo_usuario",compact('facultades','carreras'));
+        return view("administracion.usuarios.nuevo_usuario",compact('facultades'));
 
     }
 
@@ -55,7 +54,7 @@ class UsuarioController extends Controller
             $user->apellidos=$data['apellidos'];
             $user->ciudad=$data['ciudad'];
             $user->telefono=$data['telefono'];
-            $user->id_facultades=$data['facultad'];
+            $user->id_carreras=$data['carrera'];
             $user->email=$data['email'];
             $user->password=bcrypt($data['password']);
             $user->estado=1;
@@ -104,8 +103,12 @@ class UsuarioController extends Controller
     }
 
     public function edit($id){
-        $usuario= Usuario::find($id);
-        return View('administracion.usuarios.edit',compact('usuario'));
+        $facultades = Facultad::all();
+        $carreras = Carrera::pluck('nombre','id');
+        $usuario= Usuario::find($id)->first();;
+        $usuarios= Usuario::with('carrera')->get();
+
+        return View('administracion.usuarios.edit',compact('usuario','usuarios'));
 
 
     }
