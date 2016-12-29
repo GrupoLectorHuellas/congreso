@@ -99,7 +99,7 @@ return [
             'rule-name' => 'custom-message',
             'cedu' => 'La cedula es incorrecta',
         ],
-        'cedula'  => [
+        'id'  => [
             'validar_cedula' => 'La cedula es incorrecta',
         ],
     ],

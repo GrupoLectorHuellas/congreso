@@ -14,18 +14,30 @@ $("#ocupacion").change(function (event) {
 
 $("#facultades").change(function (event) {
     var cod = document.getElementById("facultades").value;
+    var ruta = document.getElementById("ruta").value;
     if(cod==''){
         $("#carreras").empty();
         $("#carreras").append("<option value=''>Seleccione la carrera</option>")
     }
     else {
-        $.get('carreras/' + event.target.value + "", function (response, facultades) {
+        /*
+         $.get('/congreso/public/carreras/' + event.target.value + "", function (response, facultades) {
+         $("#carreras").empty();
+         for (i = 0; i < response.length; i++) {
+         $("#carreras").append("<option value='" + response[i].id + "'>" + response[i].nombre + "</option>")
+
+         }
+         })
+         */
+
+        $.get(ruta +/carreras/+ event.target.value + "", function (response, facultades) {
             $("#carreras").empty();
             for (i = 0; i < response.length; i++) {
                 $("#carreras").append("<option value='" + response[i].id + "'>" + response[i].nombre + "</option>")
 
             }
         })
+
     }
 
 });
@@ -44,26 +56,6 @@ $(document).on('click','.pagination a',function(e){
         }
     });
 });
-$("#registro").click(function(){
-    var dato = $("#cedula").val();
-    var route = window.location;
-    var token = $("#token").val();
 
-    $.ajax({
-        url: route,
-        headers: {'X-CSRF-TOKEN': token},
-        type: 'POST',
-        dataType: 'json',
-        data:{cedula: dato},
-
-        success:function(){
-            $("#msj-success").fadeIn();
-        },
-        error:function(msj){
-            $("#msj").html(msj.responseJSON.genre);
-            $("#msj-error").fadeIn();
-        }
-    });
-});
 
 

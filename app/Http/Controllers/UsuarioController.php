@@ -10,11 +10,10 @@ use Congreso\Categoria;
 use Congreso\Librerias\ValidarIdentificacion;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
-
+use Illuminate\Validation\Rule;
 
 class UsuarioController extends Controller
 {
-
     public function __construct()
     {
     }
@@ -33,12 +32,10 @@ class UsuarioController extends Controller
     }
 
     public function store(Request $request){
-
-
         $data = $request;
         if ($data['ocupacion']=="Estudiante"){
             $this->validate($request,[
-                'cedula'=>['required','unique:usuarios,id','validar_cedula'],
+                'id'=>['required','unique:usuarios,id','validar_cedula'],
                 'nombres'=>['required'],
                 'apellidos'=>['required'],
                 'ciudad'=>['required'],
@@ -49,7 +46,7 @@ class UsuarioController extends Controller
                 'password'=>['required'],
             ]);
             $user=new Usuario;
-            $user->id=$data['cedula'];
+            $user->id=$data['id'];
             $user->nombres=$data['nombres'];
             $user->apellidos=$data['apellidos'];
             $user->ciudad=$data['ciudad'];
@@ -61,7 +58,7 @@ class UsuarioController extends Controller
         }
         elseif ($data['ocupacion']=="Profesional") {
             $this->validate($request,[
-                'cedula'=>['required','unique:usuarios,id','validar_cedula'],
+                'id'=>['required','unique:usuarios,id','validar_cedula'],
                 'nombres'=>['required'],
                 'apellidos'=>['required'],
                 'ciudad'=>['required'],
@@ -71,7 +68,7 @@ class UsuarioController extends Controller
                 'password'=>['required'],
             ]);
             $user=new Usuario;
-            $user->id=$data['cedula'];
+            $user->id=$data['id'];
             $user->nombres=$data['nombres'];
             $user->apellidos=$data['apellidos'];
             $user->ciudad=$data['ciudad'];
@@ -84,7 +81,7 @@ class UsuarioController extends Controller
         }
         else{
             $this->validate($request,[
-                'cedula'=>['required','unique:usuarios,id','validar_cedula'],
+                'id'=>['required','unique:usuarios,id','validar_cedula'],
                 'nombres'=>['required'],
                 'apellidos'=>['required'],
                 'ciudad'=>['required'],
@@ -92,26 +89,70 @@ class UsuarioController extends Controller
                 'email'=>['required','unique:usuarios'],
                 'password'=>['required'],
             ]);
-
         }
-
         if($user->save()){
             return Redirect::to('administracion/usuarios/create')->with('mensaje-registro', 'Usuario Registrado Correctamente');
-
         }
-
     }
 
     public function edit($id){
         $facultades = Facultad::all();
-        $carreras = Carrera::pluck('nombre','id');
-        $usuario= Usuario::find($id)->first();;
-        $usuarios= Usuario::with('carrera')->get();
+        $usuario= Usuario::find($id);
+        return View('administracion.usuarios.edit',compact('usuario','facultades'));
+    }
 
-        return View('administracion.usuarios.edit',compact('usuario','usuarios'));
-
+    public function update($id,Request $request){
+        $data = $request;
+        $user= Usuario::find($id);
+        if ($data['ocupacion']=="Estudiante"){
+            $this->validate($request,[
+                'id'=>['required','validar_cedula',Rule::unique('usuarios')->ignore($user->id,'id'),],
+                'nombres'=>['required'],
+                'apellidos'=>['required'],
+                'ciudad'=>['required'],
+                'telefono'=>['required'],
+                'facultad'=>['required'],
+                'carrera'=>['required'],
+                'email'=>['required',Rule::unique('usuarios')->ignore($user->id),],
+            ]);
+            $user->id=$data['id'];
+            $user->nombres=$data['nombres'];
+            $user->apellidos=$data['apellidos'];
+            $user->ciudad=$data['ciudad'];
+            $user->telefono=$data['telefono'];
+            $user->id_carreras=$data['carrera'];
+            $user->titulo="";
+            $user->email=$data['email'];
+            $user->estado=1;
+        }
+        elseif ($data['ocupacion']=="Profesional") {
+            $this->validate($request,[
+                'id'=>['required','validar_cedula',Rule::unique('usuarios')->ignore($user->id),],
+                'nombres'=>['required'],
+                'apellidos'=>['required'],
+                'ciudad'=>['required'],
+                'telefono'=>['required'],
+                'titulo'=>['required'],
+                'email'=>['required',Rule::unique('usuarios')->ignore($user->id),],
+            ]);
+            $user->id=$data['id'];
+            $user->nombres=$data['nombres'];
+            $user->apellidos=$data['apellidos'];
+            $user->ciudad=$data['ciudad'];
+            $user->telefono=$data['telefono'];
+            $user->id_carreras=null;
+            $user->titulo=$data['titulo'];
+            $user->email=$data['email'];
+            $user->password=$data['password'];
+            $user->estado=1;
+        }
+        if($user->save()){
+            return Redirect::to('administracion/usuarios')->with('mensaje-registro', 'Usuario Actualizado Correctamente');
+        }
 
     }
+
+
 
 
 }

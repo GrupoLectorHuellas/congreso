@@ -68,7 +68,7 @@
 
       <div class="form-group has-feedback">
         <label>Cedula</label>
-        <input type="text" class="form-control" name="cedula" value="{{old('cedula')}}">
+        <input type="text" class="form-control" name="id" value="{{old('id')}}">
       </div>
       <div class="form-group has-feedback">
         <label>Contraseña</label>

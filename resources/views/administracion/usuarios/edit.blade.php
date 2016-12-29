@@ -31,13 +31,14 @@
 
     <div class="box box-primary">
         <div class="box-header">
-            <h3 class="box-title">Nuevo Usuario del Sistema</h3>
+            <h3 class="box-title">Edición de Usuario</h3>
         </div><!-- /.box-header -->
 
         <div id="notificacion_resul_fanu"></div>
         <div class="box-body">
-            <form  id="f_nuevo_usuario"  method="post"  action="{{action('UsuarioController@store')}}"  >
+            {{Form::model($usuario, ['route' => ['usuarios.update',$usuario->id],'method'=>'PUT' ])}}
                 {!!csrf_field()!!}
+                <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
@@ -57,7 +58,7 @@
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
                             <label for="cedula">Cedula</label>
-                            <input type="text" class="form-control"  id ="cedula" name="cedula" placeholder="Cedula" onkeypress="return soloNumeros(event)" maxlength="10" value="{{$usuario->id }}">
+                            <input type="text" class="form-control"  id ="cedula" name="id" placeholder="Cedula" onkeypress="return soloNumeros(event)" maxlength="10" value="{{$usuario->id }}">
                         </div>
                     </div>
                 </div><!--Fin de row -->
@@ -91,12 +92,18 @@
                     </div>
                 </div><!--Fin de row -->
                 @if($usuario->titulo =="")
-                <div class="row"><!--Inicio de row -->
-                    <div class="col-md-6 col-xs-12" id ="facultad"  >
+                <div class="row" id ="facultad"><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12"   >
                         <div class="form-group">
                             <label>Facultad</label>
                             <select class="form-control select2" name="facultad" id="facultades" style="width: 100%;" >
-                                <option value="" disabled selected>Seleccione la facultad</option>
+                                @foreach($facultades as $facultad)
+                                    @if($facultad->id == $usuario->carrera->facultad->id)
+                                    <option value="{{$facultad->id}}" selected>  {{ $facultad->nombre }} </option>
+                                    @else
+                                    <option value="{{$facultad->id}}">  {{ $facultad->nombre }} </option>
+                                    @endif
+                                 @endforeach
 
 
                             </select>
@@ -106,22 +113,60 @@
                         <div class="form-group">
                             <label>Carrera</label>
                             <select class="form-control select2" name="carrera" id ="carreras" style="width: 100%;">
-                                    <option value="" disabled selected> {{$usuario->carrera->nombre}}</option>
-
+                                @foreach($usuario->carrera->carreras($usuario->carrera->facultad->id) as $carrera)
+                                    @if($carrera->id == $usuario->carrera->id)
+                                        <option value="{{$carrera->id}}" selected>  {{ $carrera->nombre }} </option>
+                                    @else
+                                        <option value="{{$carrera->id}}">  {{ $carrera->nombre }} </option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
                     </div>
-                @else
                 </div><!--Fin de row -->
+                @else
+
+
                 <div class="row" id="titulo" ><!--Inicio de row -->
                     <div class="col-md-12 col-xs-12">
                         <div class="form-group">
                             <label for="titulo_input">Titulo</label>
-                            <input type="text" class="form-control" name="titulo" id="titulo_input" value="{{old('titulo')}}"  maxlength="50" >
+                            <input type="text" class="form-control" name="titulo" id="titulo_input" value="{{$usuario->titulo}}"  maxlength="50" >
                         </div>
                     </div>
-                @endif
                 </div><!--Fin de row -->
+                @endif
+                <div class="row" id ="facultad" style="display: none"><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12"   >
+                        <div class="form-group">
+                            <label>Facultad</label>
+                            <select class="form-control select2" name="facultad" id="facultades" style="width: 100%;" >
+                                @foreach($facultades as $facultad)
+                                    <option value="{{$facultad->id}}" >  {{ $facultad->nombre }} </option>
+                                @endforeach
+
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12 " id ="carrera" style="display: none">
+                        <div class="form-group">
+                            <label>Carrera</label>
+                            <select class="form-control select2" name="carrera" id ="carreras" style="width: 100%;">
+                                <option value="" disabled selected>Seleccione la carrera</option>
+                            </select>
+                        </div>
+                    </div>
+                </div><!--Fin de row -->
+                <div class="row" id="titulo" style="display: none"><!--Inicio de row -->
+                    <div class="col-md-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="titulo_input">Titulo</label>
+                            <input type="text" class="form-control" name="titulo" id="titulo_input" value="{{$usuario->titulo}}"  maxlength="50" >
+                        </div>
+                    </div>
+                </div><!--Fin de row -->
+
                 <div class="row" ><!--Inicio de row -->
                     <div class="col-md-12 col-xs-12">
                         <div class="form-group">
@@ -136,9 +181,7 @@
                 <div class="box-footer col-xs-12 ">
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
-
-
-            </form>
+                {!! Form::close() !!}
         </div>
 
     </div>

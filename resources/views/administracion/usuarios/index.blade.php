@@ -11,10 +11,11 @@
         </ol>
     </section>
 @endsection
-@section('title-panel')
 
-@endsection
 @section('contenido')
+    @if (session('mensaje-registro'))
+        @include('mensajes.msj_correcto')
+    @endif
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -81,4 +82,11 @@
 @endsection
 @section('script')
     <script src="{{url('administration/dist/js/usuarios/java-usuario.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            setTimeout(function() {
+                $(".aprobado").fadeOut(300);
+            },3000);
+        });
+    </script>
 @endsection

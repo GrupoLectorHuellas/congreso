@@ -50,9 +50,10 @@
 
         <form action="register" method="post">
             {!!csrf_field()!!}
+            <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
             <div class="form-group has-feedback">
                 <label>Cedula</label>
-                <input type="text" maxlength="10" size="10" class="form-control" name="cedula" value="{{old('cedula')}}">
+                <input type="text" maxlength="10" size="10" class="form-control" name="id" value="{{old('id')}}">
             </div>
 
             <div class="form-group has-feedback">

@@ -19,7 +19,8 @@ class AppServiceProvider extends ServiceProvider
 
         Validator::extend('validar_cedula', function($attribute, $value, $parameters, $validator) {
             $validador = new ValidarIdentificacion();
-            return $validador->validarCedula($value);
+            if ($validador->validarCedula($value) && $value != '2222222222')
+                return true;
             #si devuelve true no imprime mensaje
 
 

@@ -17,63 +17,31 @@ use Session;
 
 class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
 
-
-
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
     public function __construct(Guard $auth)
     {
+        /*
         $this->auth = $auth;
         $this->middleware('guest', ['except' => 'getLogout']);
+        */
+
       
     }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-   
-
-
-//login
 
        protected function getLogin()
     {
         return view("login");
     }
 
-
-       
-
         public function postLogin(Request $request)
    {
        $this->validate($request,[
-           'cedula'=>['required'],
+           'id'=>['required'],
            'password'=>['required'],
        ]);
        $data = $request;
-       $cedula = $data['cedula'];
+       $cedula = $data['id'];
        $password = $data['password'];
-
-
-
-
 
     /*
     if ($this->auth->attempt($credentials, $request->has('remember')))
@@ -88,18 +56,9 @@ class AuthController extends Controller
 
        }
 
-
-
-
    }
 
-
-//login
-
- //registro   
-
-
-        protected function getRegister()
+    protected function getRegister()
     {
         $facultades = Facultad::all();
         $carreras = Carrera::pluck('nombre','id');
@@ -107,12 +66,12 @@ class AuthController extends Controller
         return view("registro",compact('facultades','carreras'));
     }
 
-        protected function postRegister(Request $request)
+    protected function postRegister(Request $request)
         {
             $data = $request;
             if ($data['optradio']=="Estudiante"){
                 $this->validate($request,[
-                    'cedula'=>['required','unique:usuarios,id'],
+                    'id'=>['required','unique:usuarios,id'],
                     'nombres'=>['required'],
                     'apellidos'=>['required'],
                     'ciudad'=>['required'],
@@ -123,19 +82,19 @@ class AuthController extends Controller
                     'password'=>['required'],
                 ]);
                 $user=new Usuario;
-                $user->id=$data['cedula'];
+                $user->id=$data['id'];
                 $user->nombres=$data['nombres'];
                 $user->apellidos=$data['apellidos'];
                 $user->ciudad=$data['ciudad'];
                 $user->telefono=$data['telefono'];
                 $user->id_carreras=$data['carrera'];
                 $user->email=$data['email'];
-                $user->password=bcrypt($data['password']);
+                $user->password=$data['password'];
                 $user->estado=1;
             }
             else{
                 $this->validate($request,[
-                    'cedula'=>['required','unique:usuarios,id'],
+                    'id'=>['required','unique:usuarios,id'],
                     'nombres'=>['required'],
                     'apellidos'=>['required'],
                     'ciudad'=>['required'],
@@ -145,14 +104,14 @@ class AuthController extends Controller
                     'password'=>['required'],
                 ]);
                 $user=new Usuario;
-                $user->id=$data['cedula'];
+                $user->id=$data['id'];
                 $user->nombres=$data['nombres'];
                 $user->apellidos=$data['apellidos'];
                 $user->ciudad=$data['ciudad'];
                 $user->telefono=$data['telefono'];
                 $user->titulo=$data['titulo'];
                 $user->email=$data['email'];
-                $user->password=bcrypt($data['password']);
+                $user->password=$data['password'];
                 $user->estado=1;
 
             }
@@ -185,9 +144,6 @@ protected function getLogout()
 
 
     }
-
-
-
 
 
 

@@ -40,6 +40,7 @@
         <div class="box-body">
             <form  id="f_nuevo_usuario"  method="post"  action="{{action('UsuarioController@store')}}"  >
                 {!!csrf_field()!!}
+                <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
