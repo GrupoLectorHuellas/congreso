@@ -34,6 +34,8 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{url('administration/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
     <link rel="stylesheet" href="{{url('administration/dist/css/mensajes.css')}}">
+    <link rel="stylesheet" href="{{url('administration/dist/css/sweetalert.css')}}">
+
 
 
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -191,21 +193,19 @@
     <script src="{{url('administration/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
     <!-- Bootstrap WYSIHTML5 -->
     <script src="{{url('administration/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
-
     <!-- Slimscroll -->
     <script src="{{url('administration/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
-
     <!-- FastClick -->
     <script src="{{url('administration/plugins/fastclick/fastclick.min.js')}}"></script>
 
     <script src="{{url('administration/plugins/chartjs/Chart.min.js')}}"></script>
-
-
     <!-- AdminLTE App -->
     <script src="{{url('administration/dist/js/app.min.js')}}"></script>
-
     <!-- AdminLTE for demo purposes -->
     <script src="{{url('administration/dist/js/demo.js')}}"></script>
+    <script src="{{url('administration/dist/js/sweetalert.min.js')}}"></script>
+
+
     @yield('script')
     </div>
 </body>

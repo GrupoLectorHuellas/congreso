@@ -47,7 +47,7 @@
                             <th>Acción</th>
                         </tr>
                         @foreach($usuarios as $usuario)
-                            <tr>
+                            <tr data-id="{{$usuario->id}}">
                                 <td class="sorting_1">{{$usuario->id}}</td>
                                 <td><i class="fa fa-user"></i>&nbsp;&nbsp{{$usuario->nombres." ".$usuario->apellidos}}</td>
                                 <td>{{$usuario->ciudad}}</td>
@@ -60,7 +60,7 @@
                                 @endif
                                 <td>
                                     {!!link_to_route('usuarios.edit', $title = 'Editar', $parameters = $usuario->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
-                                    {!!link_to_route('usuarios.edit', $title = 'Eliminar', $parameters = $usuario->id, $attributes = ['class'=>'btn  btn-danger btn-sm'])!!}
+                                    <button type="button" class="btn btn-danger btn-sm btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
 
                                 </td>
 
@@ -78,7 +78,8 @@
         </div>
     </div>
 
-
+    {!! Form::open(['route' => ['usuarios.destroy', ':USER_ID'], 'method' => 'DELETE', 'id' => 'form-delete']) !!}
+    {!! Form::close() !!}
 @endsection
 @section('script')
     <script src="{{url('administration/dist/js/usuarios/java-usuario.js')}}"></script>

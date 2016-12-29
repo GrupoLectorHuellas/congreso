@@ -53,7 +53,7 @@
             <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
             <div class="form-group has-feedback">
                 <label>Cedula</label>
-                <input type="text" maxlength="10" size="10" class="form-control" name="id" value="{{old('id')}}">
+                <input type="text" maxlength="10" size="10" class="form-control" name="cedula" value="{{old('cedula')}}">
             </div>
 
             <div class="form-group has-feedback">

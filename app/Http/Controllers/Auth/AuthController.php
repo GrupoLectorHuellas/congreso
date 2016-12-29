@@ -20,10 +20,10 @@ class AuthController extends Controller
 
     public function __construct(Guard $auth)
     {
-        /*
+
         $this->auth = $auth;
-        $this->middleware('guest', ['except' => 'getLogout']);
-        */
+        //$this->middleware('guest', ['except' => 'getLogout']);
+
 
       
     }
@@ -36,11 +36,11 @@ class AuthController extends Controller
         public function postLogin(Request $request)
    {
        $this->validate($request,[
-           'id'=>['required'],
+           'cedula'=>['required'],
            'password'=>['required'],
        ]);
        $data = $request;
-       $cedula = $data['id'];
+       $cedula = $data['cedula'];
        $password = $data['password'];
 
     /*
@@ -71,7 +71,7 @@ class AuthController extends Controller
             $data = $request;
             if ($data['optradio']=="Estudiante"){
                 $this->validate($request,[
-                    'id'=>['required','unique:usuarios,id'],
+                    'cedula'=>['required','unique:usuarios,id'],
                     'nombres'=>['required'],
                     'apellidos'=>['required'],
                     'ciudad'=>['required'],
@@ -82,7 +82,7 @@ class AuthController extends Controller
                     'password'=>['required'],
                 ]);
                 $user=new Usuario;
-                $user->id=$data['id'];
+                $user->id=$data['cedula'];
                 $user->nombres=$data['nombres'];
                 $user->apellidos=$data['apellidos'];
                 $user->ciudad=$data['ciudad'];
@@ -94,7 +94,7 @@ class AuthController extends Controller
             }
             else{
                 $this->validate($request,[
-                    'id'=>['required','unique:usuarios,id'],
+                    'cedula'=>['required','unique:usuarios,id'],
                     'nombres'=>['required'],
                     'apellidos'=>['required'],
                     'ciudad'=>['required'],
@@ -104,7 +104,7 @@ class AuthController extends Controller
                     'password'=>['required'],
                 ]);
                 $user=new Usuario;
-                $user->id=$data['id'];
+                $user->id=$data['cedula'];
                 $user->nombres=$data['nombres'];
                 $user->apellidos=$data['apellidos'];
                 $user->ciudad=$data['ciudad'];

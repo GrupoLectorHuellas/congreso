@@ -121,7 +121,7 @@ class UsuarioController extends Controller
             $user->ciudad=$data['ciudad'];
             $user->telefono=$data['telefono'];
             $user->id_carreras=$data['carrera'];
-            $user->titulo="";
+            $user->titulo=null;
             $user->email=$data['email'];
             $user->estado=1;
         }
@@ -149,6 +149,24 @@ class UsuarioController extends Controller
         if($user->save()){
             return Redirect::to('administracion/usuarios')->with('mensaje-registro', 'Usuario Actualizado Correctamente');
         }
+
+    }
+
+    public function destroy($id, Request $request){
+        $user= Usuario::find($id);
+        $user->estado=0;
+        $user->save();
+
+        $message="Eliminado Correctamente";
+        if ($request->ajax()) {
+            return response()->json([
+                'id'      => $user->id,
+                'message' => $message
+            ]);
+        }
+
+
+
 
     }
 
