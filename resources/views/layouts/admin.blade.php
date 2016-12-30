@@ -131,7 +131,8 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href=""><i class="fa fa-circle-o"></i> Agregar</a></li>
+                        <li><a href="{{route('categorias.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
+                        <li><a href="{{route('categorias.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
                     </ul>
                 </li>
                 <li class="treeview">

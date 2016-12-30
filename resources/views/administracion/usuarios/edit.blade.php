@@ -37,7 +37,6 @@
         <div id="notificacion_resul_fanu"></div>
         <div class="box-body">
             {{Form::model($usuario, ['route' => ['usuarios.update',$usuario->id],'method'=>'PUT', 'id'=>'formdata' ])}}
-                {!!csrf_field()!!}
                 <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
@@ -190,4 +189,6 @@
 @endsection
 @section('script')
     <script src="{{url('administration/dist/js/usuarios/java-usuario.js')}}"></script>
+    <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
+
 @endsection

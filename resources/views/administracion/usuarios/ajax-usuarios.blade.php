@@ -21,8 +21,10 @@
                 @else
                     <td>Profesional</td>
                 @endif
-                <td>{!!link_to_route('usuarios.edit', $title = 'Editar', $parameters = $usuario->id, $attributes = ['class'=>'btn  btn-skin-green fa fa-fw fa-eye'])!!}</td>
-
+                <td>
+                {!!link_to_route('usuarios.edit', $title = 'Editar', $parameters = $usuario->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
+                <button type="button" class="btn btn-danger btn-sm btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
+                </td>
 
             </tr>
         @endforeach

@@ -43,7 +43,7 @@ $("#facultades").change(function (event) {
 });
 
 $(document).on('click','.pagination a',function(e){
-    e.preventDefault();
+    //e.preventDefault();
     var page = $(this).attr('href').split('page=')[1];
     var route = window.location;
     $.ajax({

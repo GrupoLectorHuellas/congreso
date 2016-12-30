@@ -18,7 +18,7 @@ class UsuarioController extends Controller
     {
     }
     public function index(Request $request){
-        $usuarios= Usuario::where('estado',1)->paginate(5);
+        $usuarios= Usuario::where('estado',1)->paginate(1);
         if($request->ajax()){
             return response()->json(view('administracion.usuarios.ajax-usuarios',compact('usuarios'))->render());
         }
