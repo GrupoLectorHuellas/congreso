@@ -79,8 +79,8 @@
       <div class="row">
         <div class="col-xs-12">
           <center>
-            <button type="submit" class="btn btn-primary" style='width:100px; height:45px'>Ingresar</button>
-            <button type="submit" class="btn btn-primary" style='width:100px; height:45px'>Salir</button>
+            <button type="submit" class="btn btn-primary" style='width:100px; height:35px'>Ingresar</button>
+            <a href="{{url ('/')}}" class="btn btn-primary " style='width:100px; height:35px; text-align: center'>Salir</a>
           </center>
         </div><!-- /.col -->
 

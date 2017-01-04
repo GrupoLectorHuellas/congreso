@@ -14,7 +14,7 @@ class CategoriaController extends Controller
     {
     }
     public function index(Request $request){
-        $categorias= Categoria::where('estado',1)->paginate(2);
+        $categorias= Categoria::where('estado',1)->paginate(5);
         if($request->ajax()){
             return response()->json(view('administracion.categorias.ajax-categorias',compact('categorias'))->render());
         }

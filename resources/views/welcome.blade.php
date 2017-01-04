@@ -155,14 +155,30 @@
                 <div id="div-forms">
                 
                     <!-- Begin # Login Form -->
-                    <form id="login-form">
+                    <form action="login2" method="post">
+                        @if (session('mensaje'))
+                            <div class="alert alert-danger alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                {{ session('mensaje') }}
+                            </div>
+                        @endif
+                        @if(!$errors->isEmpty())
+                            <div class="alert alert-danger alert-dismissible">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                                <p><strong>Error!! </strong>Complete todos los campos </p>
+                                @foreach($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </div>
+                        @endif
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 		                <div class="modal-body">
 				    		<div id="div-login-msg">
                                 <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
                                 <span id="text-login-msg">Escriba aquí su Usuario y Contraseña</span>
                             </div>
-                              <input id="login_username" class="form-control" type="text" placeholder="Usuario" required>
-                              <input id="login_password" class="form-control" type="password" placeholder="Contraseña" required>
+                              <input id="login_username" class="form-control" type="text" placeholder="Usuario" value="{{old('cedula')}}" name ="cedula"  required>
+                              <input id="login_password" class="form-control" type="password" name ="password" placeholder="Contraseña" required>
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox"> Recuérdame

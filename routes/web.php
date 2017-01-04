@@ -10,23 +10,28 @@
 |
 */
 use Congreso\Usuario;
-Route::get('/', function () {
-    return view('welcome');
-});
+//Para las vistas principales
+Route::get('/', 'FrontController@index');
+Route::get('administracion','FrontController@admin');
+
 //Login y Register
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', ['as' =>'login', 'uses' => 'Auth\AuthController@postLogin']);
+Route::post('login2', ['as' =>'login', 'uses' => 'Auth\AuthController@postLogin2']);
+
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', ['as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister']);
 
 #administracion
-Route::get('administracion', function(){
-    return view('administracion.index');
-});
-
 Route::resource('administracion/categorias','CategoriaController');
 Route::resource('administracion/usuarios','UsuarioController');
+Route::resource('administracion/expositores','ExpositorController');
+Route::post('administracion/expositores/create','ExpositorController@store');
+//Route::get('administracion/expositores','ExpositorController@listing');
+
+
+
 
 #para el select carrera-facultad
 Route::get('carreras/{id}','Auth\AuthController@getCarreras');

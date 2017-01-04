@@ -33,30 +33,53 @@ class AuthController extends Controller
         return view("login");
     }
 
-        public function postLogin(Request $request)
-   {
-       $this->validate($request,[
-           'cedula'=>['required'],
-           'password'=>['required'],
-       ]);
-       $data = $request;
-       $cedula = $data['cedula'];
-       $password = $data['password'];
+    public function postLogin(Request $request) {
+           $this->validate($request,[
+               'cedula'=>['required'],
+               'password'=>['required'],
+           ]);
+           $data = $request;
+           $cedula = $data['cedula'];
+           $password = $data['password'];
 
-    /*
-    if ($this->auth->attempt($credentials, $request->has('remember')))
-    {
-        return "correco";
+        /*
+        if ($this->auth->attempt($credentials, $request->has('remember')))
+        {
+            return "correco";
+        }
+        */
+           if ($this->auth->attempt(['id' => $cedula, 'password' => $password])) {
+               return Redirect::to('administracion');
+           }else{
+               return Redirect::to('login')->with('mensaje', 'Usuario o Contraseña Incorrectos.');
+
+           }
+
     }
-    */
-       if ($this->auth->attempt(['id' => $cedula, 'password' => $password])) {
-           return Redirect::to('/administracion');
-       }else{
-           return Redirect::to('login')->with('mensaje', 'Usuario o Contraseña Incorrectos.');
 
-       }
+    public function postLogin2(Request $request) {
+        $this->validate($request,[
+            'cedula'=>['required'],
+            'password'=>['required'],
+        ]);
+        $data = $request;
+        $cedula = $data['cedula'];
+        $password = $data['password'];
 
-   }
+        /*
+        if ($this->auth->attempt($credentials, $request->has('remember')))
+        {
+            return "correco";
+        }
+        */
+        if ($this->auth->attempt(['id' => $cedula, 'password' => $password])) {
+            return Redirect::to('administracion');
+        }else{
+            return Redirect::to('/')->with('mensaje', 'Usuario o Contraseña Incorrectos.');
+
+        }
+
+    }
 
     protected function getRegister()
     {
@@ -131,7 +154,7 @@ protected function getLogout()
 
         Session::flush();
 
-        return redirect('login');
+        return redirect('/');
     }
 
 

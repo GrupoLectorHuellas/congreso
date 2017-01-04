@@ -137,6 +137,17 @@
                 </li>
                 <li class="treeview">
                     <a href="#">
+                        <i class="fa fa-user-plus"></i>
+                        <span>Expositores</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('expositores.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
+                        <li><a href="{{route('expositores.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
                         <i class="fa fa-address-card-o"></i>
                         <span>Eventos</span>
                         <i class="fa fa-angle-left pull-right"></i>

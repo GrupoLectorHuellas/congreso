@@ -16,6 +16,7 @@ class UsuarioController extends Controller
 {
     public function __construct()
     {
+        $this->middleware('auth');
     }
     public function index(Request $request){
         $usuarios= Usuario::where('estado',1)->paginate(1);
