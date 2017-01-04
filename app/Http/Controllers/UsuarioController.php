@@ -19,7 +19,7 @@ class UsuarioController extends Controller
         $this->middleware('auth');
     }
     public function index(Request $request){
-        $usuarios= Usuario::where('estado',1)->paginate(1);
+        $usuarios= Usuario::where('estado',1)->paginate(6);
         if($request->ajax()){
             return response()->json(view('administracion.usuarios.ajax-usuarios',compact('usuarios'))->render());
         }

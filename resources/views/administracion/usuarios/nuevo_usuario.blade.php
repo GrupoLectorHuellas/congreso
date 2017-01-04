@@ -56,7 +56,7 @@
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
                             <label for="cedula">Cedula</label>
-                            <input type="text" class="form-control"  id ="cedula" name="cedula" placeholder="Cedula" onkeypress="return soloNumeros(event)" maxlength="10" value="{{old('cedula')}}">
+                            <input type="text" class="form-control"  id ="cedula" name="id" placeholder="Cedula" onkeypress="return soloNumeros(event)" maxlength="10" value="{{old('cedula')}}">
                         </div>
                     </div>
                 </div><!--Fin de row -->
