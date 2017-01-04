@@ -28,6 +28,8 @@ Route::resource('administracion/categorias','CategoriaController');
 Route::resource('administracion/usuarios','UsuarioController');
 Route::resource('administracion/expositores','ExpositorController');
 Route::post('administracion/expositores/create','ExpositorController@store');
+Route::resource('administracion/eventos','EventoController');
+
 //Route::get('administracion/expositores','ExpositorController@listing');
 
 
