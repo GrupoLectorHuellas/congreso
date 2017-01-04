@@ -36,7 +36,7 @@ class UsuarioController extends Controller
         $data = $request;
         if ($data['ocupacion']=="Estudiante"){
             $this->validate($request,[
-                'id'=>['required','unique:usuarios,id','validar_cedula'],
+                'cedula'=>['required','unique:usuarios,id','validar_cedula'],
                 'nombres'=>['required'],
                 'apellidos'=>['required'],
                 'ciudad'=>['required'],
@@ -59,7 +59,7 @@ class UsuarioController extends Controller
         }
         elseif ($data['ocupacion']=="Profesional") {
             $this->validate($request,[
-                'id'=>['required','unique:usuarios,id','validar_cedula'],
+                'cedula'=>['required','unique:usuarios,id','validar_cedula'],
                 'nombres'=>['required'],
                 'apellidos'=>['required'],
                 'ciudad'=>['required'],
@@ -82,7 +82,7 @@ class UsuarioController extends Controller
         }
         else{
             $this->validate($request,[
-                'id'=>['required','unique:usuarios,id','validar_cedula'],
+                'cedula'=>['required','unique:usuarios,id','validar_cedula'],
                 'nombres'=>['required'],
                 'apellidos'=>['required'],
                 'ciudad'=>['required'],

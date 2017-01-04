@@ -102,6 +102,9 @@ return [
         'id'  => [
             'validar_cedula' => 'La cedula es incorrecta',
         ],
+        'cedula'  => [
+            'validar_cedula' => 'La cedula es incorrecta',
+        ],
     ],
 
     /*
