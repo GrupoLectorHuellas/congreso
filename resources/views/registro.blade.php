@@ -1,11 +1,7 @@
 @extends("layouts.base")
-
-
-    
     @section('title')
     <title>Sistema Laravel | Registro</title>
     @endsection()
-   
     @section('head')
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{url('administration/fonts/font-awesome.min.css')}}">
@@ -16,41 +12,39 @@
     <!-- iCheck   -->
     <link rel="stylesheet" href="{{url('administration/plugins/iCheck/flat/blue.css')}}">
     @endsection()
-    
 
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
  @section('body')
  <body class="hold-transition login-page">
-@section('contenido')
+ @section('contenido')
 <div class="login-box">
     <div class="login-logo">
         <a href="#"><b>Utmach </b>Eventos</a>
     </div><!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Registro en el sistema</p>
+        <p class="login-box-msg">Registrarse en el sistema</p>
         @if(!$errors->isEmpty())
             <div class="alert alert-danger">
                 <p><strong>Error!! </strong>Corrija los siguientes errores</p>
                 <ul>
                     @foreach($errors->all() as $error)
                         <li>{{$error}}</li>
-
                     @endforeach
                 </ul>
-
             </div>
         @endif
-
-
         <form action="register" method="post">
             {!!csrf_field()!!}
             <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
+            <div class="form-group has-feedback" id ="nacionalidad">
+                <label>Nacionalidad</label>
+                <select class="form-control select2" name="nacionalidad" id="nacionalidades" style="width: 100%" >
+                        <option value="" selected>Ecuatoriano</option>
+                        <option value="">Extranjero Residente</option>
+                        <option value="">Ecuatoriano No Residente</option>
+
+                </select>
+
+            </div>
             <div class="form-group has-feedback">
                 <label>Cedula</label>
                 <input type="text" maxlength="10" size="10" class="form-control" name="cedula" value="{{old('cedula')}}">
@@ -64,6 +58,11 @@
             <div class="form-group has-feedback">
                 <label>Apellidos</label>
                 <input type="text" class="form-control" name="apellidos" value="{{old('apellidos')}}">
+            </div>
+
+            <div class="form-group has-feedback">
+                <label>País</label>
+                <input type="text" class="form-control" name="pais" value="{{old('ciudad')}}">
             </div>
 
             <div class="form-group has-feedback">

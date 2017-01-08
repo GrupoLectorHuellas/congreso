@@ -25,13 +25,6 @@
   <link rel="stylesheet" href="{{url('frontend/styles/fonts.css')}}">
   <link rel="shortcut icon" href="{{url('administration/img/favicon.png')}}">
    <script src="{{url('frontend/vendor/jquery/dist/jquery-latest.js')}}"></script>
-  <!-- endbuild -->
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
      <script>
     //Se encarga de mostrar el botón cuando se hace scroll

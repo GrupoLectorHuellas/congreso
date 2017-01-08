@@ -15,7 +15,6 @@ class EventoController extends Controller
     public function index()
     {
         $eventos = Evento::where('estado',1)->orderBy('id')->paginate(6);
-
         return View('administracion.expositores.index',compact('eventos'));
     }
 

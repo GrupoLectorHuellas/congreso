@@ -184,39 +184,27 @@
     <!-- jQuery 2.1.4 -->
     <script src="{{url('administration/plugins/jQuery/jQuery-2.1.4.min.js')}}"></script>
     <!-- jQuery UI 1.11.4 -->
-
-
     <!-- Bootstrap 3.3.5 -->
     <script src="{{url('administration/bootstrap/js/bootstrap.min.js')}}"></script>
-
-    <!-- Morris.js charts -->
-    <script src="{{url('administration/plugins/raphael-min.js')}}"></script>
-    <script src="{{url('administration/plugins/morris/morris.min.js')}}"></script>
-    <!-- Sparkline -->
-    <script src="{{url('administration/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
-    <!-- jvectormap -->
-    <script src="{{url('administration/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-    <script src="{{url('administration/plugins/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="{{url('administration/plugins/knob/jquery.knob.js')}}"></script>
-    <!-- daterangepicker -->
+       <!-- daterangepicker -->
     <script src="{{url('administration/plugins/moment.min.js')}}"></script>
     <script src="{{url('administration/plugins/daterangepicker/daterangepicker.js')}}"></script>
     <!-- datepicker -->
     <script src="{{url('administration/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
-    <!-- Bootstrap WYSIHTML5 -->
-    <script src="{{url('administration/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
-    <!-- Slimscroll -->
+      <!-- Slimscroll -->
     <script src="{{url('administration/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
-    <!-- FastClick -->
-    <script src="{{url('administration/plugins/fastclick/fastclick.min.js')}}"></script>
 
     <script src="{{url('administration/plugins/chartjs/Chart.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{url('administration/dist/js/app.min.js')}}"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="{{url('administration/dist/js/demo.js')}}"></script>
+
     <script src="{{url('administration/dist/js/sweetalert.min.js')}}"></script>
+    <script src="{{url('administration/dist/js/jquery.inputmask.js')}}"></script>
+    <script src="{{url('administration/dist/js/jquery.inputmask.date.extensions.js')}}"></script>
+    <script src="{{url('administration/dist/js/jquery.inputmask.extensions.js')}}"></script>
+
+
+
 
 
     @yield('script')

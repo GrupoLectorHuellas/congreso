@@ -14,20 +14,27 @@ class CreateUsuariosTable extends Migration
     public function up()
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->string('id',10);
+            $table->string('id');
             $table->string('nombres',50);
             $table->string('apellidos',50);
-            $table->string('ciudad',25);
-            $table->string('telefono',10);
-            $table->integer('id_carreras')->unsigned()->nullable();
+            $table->string('pais',50);
+            $table->string('ciudad',75);
+            $table->string('telefono');
+            $table->string('direccion',100);
             $table->string('titulo')->nullable();
             $table->string('email')->unique();
             $table->string('password');
             $table->char('estado',1);
-            $table->rememberToken();
+            $table->integer('id_carreras')->unsigned()->nullable();
+            $table->integer('id_cantones')->unsigned()->nullable();
+            $table->integer('id_roles')->unsigned();
             $table->primary('id');
             $table->foreign('id_carreras')
                 ->references('id')->on('carreras');
+            $table->foreign('id_cantones')
+                ->references('id')->on('cantones');
+            $table->foreign('id_roles')
+                ->references('id')->on('roles');
         });
     }
 

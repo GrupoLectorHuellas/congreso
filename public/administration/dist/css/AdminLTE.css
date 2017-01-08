@@ -3170,12 +3170,14 @@ table.text-center th {
 .register-logo {
   font-size: 35px;
   text-align: center;
-  margin-bottom: 25px;
   font-weight: 300;
+  background-color: rgba(6, 84, 147, 0.95);
+  margin-top: 75px;
+
 }
 .login-logo a,
 .register-logo a {
-  color: #444;
+  color: rgba(255, 255, 255, 0.8);
 }
 .login-page,
 .register-page {
@@ -3183,13 +3185,13 @@ table.text-center th {
 }
 .login-box,
 .register-box {
-  width: 700px;
+  width: 550px;
   margin: 7% auto;
 }
 @media (max-width: 768px) {
   .login-box,
   .register-box {
-    width: 90%;
+    width: 100%;
     margin-top: 20px;
   }
 }

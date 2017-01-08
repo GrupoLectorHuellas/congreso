@@ -35,7 +35,7 @@
                             {!! Form::text('nombre',null,['placeholder'=>'Nombre','class'=>'form-control','onkeypress'=>'return soloLetras(event)']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('nombre') !!}
+                            {!! Form::label('descripción') !!}
                             {!! Form::text('descripcion',null,['placeholder'=>'Descripcion','class'=>'form-control','onkeypress'=>'return soloLetras(event)']) !!}
                         </div>
                         {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}

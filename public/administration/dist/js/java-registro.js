@@ -11,6 +11,7 @@ $(document).ready(function() {
             $("#titulo").show();
         }
     });
+
 });
 $("#facultades").change(function (event) {
     var cod = document.getElementById("facultades").value;

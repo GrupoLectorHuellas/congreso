@@ -12,13 +12,21 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(Congreso\User::class, function (Faker\Generator $faker) {
+$factory->define(Congreso\Usuario::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'id' => "admin",
+        'nombres' => "Super",
+        'apellidos' => "Admin",
+        'pais' => "Ecuador",
+        'ciudad' => "Machala",
+        'telefono' => "9999999999",
+        'direccion' => "Machala",
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'id_roles' => 1,
+        'estado'=>1,
+        //'genero'=>$faker->randomElement(['Femenino','Masculino']),
+        'password' => $password ?: $password = bcrypt('admin123'),
     ];
 });
