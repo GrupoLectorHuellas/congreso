@@ -35,19 +35,20 @@
         <form action="register" method="post">
             {!!csrf_field()!!}
             <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
-            <div class="form-group has-feedback" id ="nacionalidad">
+            <div class="form-group has-feedback ">
                 <label>Nacionalidad</label>
-                <select class="form-control select2" name="nacionalidad" id="nacionalidades" style="width: 100%" >
-                        <option value="" selected>Ecuatoriano</option>
-                        <option value="">Extranjero Residente</option>
-                        <option value="">Ecuatoriano No Residente</option>
+                <select class="form-control select2" name="nacionalidades" id="nacionalidades" style="width: 100%" >
+                        <option value="Ecuatoriano" selected>Ecuatoriano</option>
+                        <option value="Extranjero Residente">Extranjero Residente</option>
+                        <option value="Extranjero No Residente">Extranjero No Residente</option>
 
                 </select>
 
             </div>
+
             <div class="form-group has-feedback">
-                <label>Cedula</label>
-                <input type="text" maxlength="10" size="10" class="form-control" name="cedula" value="{{old('cedula')}}">
+                <label id ="label-dni">Cedula</label>
+                <input type="text" maxlength="10" size="10" class="form-control" name="cedula"  value="{{old('cedula')}}" >
             </div>
 
             <div class="form-group has-feedback">
@@ -59,19 +60,55 @@
                 <label>Apellidos</label>
                 <input type="text" class="form-control" name="apellidos" value="{{old('apellidos')}}">
             </div>
-
             <div class="form-group has-feedback">
-                <label>País</label>
-                <input type="text" class="form-control" name="pais" value="{{old('ciudad')}}">
-            </div>
+                <label>Genero</label>
+                <div >
+                    <div class="col-xs-6">
+                        <label class="radio-inline"><input checked = "checked" type="radio" name="radio-genero" value="Masculino">Masculino</label>
+                    </div>
+                    <div class="col-xs-6">
+                        <label class="radio-inline"><input type="radio" name="radio-genero" value="Femenino">Femenino</label>
+                    </div>
 
-            <div class="form-group has-feedback">
-                <label>Ciudad</label>
-                <input type="text" class="form-control" name="ciudad" value="{{old('ciudad')}}">
+                </div>
+
             </div>
             <div class="form-group has-feedback">
                 <label>Telefono</label>
                 <input type="text" class="form-control" name="telefono" value="{{old('telefono')}}">
+            </div>
+
+            <div class="form-group has-feedback">
+                <label id ="label-pais">País</label>
+                <input type="text" class="form-control" name="pais" value="Ecuador" id ="pais" disabled>
+            </div>
+
+            <div class="form-group has-feedback" style="display: none" id ="ciudad">
+                <label>Ciudad</label>
+                <input type="text" class="form-control" name="ciudad" value="{{old('ciudad')}}">
+            </div>
+
+            <div class="form-group has-feedback" id="provincia">
+                <label id ="label-provincia">Provincia</label>
+                <select class="form-control select2" name="provincia" id="provincias" style="width: 100%" >
+
+                <option value="" disabled selected>Seleccione la provincia</option>
+                @foreach($provincias as $provincia)
+                    <option value="{{$provincia->id}}"> {{ $provincia->nombre }} </option>
+                @endforeach
+                </select>
+            </div>
+            <div class="form-group has-feedback" id="canton">
+                <label id ="label-canton">Cantón</label>
+                <select class="form-control select2" name="canton" id="cantones" style="width: 100%">
+                    <option value="" disabled selected>Seleccione el cantón</option>
+                </select>
+
+            </div>
+
+            <div class="form-group has-feedback">
+                <label id ="label-pais">Dirección</label>
+                <input type="text" class="form-control" name="direccion" id ="direccion">
             </div>
 
             <div class="form-group has-feedback">
@@ -105,7 +142,7 @@
             </div>
 
             <div class="form-group has-feedback" id="titulo" style="display:none;">
-                <label>Titulo</label>
+                <label>Título</label>
                 <input type="text" class="form-control" name="titulo" value="{{old('titulo')}}" >
             </div>
 

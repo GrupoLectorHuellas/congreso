@@ -17,14 +17,18 @@ $factory->define(Congreso\Usuario::class, function (Faker\Generator $faker) {
 
     return [
         'id' => "admin",
+        'nacionalidad' => "Ecuatoriano",
         'nombres' => "Super",
         'apellidos' => "Admin",
+        'genero' => "Masculino",
         'pais' => "Ecuador",
         'ciudad' => "Machala",
         'telefono' => "9999999999",
         'direccion' => "Machala",
+        'titulo' => "Administrador",
         'email' => $faker->unique()->safeEmail,
         'id_roles' => 1,
+        'id_cantones' => 181,
         'estado'=>1,
         //'genero'=>$faker->randomElement(['Femenino','Masculino']),
         'password' => $password ?: $password = bcrypt('admin123'),

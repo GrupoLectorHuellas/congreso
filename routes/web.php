@@ -37,6 +37,7 @@ Route::resource('administracion/eventos','EventoController');
 
 #para el select carrera-facultad
 Route::get('carreras/{id}','Auth\AuthController@getCarreras');
+Route::get('cantones/{id}','Auth\AuthController@getCantones');
 
 
 

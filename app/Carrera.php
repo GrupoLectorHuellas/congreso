@@ -19,8 +19,8 @@ class Carrera extends Model
     }
 
     public function facultad(){
-        #el egundo parametro es como se llama la clave foranea, y la tercera si la otra tabla tiene un primary
-        #key diferente a id, osea se le dio otro nombre diferente  a id
+        #el egundo parametro es el nombre de la clave foranea, y la tercera si la tabla referenciada tiene
+        # un primary key diferente a id, osea se le dio otro nombre diferente  a id
         return $this->belongsTo(Facultad::class,'id_facultades','id');
     }
 }
