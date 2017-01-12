@@ -31,6 +31,6 @@ $factory->define(Congreso\Usuario::class, function (Faker\Generator $faker) {
         'id_cantones' => 181,
         'estado'=>1,
         //'genero'=>$faker->randomElement(['Femenino','Masculino']),
-        'password' => $password ?: $password = bcrypt('admin123'),
+        'password' => "$2y$10$vq94eP7xY3R4uE82yZ3Md.j8hl204wPkWONb/MvmfiftvBve6TrxG",
     ];
 });
