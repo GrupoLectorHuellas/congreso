@@ -117,13 +117,28 @@
               <a href="#reviews">Ponentes</a>
             </li>
 
+            <li class="dropdown show-on-hover">
+              <a href="javascript:;" class="ignore" data-toggle="dropdown"><span>Perfil</span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="{{url ('MiPerfil')}}" class="transition">Mi Perfil</a>
+                </li>
+                <li>
+                  <a href="gallery.html" class="transition">Cerrar Sesión</a>
+                </li>
+                
+              </ul>
+            </li>
+
             <li>
-              <a href="#" class="nav-btn btn btn-success btn-rounded" role="button" data-toggle="modal" data-target="#login-modal">Ingresar 2</a>
+              <a href="#" class="nav-btn btn btn-success btn-rounded" role="button" data-toggle="modal" data-target="#login-modal">Ingresar</a>
             </li>
             
+            <!--
             <li>
               <a href="{{url ('login')}}">Ingresar</a>
             </li>
+            -->
             <li>
               
               <a href="{{url ('register')}}" class="nav-btn btn btn-success btn-rounded">Registrarse</a> 

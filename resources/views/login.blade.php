@@ -33,13 +33,15 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page"> 
 <div class="login-box" style="margin-bottom: 25px; margin-top: 40px;">
   <div class="login-logo">
     <a href="#"><b>Utmach </b>Eventos</a>
   </div><!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Ingrese al sistema</p>
+    <div align="center">
+      <img class="img-circle" id="img_logo" src="{{url('frontend/images/logito-escuela.jpg')}}">
+      </div>
     @if (session('mensaje-registro'))
       <div class="alert alert-success alert-dismissible">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>

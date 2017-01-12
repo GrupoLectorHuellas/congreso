@@ -15,6 +15,10 @@ class FrontController extends Controller
         return view('welcome');
     }
 
+    public function editarPerfil(){
+        return view('editar_perfil');
+    }
+
     public function admin(){
         return view('administracion.index');
     }

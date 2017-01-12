@@ -90,22 +90,27 @@
               <a href="#top"></a>
             </li>
             <li>
-              <a href="#how">Cursos</a>
+              <a href="{{url ('/')}}">Inicio</a>
             </li>
             <li>
-              <a href="#features">Servicios</a>
+              <a href="#eventos">Eventos</a>
             </li>
-            <li>
-              <a href="#reviews">Ponentes</a>
+           
+
+            <li class="dropdown show-on-hover">
+              <a href="javascript:;" class="ignore" data-toggle="dropdown"><span>Perfil</span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="{{url ('MiPerfil')}}" class="transition">Mi Perfil</a>
+                </li>
+                <li>
+                  <a href="gallery.html" class="transition">Cerrar Sesión</a>
+                </li>
+                
+              </ul>
             </li>
             
-            <li>
-              <a href="{{url ('login')}}">Ingresar</a>
-            </li>
-            <li>
-              
-              <a href="{{url ('register')}}" class="nav-btn btn btn-success btn-rounded">Registrarse</a> 
-            </li>
+            
             
           </ul>
         </div>

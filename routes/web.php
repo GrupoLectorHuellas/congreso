@@ -39,6 +39,9 @@ Route::resource('administracion/eventos','EventoController');
 Route::get('carreras/{id}','Auth\AuthController@getCarreras');
 Route::get('cantones/{id}','Auth\AuthController@getCantones');
 
+#perfil y editar perfil
+Route::get('MiPerfil', 'FrontController@editarPerfil');
+
 
 
 
