@@ -30,29 +30,54 @@
       <form class="form-horizontal" role="form">
 
         <div class="form-group">
-          <label class="col-lg-3 control-label">Nacionalidad:</label>
-          <div class="col-lg-8">
-            <input name="nacionalidad" class="form-control" value="Extranjero" type="text">
-          </div>
-        </div>
-
-        <div class="form-group">
           <label class="col-lg-3 control-label">Nombres:</label>
           <div class="col-lg-8">
-            <input class="form-control" value="Fernando" type="text">
+            <div class="input-group">
+                    <div class="input-group-addon">
+                      <i class="fa fa-user">
+                      </i>
+                    </div>
+              <input name="nombres" class="form-control" value="Fernando" type="text">
+              </div>
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Apellidos:</label>
           <div class="col-lg-8">
-            <input class="form-control" value="Castillo" type="text">
+            <div class="input-group">
+                  <div class="input-group-addon">
+                        <i class="fa fa-user">
+                        </i>
+                    </div>
+              <input name="apellidos" class="form-control" value="Castillo" type="text">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Teléfono:</label>
+          <div class="col-lg-8">
+            <div class="input-group">
+                  <div class="input-group-addon">
+                        <i class="fa fa-phone">
+                        </i>
+                    </div>
+              <input name="telefono" class="form-control" value="0991851033" type="text">
+            </div>
           </div>
         </div>
         
         <div class="form-group">
           <label class="col-lg-3 control-label">Email:</label>
           <div class="col-lg-8">
-            <input class="form-control" value="jf@gmail.com" type="text">
+            <div class="input-group">
+                  <div class="input-group-addon">
+                        <i class="fa fa-envelope-o">
+                        </i>
+                    </div>
+            <input name="email" class="form-control" value="jf@gmail.com" type="text">
+            <span class="input-group-addon" id="basic-addon2">@example.com</span>
+            </div>
           </div>
         </div>
 
@@ -61,12 +86,18 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Provincia:</label>
           <div class="col-lg-8">
-            <div class="ui-select">
-              <select class="form-control">
-                <option value="El Oro">El Oro</option>
-                <option value="Guayaquil">Guayaquil</option>
-           
-              </select>
+            <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-map-marker">
+                        </i>
+                    </div>
+                <div class="ui-select">
+                      <select class="form-control">
+                        <option value="El Oro">El Oro</option>
+                        <option value="Guayaquil">Guayaquil</option>
+                  
+                      </select>
+                </div>
             </div>
           </div>
         </div>
@@ -74,12 +105,31 @@
          <div class="form-group">
           <label class="col-lg-3 control-label">Cantón:</label>
           <div class="col-lg-8">
-            <div class="ui-select">
-              <select class="form-control">
-                <option value="Machala">Machala</option>
-                <option value="Santa Rosa">Santa Rosa</option>
-           
-              </select>
+             <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-map-marker">
+                        </i>
+                    </div>
+                <div class="ui-select">
+                  <select class="form-control">
+                    <option value="Machala">Machala</option>
+                    <option value="Santa Rosa">Santa Rosa</option>
+              
+                  </select>
+                </div>
+              </div>
+          </div>
+        </div>
+
+         <div class="form-group">
+          <label class="col-md-3 control-label">Direccion:</label>
+          <div class="col-md-8">
+            <div class="input-group">
+                  <div class="input-group-addon">
+                        <i class="fa fa-home">
+                        </i>
+                    </div>
+            <input name="direccion" class="form-control" type="text">
             </div>
           </div>
         </div>
@@ -87,67 +137,85 @@
         <div class="form-group">
           <label class="col-lg-3 control-label">Genero:</label>
           <div class="col-lg-8">
-            <div class="ui-select">
-              <select class="form-control">
-                <option value="Masculino">Masculino</option>
-                <option value="Femenino">Femenino</option>
-           
-              </select>
-            </div>
+            <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-users">
+                        </i>
+                    </div>
+                  <div class="ui-select">
+                    <select class="form-control">
+                      <option value="Masculino">Masculino</option>
+                      <option value="Femenino">Femenino</option>
+                
+                    </select>
+                  </div>
+              </div>
           </div>
         </div>
 
          <div class="form-group">
           <label class="col-lg-3 control-label">Facultad:</label>
           <div class="col-lg-8">
-            <div class="ui-select">
-              <select class="form-control">
-                <option value="Ingenieria Civil">Ingenieria Civil</option>
-                <option value="Administracion">Administracion</option>
-           
-              </select>
-            </div>
+            <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-university">
+                        </i>
+                    </div>
+                <div class="ui-select">
+                  <select class="form-control">
+                    <option value="Ingenieria Civil">Ingenieria Civil</option>
+                    <option value="Administracion">Administracion</option>
+              
+                  </select>
+                </div>
+              </div>
           </div>
         </div>
 
          <div class="form-group">
           <label class="col-lg-3 control-label">Carrera:</label>
           <div class="col-lg-8">
-            <div class="ui-select">
-              <select class="form-control">
-                <option value="Ingenieria de Sistemas">Ingenieria de Sistemas</option>
-                <option value="Medicina">Medicina</option>
-           
-              </select>
-            </div>
+            <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-graduation-cap">
+                        </i>
+                    </div>
+                <div class="ui-select">
+                  <select class="form-control">
+                    <option value="Ingenieria de Sistemas">Ingenieria de Sistemas</option>
+                    <option value="Medicina">Medicina</option>
+              
+                  </select>
+                </div>
+              </div>
           </div>
         </div>
 
-        <div class="form-group">
-          <label class="col-md-3 control-label">Titulo:</label>
-          <div class="col-md-8">
-            <input class="form-control" type="text">
-          </div>
-        </div>
+       
 
-        <div class="form-group">
-          <label class="col-md-3 control-label">Direccion:</label>
-          <div class="col-md-8">
-            <input class="form-control" type="text">
-          </div>
-        </div>
+
         <div class="form-group">
           <label class="col-md-3 control-label">Contraseña:</label>
           <div class="col-md-8">
-            <input class="form-control" value="11111122333" type="password">
+            <div class="input-group">
+                    <span class="input-group-addon glyphicon glyphicon-lock"></span>
+                <input name="password" class="form-control" value="11111122333" type="password">
+              </div>
           </div>
         </div>
+
+
         <div class="form-group">
           <label class="col-md-3 control-label">Confirmar Contraseña:</label>
           <div class="col-md-8">
-            <input class="form-control" value="11111122333" type="password">
+             <div class="input-group">
+                    <span class="input-group-addon glyphicon glyphicon-lock"></span>
+                <input class="form-control" value="11111122333" type="password">
+              </div>
           </div>
         </div>
+
+        
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">

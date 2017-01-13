@@ -35,33 +35,47 @@
         <form action="register" method="post">
             {!!csrf_field()!!}
             <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
-            <div class="form-group has-feedback ">
-                <label>Nacionalidad</label>
-                <select class="form-control select2" name="nacionalidades" id="nacionalidades" style="width: 100%" >
-                        <option value="Ecuatoriano" selected>Ecuatoriano</option>
-                        <option value="Extranjero Residente">Extranjero Residente</option>
-                        <option value="Extranjero No Residente">Extranjero No Residente</option>
 
-                </select>
+             <div class="row"><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group has-feedback ">
+                            <label>Nacionalidad</label>
+                            <select class="form-control select2" name="nacionalidades" id="nacionalidades" style="width: 100%" >
+                                    <option value="Ecuatoriano" selected>Ecuatoriano</option>
+                                    <option value="Extranjero Residente">Extranjero Residente</option>
+                                    <option value="Extranjero No Residente">Extranjero No Residente</option>
 
-            </div>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                           <div class="form-group has-feedback">
+                                <label id ="label-dni">Cédula</label>
+                                <input placeholder="DNI/Cédula" type="text" maxlength="10" size="10" class="form-control" name="cedula"  value="{{old('cedula')}}" >
+                            </div>
+                     </div>
+             </div><!--Fin de row -->
+
+
+             <div class="row"><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group has-feedback">
+                            <label>Nombres</label>
+                            <input placeholder="Nombres" type="text" class="form-control" name="nombres" value="{{old('nombres')}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group has-feedback">
+                            <label>Apellidos</label>
+                            <input placeholder="Apellidos" type="text" class="form-control" name="apellidos" value="{{old('apellidos')}}">
+                        </div>
+                    </div>
+            </div> <!--Fin de row -->
+
 
             <div class="form-group has-feedback">
-                <label id ="label-dni">Cedula</label>
-                <input type="text" maxlength="10" size="10" class="form-control" name="cedula"  value="{{old('cedula')}}" >
-            </div>
-
-            <div class="form-group has-feedback">
-                <label>Nombres</label>
-                <input type="text" class="form-control" name="nombres" value="{{old('nombres')}}">
-            </div>
-
-            <div class="form-group has-feedback">
-                <label>Apellidos</label>
-                <input type="text" class="form-control" name="apellidos" value="{{old('apellidos')}}">
-            </div>
-            <div class="form-group has-feedback">
-                <label>Genero</label>
+                <label>Género</label>
                 <div >
                     <div class="col-xs-6">
                         <label class="radio-inline"><input checked = "checked" type="radio" name="radio-genero" value="Masculino">Masculino</label>
@@ -73,43 +87,66 @@
                 </div>
 
             </div>
-            <div class="form-group has-feedback">
-                <label>Telefono</label>
-                <input type="text" class="form-control" name="telefono" value="{{old('telefono')}}">
-            </div>
 
-            <div class="form-group has-feedback">
-                <label id ="label-pais">País</label>
-                <input type="text" class="form-control" name="pais" value="Ecuador" id ="pais" disabled>
-            </div>
+            <div class="row"><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group has-feedback">
+                            <label>Teléfono</label>
+                            <input placeholder="Teléfono" type="text" class="form-control" name="telefono" value="{{old('telefono')}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group has-feedback">
+                            <label id ="label-pais">País</label>
+                            <input type="text" class="form-control" name="pais" value="Ecuador" id ="pais" disabled>
+                        </div>
+                    </div>
+             </div> <!--Fin de row -->
 
+            <div class="row"><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12">
+                            <div class="form-group has-feedback" id="provincia">
+                                <label id ="label-provincia">Provincia</label>
+                                <select class="form-control select2" name="provincia" id="provincias" style="width: 100%" >
+
+                                <option value="" disabled selected>Seleccione la provincia</option>
+                                @foreach($provincias as $provincia)
+                                    <option value="{{$provincia->id}}"> {{ $provincia->nombre }} </option>
+                                @endforeach
+                                </select>
+                            </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                            <div class="form-group has-feedback" id="canton">
+                                <label id ="label-canton">Cantón</label>
+                                <select class="form-control select2" name="canton" id="cantones" style="width: 100%">
+                                    <option value="" disabled selected>Seleccione el cantón</option>
+                                </select>
+                            </div>
+                    </div>
+             </div> <!--Fin de row -->
+            
             <div class="form-group has-feedback" style="display: none" id ="ciudad">
-                <label>Ciudad</label>
-                <input type="text" class="form-control" name="ciudad" value="{{old('ciudad')}}">
+                    <label>Ciudad</label>
+                    <input placeholder="Ciudad" type="text" class="form-control" name="ciudad" value="{{old('ciudad')}}">
             </div>
 
-            <div class="form-group has-feedback" id="provincia">
-                <label id ="label-provincia">Provincia</label>
-                <select class="form-control select2" name="provincia" id="provincias" style="width: 100%" >
+             <div class="row"><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group has-feedback">
+                            <label id ="label-pais">Dirección</label>
+                            <input placeholder="Dirección" type="text" class="form-control" name="direccion" id ="direccion">
+                        </div>
+                    </div>
 
-                <option value="" disabled selected>Seleccione la provincia</option>
-                @foreach($provincias as $provincia)
-                    <option value="{{$provincia->id}}"> {{ $provincia->nombre }} </option>
-                @endforeach
-                </select>
-            </div>
-            <div class="form-group has-feedback" id="canton">
-                <label id ="label-canton">Cantón</label>
-                <select class="form-control select2" name="canton" id="cantones" style="width: 100%">
-                    <option value="" disabled selected>Seleccione el cantón</option>
-                </select>
-
-            </div>
-
-            <div class="form-group has-feedback">
-                <label id ="label-pais">Dirección</label>
-                <input type="text" class="form-control" name="direccion" id ="direccion">
-            </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group has-feedback">
+                            <label>Email</label>
+                            <input placeholder="Email" type="email" class="form-control" name="email" value="{{old('email')}}" >
+                        </div>
+                        
+                    </div>
+            </div> <!--Fin de row -->
 
             <div class="form-group has-feedback">
                 <label>Ocupación</label>
@@ -124,22 +161,30 @@
                 </div>
 
             </div>
-            <div class="form-group has-feedback" id ="facultad">
-                <label>Facultad</label>
-                <select class="form-control select2" name="facultad" id="facultades" style="width: 100%" >
-                    <option value="" disabled selected>Seleccione la facultad</option>
-                    @foreach($facultades as $facultad)
-                        <option value="{{$facultad->id}}"> {{ $facultad->nombre }} </option>
-                    @endforeach
-                </select>
 
-            </div>
-            <div class="form-group has-feedback" id ="carrera">
-                <label>Carrera</label>
-                <select class="form-control select2" name="carrera" id="carreras" style="width: 100%">
-                    <option value="" disabled selected>Seleccione la carrera</option>
-                </select>
-            </div>
+            <div class="row"><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12">
+
+                        <div class="form-group has-feedback" id ="facultad">
+                            <label>Facultad</label>
+                            <select class="form-control select2" name="facultad" id="facultades" style="width: 100%" >
+                                <option value="" disabled selected>Seleccione la facultad</option>
+                                @foreach($facultades as $facultad)
+                                    <option value="{{$facultad->id}}"> {{ $facultad->nombre }} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group has-feedback" id ="carrera">
+                            <label>Carrera</label>
+                            <select class="form-control select2" name="carrera" id="carreras" style="width: 100%">
+                                <option value="" disabled selected>Seleccione la carrera</option>
+                            </select>
+                        </div>
+                    </div>
+            </div> <!--Fin de row -->
 
             <div class="form-group has-feedback" id="titulo" style="display:none;">
                 <label>Título</label>
@@ -147,10 +192,6 @@
             </div>
 
 
-            <div class="form-group has-feedback">
-                <label>Email</label>
-                <input type="email" class="form-control" name="email" value="{{old('email')}}" >
-            </div>
 
             <div class="form-group has-feedback">
                 <label>Contraseña</label>
@@ -160,7 +201,15 @@
 
             <div class="row">
                 <div class="col-xs-4">
+                     
+                </div><!-- /.col -->
+                <div class="col-xs-4">
+                     <center>
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
+                     </center>
+                </div><!-- /.col -->
+                <div class="col-xs-4">
+                    
                 </div><!-- /.col -->
             </div>
         </form>
