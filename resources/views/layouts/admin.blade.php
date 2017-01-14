@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{url('administration/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
     <link rel="stylesheet" href="{{url('administration/dist/css/mensajes.css')}}">
     <link rel="stylesheet" href="{{url('administration/dist/css/sweetalert.css')}}">
+    <link rel="stylesheet" href="{{url('administration/dist/css/alertify.min.css')}}">
 
 
 

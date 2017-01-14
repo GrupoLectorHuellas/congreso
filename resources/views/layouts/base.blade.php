@@ -23,6 +23,13 @@
   <link rel="stylesheet" href="{{url('frontend/styles/sublime.css')}}">
   <link rel="stylesheet" href="{{url('frontend/styles/skin.css')}}">
   <link rel="stylesheet" href="{{url('frontend/styles/fonts.css')}}">
+  <link rel="stylesheet" href="{{url('administration/dist/css/sweetalert.css')}}">
+  <link rel="stylesheet" href="{{url('administration/dist/css/alertify.min.css')}}">
+  <link rel="stylesheet" href="{{url('administration/dist/css/default.min.css')}}">
+  <link rel="stylesheet" href="{{url('administration/dist/css/semantic.min.css')}}">
+
+
+
   <link rel="shortcut icon" href="{{url('administration/img/favicon.png')}}">
    <script src="{{url('frontend/vendor/jquery/dist/jquery-latest.js')}}"></script>
 
@@ -104,7 +111,7 @@
                   <a href="{{url ('MiPerfil')}}" class="transition">Mi Perfil</a>
                 </li>
                 <li>
-                  <a href="gallery.html" class="transition">Cerrar Sesión</a>
+                  <a href="#" class="transition">Cerrar Sesión</a>
                 </li>
                 
               </ul>

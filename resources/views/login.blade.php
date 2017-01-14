@@ -42,10 +42,10 @@
     <div align="center">
       <img class="img-circle" id="img_logo" src="{{url('frontend/images/logito-escuela.jpg')}}">
       </div>
-    @if (session('mensaje-registro'))
+    @if (session('mensajeregistro'))
       <div class="alert alert-success alert-dismissible">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-        {{ session('mensaje-registro') }}
+        {{ session('mensajeregistro') }}
       </div>
     @endif
     @if (session('mensaje'))

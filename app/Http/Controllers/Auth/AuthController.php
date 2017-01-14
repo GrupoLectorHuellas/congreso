@@ -20,28 +20,22 @@ use Session;
 class AuthController extends Controller
 {
 
-    public function __construct(Guard $auth)
-    {
-
+    public function __construct(Guard $auth) {
         $this->auth = $auth;
         //$this->middleware('guest', ['except' => 'getLogout']);
-
-
-      
     }
 
-       protected function getLogin()
-    {
+    protected function getLogin(){
         return view("login");
     }
 
     public function postLogin(Request $request) {
            $this->validate($request,[
-               'cedula'=>['required'],
+               'identificacion'=>['required'],
                'password'=>['required'],
            ]);
            $data = $request;
-           $cedula = $data['cedula'];
+           $identificacion = $data['identificacion'];
            $password = $data['password'];
 
         /*
@@ -50,7 +44,7 @@ class AuthController extends Controller
             return "correco";
         }
         */
-           if ($this->auth->attempt(['id' => $cedula, 'password' => $password])) {
+           if ($this->auth->attempt(['id' => $identificacion, 'password' => $password])) {
                return Redirect::to('administracion');
            }else{
                return Redirect::to('login')->with('mensaje', 'Usuario o Contraseña Incorrectos.');
@@ -61,11 +55,11 @@ class AuthController extends Controller
 
     public function postLogin2(Request $request) {
         $this->validate($request,[
-            'cedula'=>['required'],
+            'identificacion'=>['required'],
             'password'=>['required'],
         ]);
         $data = $request;
-        $cedula = $data['cedula'];
+        $identificacion = $data['identificacion'];
         $password = $data['password'];
 
         /*
@@ -74,7 +68,7 @@ class AuthController extends Controller
             return "correco";
         }
         */
-        if ($this->auth->attempt(['id' => $cedula, 'password' => $password])) {
+        if ($this->auth->attempt(['id' => $identificacion, 'password' => $password])) {
             return Redirect::to('administracion');
         }else{
             return Redirect::to('/')->with('mensaje', 'Usuario o Contraseña Incorrectos.');
@@ -83,8 +77,7 @@ class AuthController extends Controller
 
     }
 
-    protected function getRegister()
-    {
+    protected function getRegister(){
         $facultades = Facultad::all();
         //$carreras = Carrera::pluck('nombre','id');
         $provincias = Provincia::all();
@@ -93,158 +86,162 @@ class AuthController extends Controller
         return view("registro",compact('facultades','provincias'));
     }
 
-    protected function postRegister(Request $request)
-        {
+    protected function postRegister(Request $request) {
+        if($request->ajax()) {
             $data = $request;
-            if ($data['optradio']=="Estudiante"){
-                if ($data['nacionalidades']=="Extranjero No Residente"){
-                    $this->validate($request,[
-                        'cedula'=>['required','unique:usuarios,id'],
-                        'nombres'=>['required'],
-                        'apellidos'=>['required'],
-                        'telefono'=>['required'],
-                        'pais'=>['required'],
-                        'ciudad'=>['required'],
-                        'direccion'=>['required'],
-                        'facultad'=>['required'],
-                        'carrera'=>['required'],
-                        'email'=>['required','unique:usuarios'],
-                        'password'=>['required'],
-                    ]);
-                }else if ($data['nacionalidades']=="Ecuatoriano"){
-                    $this->validate($request,[
-                        'cedula'=>['required','unique:usuarios,id'],
-                        'nombres'=>['required'],
-                        'apellidos'=>['required'],
-                        'telefono'=>['required'],
-                        'provincia' => [ 'required' ],
-                        'canton'    => [ 'required' ],
-                        'direccion'=>['required'],
-                        'facultad'=>['required'],
-                        'carrera'=>['required'],
-                        'email'=>['required','unique:usuarios'],
-                        'password'=>['required'],
-                    ]);
-                }
-                else {
+            if ($data['optradio'] == "Estudiante") {
+                if ($data['nacionalidades'] == "Extranjero No Residente") {
                     $this->validate($request, [
-                        'cedula'    => [ 'required', 'unique:usuarios,id' ],
+                        'identificacion'    => [ 'required', 'unique:usuarios,id' ],
                         'nombres'   => [ 'required' ],
                         'apellidos' => [ 'required' ],
                         'telefono'  => [ 'required' ],
                         'pais'      => [ 'required' ],
-                        'provincia' => [ 'required' ],
-                        'canton'    => [ 'required' ],
-                        'direccion'=>['required'],
+                        'ciudad'    => [ 'required' ],
+                        'direccion' => [ 'required' ],
                         'facultad'  => [ 'required' ],
                         'carrera'   => [ 'required' ],
                         'email'     => [ 'required', 'unique:usuarios' ],
-                        'password'  => [ 'required' ],
+                        'password'  => [ 'required','min:5' ],
                     ]);
+                } else {
+                    if ($data['nacionalidades'] == "Ecuatoriano") {
+                        $this->validate($request, [
+                            'identificacion'    => [ 'required', 'unique:usuarios,id','validar_cedula' ],
+                            'nombres'   => [ 'required' ],
+                            'apellidos' => [ 'required' ],
+                            'telefono'  => [ 'required' ],
+                            'provincia' => [ 'required' ],
+                            'canton'    => [ 'required' ],
+                            'direccion' => [ 'required' ],
+                            'facultad'  => [ 'required' ],
+                            'carrera'   => [ 'required' ],
+                            'email'     => [ 'required', 'unique:usuarios' ],
+                            'password'  => [ 'required','min:5' ],
+                        ]);
+                    } else {
+                        $this->validate($request, [
+                            'identificacion'    => [ 'required', 'unique:usuarios,id' ],
+                            'nombres'   => [ 'required' ],
+                            'apellidos' => [ 'required' ],
+                            'telefono'  => [ 'required' ],
+                            'pais'      => [ 'required' ],
+                            'provincia' => [ 'required' ],
+                            'canton'    => [ 'required' ],
+                            'direccion' => [ 'required' ],
+                            'facultad'  => [ 'required' ],
+                            'carrera'   => [ 'required' ],
+                            'email'     => [ 'required', 'unique:usuarios' ],
+                            'password'  => [ 'required','min:5' ],
+                        ]);
+                    }
                 }
-                $user=new Usuario;
-                $user->id=$data['cedula'];
-                $user->nacionalidad=$data['nacionalidades'];
-                $user->nombres=$data['nombres'];
-                $user->apellidos=$data['apellidos'];
-                $user->telefono=$data['telefono'];
-                if ($data['pais']==''){
-                    $user->pais="Ecuador";
-                }else{
-                $user->pais=$data['pais'];}
-                $user->direccion=$data['direccion'];
-                $user->genero=$data['radio-genero'];
-                $user->id_carreras=$data['carrera'];
-                $user->email=$data['email'];
-                $user->password=$data['password'];
-                $user->estado=1;
-                $user->id_roles=3;
-                if ($data['nacionalidades']=="Extranjero No Residente"){
-                    $user->ciudad=$data['ciudad'];
-                }else {
-                    $user->id_cantones=$data['canton'];
+                $user = new Usuario;
+                $user->id = $data['identificacion'];
+                $user->nacionalidad = $data['nacionalidades'];
+                $user->nombres = $data['nombres'];
+                $user->apellidos = $data['apellidos'];
+                $user->telefono = $data['telefono'];
+                if ($data['pais'] == '') {
+                    $user->pais = "Ecuador";
+                } else {
+                    $user->pais = $data['pais'];
                 }
-            }
-            else{
-                if ($data['nacionalidades']=="Extranjero No Residente"){
-                    $this->validate($request,[
-                        'cedula'=>['required','unique:usuarios,id'],
-                        'nombres'=>['required'],
-                        'apellidos'=>['required'],
-                        'telefono'=>['required'],
-                        'pais'=>['required'],
-                        'ciudad'=>['required'],
-                        'direccion'=>['required'],
-                        'titulo'=>['required'],
-                        'email'=>['required','unique:usuarios'],
-                        'password'=>['required'],
-                    ]);
+                $user->direccion = $data['direccion'];
+                $user->genero = $data['radio-genero'];
+                $user->id_carreras = $data['carrera'];
+                $user->email = $data['email'];
+                $user->password = $data['password'];
+                $user->estado = 1;
+                $user->id_roles = 3;
+                if ($data['nacionalidades'] == "Extranjero No Residente") {
+                    $user->ciudad = $data['ciudad'];
+                } else {
+                    $user->id_cantones = $data['canton'];
                 }
-                else if ($data['nacionalidades']=="Ecuatoriano"){
-                    $this->validate($request,[
-                        'cedula'=>['required','unique:usuarios,id'],
-                        'nombres'=>['required'],
-                        'apellidos'=>['required'],
-                        'telefono'=>['required'],
-                        'provincia' => [ 'required' ],
-                        'canton'    => [ 'required' ],
-                        'direccion'=>['required'],
-                        'titulo'=>['required'],
-                        'email'=>['required','unique:usuarios'],
-                        'password'=>['required'],
-                    ]);
-                }
-                else {
+            } else {
+                if ($data['nacionalidades'] == "Extranjero No Residente") {
                     $this->validate($request, [
-                        'cedula'    => [ 'required', 'unique:usuarios,id' ],
+                        'identificacion'    => [ 'required', 'unique:usuarios,id' ],
                         'nombres'   => [ 'required' ],
                         'apellidos' => [ 'required' ],
                         'telefono'  => [ 'required' ],
                         'pais'      => [ 'required' ],
-                        'provincia' => [ 'required' ],
-                        'canton'    => [ 'required' ],
-                        'direccion'=>['required'],
-                        'titulo'=>['required'],
+                        'ciudad'    => [ 'required' ],
+                        'direccion' => [ 'required' ],
+                        'titulo'    => [ 'required' ],
                         'email'     => [ 'required', 'unique:usuarios' ],
-                        'password'  => [ 'required' ],
+                        'password'  => [ 'required','min:5' ],
                     ]);
+                } else {
+                    if ($data['nacionalidades'] == "Ecuatoriano") {
+                        $this->validate($request, [
+                            'identificacion'    => [ 'required', 'unique:usuarios,id','validar_cedula' ],
+                            'nombres'   => [ 'required' ],
+                            'apellidos' => [ 'required' ],
+                            'telefono'  => [ 'required' ],
+                            'provincia' => [ 'required' ],
+                            'canton'    => [ 'required' ],
+                            'direccion' => [ 'required' ],
+                            'titulo'    => [ 'required' ],
+                            'email'     => [ 'required', 'unique:usuarios' ],
+                            'password'  => [ 'required','min:5' ],
+                        ]);
+                    } else {
+                        $this->validate($request, [
+                            'identificacion'    => [ 'required', 'unique:usuarios,id' ],
+                            'nombres'   => [ 'required' ],
+                            'apellidos' => [ 'required' ],
+                            'telefono'  => [ 'required' ],
+                            'pais'      => [ 'required' ],
+                            'provincia' => [ 'required' ],
+                            'canton'    => [ 'required' ],
+                            'direccion' => [ 'required' ],
+                            'titulo'    => [ 'required' ],
+                            'email'     => [ 'required', 'unique:usuarios' ],
+                            'password'  => [ 'required','min:5' ],
+                        ]);
+                    }
                 }
-                $user=new Usuario;
-                $user->id=$data['cedula'];
-                $user->nacionalidad=$data['nacionalidades'];
-                $user->nombres=$data['nombres'];
-                $user->apellidos=$data['apellidos'];
-                $user->telefono=$data['telefono'];
-                $user->genero=$data['radio-genero'];
-                if ($data['pais']==''){
-                    $user->pais="Ecuador";
-                }else{
-                    $user->pais=$data['pais'];}
-                $user->direccion=$data['direccion'];
-                $user->titulo=$data['titulo'];
-                $user->email=$data['email'];
-                $user->password=$data['password'];
-                $user->estado=1;
-                $user->id_roles=3;
-                if ($data['nacionalidades']=="Extranjero No Residente"){
-                    $user->ciudad=$data['ciudad'];
-                }else {
-                    $user->id_cantones=$data['canton'];
+                $user = new Usuario;
+                $user->id = $data['identificacion'];
+                $user->nacionalidad = $data['nacionalidades'];
+                $user->nombres = $data['nombres'];
+                $user->apellidos = $data['apellidos'];
+                $user->telefono = $data['telefono'];
+                $user->genero = $data['radio-genero'];
+                if ($data['pais'] == '') {
+                    $user->pais = "Ecuador";
+                } else {
+                    $user->pais = $data['pais'];
+                }
+                $user->direccion = $data['direccion'];
+                $user->titulo = $data['titulo'];
+                $user->email = $data['email'];
+                $user->password = $data['password'];
+                $user->estado = 1;
+                $user->id_roles = 3;
+                if ($data['nacionalidades'] == "Extranjero No Residente") {
+                    $user->ciudad = $data['ciudad'];
+                } else {
+                    $user->id_cantones = $data['canton'];
                 }
 
             }
 
-            if($user->save()){
-                return Redirect::to('login')->with('mensaje-registro', 'Usuario Registrado Correctamente, Inicie Sesion.');
+            if ($user->save()) {
+                return response()->json([
+                    "mensaje" => "creado"
+                ]);
 
             }
+        }
 
 }
 
 //registro
 
-protected function getLogout()
-    {
+    protected function getLogout(){
         $this->auth->logout();
 
         Session::flush();
@@ -268,7 +265,5 @@ protected function getLogout()
 
         }
     }
-
-
 
 }

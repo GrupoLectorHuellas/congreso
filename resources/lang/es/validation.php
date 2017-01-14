@@ -97,12 +97,11 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
-            'cedu' => 'La cedula es incorrecta',
         ],
         'id'  => [
             'validar_cedula' => 'La cedula es incorrecta',
         ],
-        'cedula'  => [
+        'identificacion'  => [
             'validar_cedula' => 'La cedula es incorrecta',
         ],
     ],

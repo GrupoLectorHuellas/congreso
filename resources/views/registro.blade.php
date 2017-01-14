@@ -26,18 +26,12 @@
             <i class="fa fa-coffee"></i>
             Por Favor Completar todos los campos con información Verídica
         </div>
-        @if(!$errors->isEmpty())
-            <div class="alert alert-danger">
+        <div class="alert alert-danger" id="ponerfocus" style="display: none">
                 <p><strong>Error!! </strong>Corrija los siguientes errores</p>
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{$error}}</li>
-                    @endforeach
-                </ul>
             </div>
-        @endif
-        <form action="register" method="post">
-            {!!csrf_field()!!}
+
+        <form method="post" id='form'>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
             <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
 
              <div class="row"><!--Inicio de row -->
@@ -61,13 +55,15 @@
                     </div>
                     <div class="col-md-6 col-xs-12">
                            <div class="form-group has-feedback">
-                                <label id ="label-dni">Cédula</label>
+                                <label id ="label-dni">Identificación (Cédula)</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-address-card">
                                         </i>
                                     </div>
-                                     <input placeholder="DNI/Cédula" type="text" maxlength="10" size="10" class="form-control" name="cedula"  value="{{old('cedula')}}" >
+                                     <input type="text" maxlength="10" size="10" class="form-control" name="identificacion"  value="{{old('identificacion')}}" >
+                                    <div class="text-danger" >{{$errors->first('identificacion')}}</div>
+                                    <div class="text-danger" id='error_identificacion'>{{$errors->first('identificacion')}}</div>
                                 </div>
                             </div>
                      </div>
@@ -83,7 +79,8 @@
                                         <i class="fa fa-user">
                                         </i>
                                     </div>
-                                <input placeholder="Nombres" type="text" class="form-control" name="nombres" value="{{old('nombres')}}">
+                                <input type="text" class="form-control" name="nombres" value="{{old('nombres')}}">
+                                 <div class="text-danger" id='error_nombres'>{{$errors->first('nombres')}}</div>
                             </div>
                         </div>
                     </div>
@@ -95,7 +92,8 @@
                                         <i class="fa fa-user">
                                         </i>
                                     </div>
-                                 <input placeholder="Apellidos" type="text" class="form-control" name="apellidos" value="{{old('apellidos')}}">
+                                 <input type="text" class="form-control" name="apellidos" value="{{old('apellidos')}}">
+                                <div class="text-danger" id='error_apellidos'>{{$errors->first('cedula')}}</div>
                             </div>
                         </div>
                     </div>
@@ -125,7 +123,9 @@
                                         <i class="fa fa-phone">
                                         </i>
                                     </div>
-                                 <input placeholder="Teléfono" type="text" class="form-control" name="telefono" value="{{old('telefono')}}">
+                                 <input type="text" class="form-control" name="telefono" value="{{old('telefono')}}">
+                                <div class="text-danger" >{{$errors->first('telefono')}}</div>
+                                <div class="text-danger" id='error_telefono'>{{$errors->first('telefono')}}</div>
                             </div>
                         </div>
                     </div>
@@ -138,6 +138,8 @@
                                         </i>
                                     </div>
                                  <input type="text" class="form-control" name="pais" value="Ecuador" id ="pais" disabled>
+                                <div class="text-danger" >{{$errors->first('pais')}}</div>
+                                <div class="text-danger" id='error_pais'>{{$errors->first('pais')}}</div>
                             </div>
                         </div>
                     </div>
@@ -159,6 +161,7 @@
                                         <option value="{{$provincia->id}}"> {{ $provincia->nombre }} </option>
                                     @endforeach
                                     </select>
+                                    <div class="text-danger" id='error_provincia'>{{$errors->first('provincia')}}</div>
                                 </div>
                             </div>
                     </div>
@@ -171,8 +174,10 @@
                                         </i>
                                     </div>
                                     <select class="form-control select2" name="canton" id="cantones" style="width: 100%">
-                                        <option value="" disabled selected>Seleccione el cantón</option>
+                                         <option value="" disabled selected>Seleccione el cantón</option>
+                                        <div class="text-danger" >{{$errors->first('canton')}}</div>
                                     </select>
+                                    <div class="text-danger" id='error_canton'>{{$errors->first('canton')}}</div>
                                 </div>
                             </div>
                     </div>
@@ -185,7 +190,8 @@
                                         <i class="fa fa-home">
                                         </i>
                                     </div>
-                                 <input placeholder="Ciudad" type="text" class="form-control" name="ciudad" value="{{old('ciudad')}}">
+                                 <input type="text" class="form-control" name="ciudad" value="{{old('ciudad')}}">
+                                  <div class="text-danger" id='error_ciudad'>{{$errors->first('ciudad')}}</div>
                             </div>
            
             </div>
@@ -199,7 +205,8 @@
                                         <i class="fa fa-home">
                                         </i>
                                     </div>
-                                <input placeholder="Dirección" type="text" class="form-control" name="direccion" id ="direccion">
+                                    <input type="text" class="form-control" name="direccion" id ="direccion">
+                                    <div class="text-danger" id='error_direccion'>{{$errors->first('direccion')}}</div>
                             </div>
                         </div>
                     </div>
@@ -212,7 +219,8 @@
                                         <i class="fa fa-envelope-o">
                                         </i>
                                     </div>
-                                <input placeholder="Email" type="email" class="form-control" name="email" value="{{old('email')}}" >
+                                <input type="email" class="form-control" name="email" value="{{old('email')}}" >
+                                <div class="text-danger" id='error_email'>{{$errors->first('email')}}</div>
                             </div>
                         </div>
                         
@@ -244,11 +252,12 @@
                                         </i>
                                     </div>
                                 <select class="form-control select2" name="facultad" id="facultades" style="width: 100%" >
-                                    <option value="" disabled selected>Seleccione la facultad</option>
+                                     <option value="" disabled selected>Seleccione la facultad</option>
                                     @foreach($facultades as $facultad)
                                         <option value="{{$facultad->id}}"> {{ $facultad->nombre }} </option>
                                     @endforeach
                                 </select>
+                                 <div class="text-danger" id='error_facultad'>{{$errors->first('facultad')}}</div>
                             </div>
                         </div>
                     </div>
@@ -262,8 +271,9 @@
                                         </i>
                                     </div>
                                 <select class="form-control select2" name="carrera" id="carreras" style="width: 100%">
-                                    <option value="" disabled selected>Seleccione la carrera</option>
-                                </select>
+                                     <option value="" disabled selected>Seleccione la carrera</option>
+                                 </select>
+                                <div class="text-danger" id='error_carrera'>{{$errors->first('carrera')}}</div>
                             </div>
                         </div>
                     </div>
@@ -277,6 +287,7 @@
                                         </i>
                                     </div>
                     <input type="text" class="form-control" name="titulo" value="{{old('titulo')}}" >
+                    <div class="text-danger" id='error_titulo'>{{$errors->first('titulo')}}</div>
                 </div>
             </div>
 
@@ -286,7 +297,8 @@
                 <label>Contraseña</label>
                 <div class="input-group">
                     <span class="input-group-addon glyphicon glyphicon-lock"></span>
-                    <input type="password" class="form-control" name="password" value="{{old('contraseña')}}" >
+                    <input type="password" class="form-control" name="password" value="{{old('password')}}">
+                    <div class="text-danger" id='error_password'>{{$errors->first('password')}}</div>
                 </div>
             </div>
 
@@ -297,7 +309,7 @@
                 </div><!-- /.col -->
                 <div class="col-xs-4">
                      <center>
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Registrar</button>
+                    <a href="javascript:void(0);" class="btn btn-primary" id ="registro">Registrar</a>
                      </center>
                 </div><!-- /.col -->
                 <div class="col-xs-4">
@@ -315,6 +327,9 @@
 <!-- Bootstrap 3.3.5 -->
 <script src="{{url('administration/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{url('administration/dist/js/java-registro.js')}}"></script>
+<script src="{{url('administration/dist/js/sweetalert.min.js')}}"></script>
+<script src="{{url('administration/dist/js/alertify.min.js')}}"></script>
+<script src="{{url('administration/dist/js/jquery.center.min.js')}}"></script>
 @endsection()
 
 </body>
