@@ -62,7 +62,6 @@
                                         </i>
                                     </div>
                                      <input type="text" maxlength="10" size="10" class="form-control" name="identificacion"  value="{{old('identificacion')}}" >
-                                    <div class="text-danger" >{{$errors->first('identificacion')}}</div>
                                     <div class="text-danger" id='error_identificacion'>{{$errors->first('identificacion')}}</div>
                                 </div>
                             </div>

@@ -27,10 +27,11 @@ class Usuario extends Authenticatable
     public function carrera(){
         return $this->belongsTo(Carrera::class,'id_carreras','id');
     }
-
+/*
     public function setPasswordAttribute($valor){
         if(!empty($valor)){
             $this->attributes['password'] = bcrypt($valor);
         }
     }
+*/
 }

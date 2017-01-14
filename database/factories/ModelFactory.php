@@ -10,6 +10,7 @@
 | database. Just tell the factory how a default model should look.
 |
 */
+use Illuminate\Support\Facades\Hash;
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(Congreso\Usuario::class, function (Faker\Generator $faker) {
@@ -31,6 +32,6 @@ $factory->define(Congreso\Usuario::class, function (Faker\Generator $faker) {
         'id_cantones' => 181,
         'estado'=>1,
         //'genero'=>$faker->randomElement(['Femenino','Masculino']),
-        'password' => "$2y$10$vq94eP7xY3R4uE82yZ3Md.j8hl204wPkWONb/MvmfiftvBve6TrxG",
+        'password' => bcrypt('admin123'),
     ];
 });

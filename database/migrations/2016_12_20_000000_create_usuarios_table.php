@@ -28,6 +28,7 @@ class CreateUsuariosTable extends Migration
             $table->string('password');
             $table->string('path')->nullable();
             $table->char('estado',1);
+            $table->rememberToken();
             $table->integer('id_carreras')->unsigned()->nullable();
             $table->integer('id_cantones')->unsigned()->nullable();
             $table->integer('id_roles')->unsigned();

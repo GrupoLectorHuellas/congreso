@@ -151,7 +151,7 @@ class AuthController extends Controller
                 $user->genero = $data['radio-genero'];
                 $user->id_carreras = $data['carrera'];
                 $user->email = $data['email'];
-                $user->password = $data['password'];
+                $user->password = bcrypt($data['password']);
                 $user->estado = 1;
                 $user->id_roles = 3;
                 if ($data['nacionalidades'] == "Extranjero No Residente") {
@@ -218,7 +218,7 @@ class AuthController extends Controller
                 $user->direccion = $data['direccion'];
                 $user->titulo = $data['titulo'];
                 $user->email = $data['email'];
-                $user->password = $data['password'];
+                $user->password = bcrypt($data['password']);
                 $user->estado = 1;
                 $user->id_roles = 3;
                 if ($data['nacionalidades'] == "Extranjero No Residente") {

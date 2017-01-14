@@ -69,8 +69,8 @@
       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
       <div class="form-group has-feedback">
-        <label>Cedula</label>
-        <input type="text" class="form-control" name="cedula" value="{{old('cedula')}}">
+        <label>Identificación</label>
+        <input type="text" class="form-control" name="identificacion" value="{{old('identificacion')}}">
       </div>
       <div class="form-group has-feedback">
         <label>Contraseña</label>

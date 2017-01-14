@@ -170,7 +170,7 @@
                 <div id="div-forms">
                 
                     <!-- Begin # Login Form -->
-                    <form action="login2" method="post">
+                    <form action="login" method="post">
                         @if (session('mensaje'))
                             <div class="alert alert-danger alert-dismissible">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
@@ -192,14 +192,18 @@
                                 <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
                                 <span id="text-login-msg">Escriba aquí su Usuario y Contraseña</span>
                             </div>
-                              <input id="login_username" class="form-control" type="text" placeholder="Usuario" value="{{old('cedula')}}" name ="cedula"  required>
+                              <input id="login_username" class="form-control" type="text" placeholder="Identificación" value="{{old('identificacion')}}" name ="identificacion"  required>
+                                <div class="text-danger" id='error_identificacion'>{{$errors->first('identificacion')}}</div>
+
                               <input id="login_password" class="form-control" type="password" name ="password" placeholder="Contraseña" required>
+                              <div class="text-danger" id='error_password'>{{$errors->first('password')}}</div>
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox"> Recuérdame
                                 </label>
                             </div>
-        		    	</div>
+
+                        </div>
 				        <div class="modal-footer">
                             <div>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block">Ingresar</button>
@@ -500,7 +504,7 @@
     </div>
 </div>
 
-   
+
 
 
   <!-- footer -->
@@ -510,11 +514,7 @@
     <div class="container">
 
       <div class="row text-center">
-
         <div class="col-sm-12 mb25">
-
-          
-
           <br>
 
           <a class="btn btn-social-icon btn-facebook btn-rounded btn-sm ml5 mr5" href="javascript:;">
@@ -567,6 +567,7 @@
   <!-- page script -->
   
   <script src="{{url('frontend/scripts/demo_home.js')}}"></script>
+  <script src="{{url('frontend/scripts/java-login.js')}}"></script>
   <!-- /page script -->
 
 <a onClick="arriba();" class="arrowtop ti-arrow-up"></a>
