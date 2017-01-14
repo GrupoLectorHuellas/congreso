@@ -19,6 +19,10 @@ class FrontController extends Controller
         return view('editar_perfil');
     }
 
+    public function MiPerfil(){
+        return view('mi_perfil');
+    }
+
     public function admin(){
         return view('administracion.index');
     }
