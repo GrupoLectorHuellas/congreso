@@ -170,32 +170,21 @@
                 <div id="div-forms">
                 
                     <!-- Begin # Login Form -->
-                    <form action="login" method="post">
-                        @if (session('mensaje'))
-                            <div class="alert alert-danger alert-dismissible">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                {{ session('mensaje') }}
-                            </div>
-                        @endif
-                        @if(!$errors->isEmpty())
-                            <div class="alert alert-danger alert-dismissible">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-                                <p><strong>Error!! </strong>Complete todos los campos </p>
-                                @foreach($errors->all() as $error)
-                                    <li>{{$error}}</li>
-                                @endforeach
-                            </div>
-                        @endif
+                    <form id ="form" method="post">
+
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                        <div class="alert alert-danger" id="error" style="display: none">
+                            <p><strong>Error!! </strong>Usuario o contraseña incorrectos</p>
+                        </div>
 		                <div class="modal-body">
 				    		<div id="div-login-msg">
                                 <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
                                 <span id="text-login-msg">Escriba aquí su Usuario y Contraseña</span>
                             </div>
-                              <input id="login_username" class="form-control" type="text" placeholder="Identificación" value="{{old('identificacion')}}" name ="identificacion"  required>
+                              <input id="login_username" class="form-control" type="text" placeholder="Identificación" value="{{old('identificacion')}}" name ="identificacion" >
                                 <div class="text-danger" id='error_identificacion'>{{$errors->first('identificacion')}}</div>
 
-                              <input id="login_password" class="form-control" type="password" name ="password" placeholder="Contraseña" required>
+                              <input id="login_password" class="form-control" type="password" name ="password" placeholder="Contraseña">
                               <div class="text-danger" id='error_password'>{{$errors->first('password')}}</div>
                             <div class="checkbox">
                                 <label>
@@ -206,7 +195,7 @@
                         </div>
 				        <div class="modal-footer">
                             <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Ingresar</button>
+                                <a href="javascript:void(0);" class="btn btn-primary btn-lg btn-block" id ="login">Ingresar</a>
                             </div>
 				    	    <div>
                                 <button id="login_lost_btn" type="button" class="btn btn-link">Olvidó su contraseña?</button>

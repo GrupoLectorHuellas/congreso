@@ -28,7 +28,7 @@
         </div>
         <div class="alert alert-danger" id="ponerfocus" style="display: none">
                 <p><strong>Error!! </strong>Corrija los siguientes errores</p>
-            </div>
+        </div>
 
         <form method="post" id='form'>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">

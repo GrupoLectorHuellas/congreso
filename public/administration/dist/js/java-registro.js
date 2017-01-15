@@ -127,8 +127,6 @@ $("#registro").click(function(){
 
             document.getElementById("ponerfocus").focus();
             $('#ponerfocus').show();
-
-            $('#msj-errors').fadeIn();
             $("#error_identificacion").html("");
             $("#error_nombres").html("");
             $("#error_apellidos").html("");
@@ -184,9 +182,6 @@ $("#registro").click(function(){
                 else if(i==="password"){
                     $("#error_password").html(field);
                 }
-
-
-
             });
 
 

@@ -30,26 +30,28 @@ class AuthController extends Controller
     }
 
     public function postLogin(Request $request) {
-           $this->validate($request,[
-               'identificacion'=>['required'],
-               'password'=>['required'],
-           ]);
-           $data = $request;
-           $identificacion = $data['identificacion'];
-           $password = $data['password'];
+        if($request->ajax()) {
+            $this->validate($request, [
+                'identificacion' => [ 'required' ],
+                'password'       => [ 'required' ],
+            ]);
+            $data = $request;
+            $identificacion = $data['identificacion'];
+            $password = $data['password'];
 
-        /*
-        if ($this->auth->attempt($credentials, $request->has('remember')))
-        {
-            return "correco";
-        }
-        */
-           if ($this->auth->attempt(['id' => $identificacion, 'password' => $password])) {
-               return Redirect::to('administracion');
-           }else{
-               return Redirect::to('login')->with('mensaje', 'Usuario o Contraseña Incorrectos.');
+            if ($this->auth->attempt(['id' => $identificacion, 'password' => $password])) {
+                return response()->json([
+                    "mensaje" => "exito"
+                ]);
+            }else{
+                return response()->json([
+                    "mensaje" => "error"
+                ]);
 
-           }
+            }
+
+            }
+
 
     }
 
@@ -69,9 +71,13 @@ class AuthController extends Controller
         }
         */
         if ($this->auth->attempt(['id' => $identificacion, 'password' => $password])) {
-            return Redirect::to('administracion');
+            return response()->json([
+                "mensaje" => "exito"
+            ]);
         }else{
-            return Redirect::to('/')->with('mensaje', 'Usuario o Contraseña Incorrectos.');
+            return response()->json([
+                "mensaje" => "error"
+            ]);
 
         }
 
