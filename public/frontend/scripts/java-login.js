@@ -11,7 +11,7 @@ $("#login").click(function(){
         data:dato,
         success:function(msje){
             if (msje.mensaje==="exito"){
-                window.location.href('administracion');
+                window.location.href='administracion';
             }
             else if (msje.mensaje==="error"){
                 $("#error_identificacion").html("");

@@ -113,7 +113,8 @@ $("#registro").click(function(){
 
             alertify.alert('Usuario Registrado', 'Usuario registrado, ahora puede iniciar sesion!',
                 function(){
-                    window.location.href = "login";
+                    window.location.href = "/";
+
                 })
                 .setHeader('<em> Usuario Registrado!! </em> ')
                 .setContent('<b>Datos enviados correctamente. Ahora puede iniciar sesion!</b>').show()

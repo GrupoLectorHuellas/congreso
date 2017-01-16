@@ -31,24 +31,6 @@
 
 
   <link rel="shortcut icon" href="{{url('administration/img/favicon.png')}}">
-   <script src="{{url('frontend/vendor/jquery/dist/jquery-latest.js')}}"></script>
-
-     <script>
-    //Se encarga de mostrar el botón cuando se hace scroll
-    $(window).scroll(function(){
-      if ($(this).scrollTop() > 150) {
-            $('.arrowtop').fadeIn();
-      } else {
-            $('.arrowtop').fadeOut();
-      }
-    });
-    //Se encarga de subir al top al hacer clic en el botón
-    function arriba(){
-      $("html, body").animate({ scrollTop: 0 }, 600);
-        return false;
-    }
-  </script>
-
   <!-- load modernizer -->
   <script src="{{url('frontend/vendor/modernizr.js')}}"></script>
   
@@ -102,7 +84,8 @@
             <li>
               <a href="#eventos">Eventos</a>
             </li>
-           
+
+            @if (Auth::check())
 
             <li class="dropdown show-on-hover">
               <a href="javascript:;" class="ignore" data-toggle="dropdown"><span>Perfil</span></a>
@@ -116,6 +99,7 @@
                 
               </ul>
             </li>
+              @endif
             
             
             
@@ -190,6 +174,23 @@
   <!-- page script -->
   <!-- /page script -->
 <a onClick="arriba();" class="arrowtop ti-arrow-up"></a>
+  <script src="{{url('frontend/vendor/jquery/dist/jquery-latest.js')}}"></script>
+
+  <script>
+      //Se encarga de mostrar el botón cuando se hace scroll
+      $(window).scroll(function(){
+          if ($(this).scrollTop() > 150) {
+              $('.arrowtop').fadeIn();
+          } else {
+              $('.arrowtop').fadeOut();
+          }
+      });
+      //Se encarga de subir al top al hacer clic en el botón
+      function arriba(){
+          $("html, body").animate({ scrollTop: 0 }, 600);
+          return false;
+      }
+  </script>
   
 
    @yield('script')

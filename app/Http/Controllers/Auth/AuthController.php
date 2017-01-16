@@ -26,7 +26,7 @@ class AuthController extends Controller
     }
 
     protected function getLogin(){
-        return view("login");
+        return view("/");
     }
 
     public function postLogin(Request $request) {
