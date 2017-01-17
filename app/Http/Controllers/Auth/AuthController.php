@@ -6,6 +6,7 @@ use Congreso\Provincia;
 use Congreso\Usuario;
 use Congreso\Facultad;
 use Congreso\Carrera;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Validator;
@@ -13,7 +14,7 @@ use Congreso\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Session;
 
@@ -55,33 +56,7 @@ class AuthController extends Controller
 
     }
 
-    public function postLogin2(Request $request) {
-        $this->validate($request,[
-            'identificacion'=>['required'],
-            'password'=>['required'],
-        ]);
-        $data = $request;
-        $identificacion = $data['identificacion'];
-        $password = $data['password'];
 
-        /*
-        if ($this->auth->attempt($credentials, $request->has('remember')))
-        {
-            return "correco";
-        }
-        */
-        if ($this->auth->attempt(['id' => $identificacion, 'password' => $password])) {
-            return response()->json([
-                "mensaje" => "exito"
-            ]);
-        }else{
-            return response()->json([
-                "mensaje" => "error"
-            ]);
-
-        }
-
-    }
 
     protected function getRegister(){
         $facultades = Facultad::all();

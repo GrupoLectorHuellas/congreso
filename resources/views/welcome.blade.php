@@ -121,7 +121,6 @@
               <a href="javascript:;" class="ignore" data-toggle="dropdown"><span>Perfil</span></a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="{{url ('MiPerfil')}}" class="transition">Mi Perfil</a>
                 </li>
                 <li>
                   <a href="gallery.html" class="transition">Cerrar Sesión</a>
