@@ -232,7 +232,7 @@
         </div>
         <div class="call-to-action heading-font">
           <a href="#how" class="btn btn-white btn-lg btn-outline smooth-scroll">Ver Cursos</a>
-          <a href="https://www.youtube.com/watch?v=97N2qaEnxJI" class="btn btn-white btn-lg popup-video">
+          <a href="#" class="btn btn-white btn-lg popup-video">
             <i class="fa fa-play mr10"></i>
             <span>Ver video Publicitario</span>
           </a>

@@ -3,6 +3,7 @@
 namespace Congreso\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Congreso\Video;
 
 class FrontController extends Controller
 {
@@ -12,7 +13,8 @@ class FrontController extends Controller
 
 
     public function index(){
-        return view('welcome');
+        $video= Video::all()->first();
+        return view('welcome', compact('video'));
     }
 
     public function editarPerfil(){

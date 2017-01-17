@@ -28,6 +28,7 @@ Route::resource('administracion/usuarios','UsuarioController');
 Route::resource('administracion/expositores','ExpositorController');
 Route::post('administracion/expositores/create','ExpositorController@store');
 Route::resource('administracion/eventos','EventoController');
+Route::resource('administracion/videos','VideoController');
 
 //Route::get('administracion/expositores','ExpositorController@listing');
 

@@ -4,7 +4,7 @@ namespace Congreso;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Videos extends Model
+class Video extends Model
 {
     protected $table ='videos';
     protected $primaryKey='id';
