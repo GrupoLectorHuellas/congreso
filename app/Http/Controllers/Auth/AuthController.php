@@ -1,11 +1,6 @@
 <?php
 
 namespace Congreso\Http\Controllers\Auth;
-use Congreso\Canton;
-use Congreso\Provincia;
-use Congreso\Usuario;
-use Congreso\Facultad;
-use Congreso\Carrera;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
@@ -13,10 +8,14 @@ use Validator;
 use Congreso\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Session;
+use Congreso\Canton;
+use Congreso\Provincia;
+use Congreso\Usuario;
+use Congreso\Facultad;
+use Congreso\Carrera;
 
 class AuthController extends Controller
 {
