@@ -116,12 +116,12 @@
             <li>
               <a href="#reviews">Ponentes</a>
             </li>
-            @if(\Illuminate\Support\Facades\Auth::check())
+            @if(Auth::check())
             <li class="dropdown show-on-hover">
               <a href="javascript:;" class="ignore" data-toggle="dropdown"><span>Perfil</span></a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="{{url ('MiPerfil')}}" class="transition">Mi Perfil {!! \Illuminate\Support\Facades\Auth::user()->id!!}}</a>
+                  <a href="{{url ('MiPerfil')}}" class="transition">Mi Perfil {!! Auth::user()->nombres.' '.Auth::user()->apellidos !!}</a>
                 </li>
                 <li>
                   <a href="gallery.html" class="transition">Cerrar Sesión</a>
