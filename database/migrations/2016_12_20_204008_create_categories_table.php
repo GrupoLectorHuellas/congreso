@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('descripcion');
-            $table->string('estado',1);
+            $table->string('estado',1)->default(1);;
         });
     }
 

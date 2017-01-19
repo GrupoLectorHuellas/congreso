@@ -166,7 +166,7 @@
                     </div>
                     <div class="col-md-6 col-xs-12">
                             <div class="form-group has-feedback" id="canton">
-                                <label id ="label-canton">Cantón</label>
+                                <label id ="label-canton">Cantón</label><label id ="label-canton">Cantón</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-map-marker">
@@ -198,7 +198,7 @@
              <div class="row"><!--Inicio de row -->
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group has-feedback">
-                            <label id ="label-pais">Dirección</label>
+                            <label >Dirección</label>
                              <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-home">
@@ -327,7 +327,7 @@
 <script src="{{url('administration/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{url('administration/dist/js/java-registro.js')}}"></script>
 <script src="{{url('administration/dist/js/sweetalert.min.js')}}"></script>
-<script src="{{url('administration/dist/js/alertify.min.js')}}"></script>
+<script src="{{url('administration/dist/js/alertify.js')}}"></script>
 <script src="{{url('administration/dist/js/jquery.center.min.js')}}"></script>
 @endsection()
 

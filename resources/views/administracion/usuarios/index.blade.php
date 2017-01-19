@@ -38,30 +38,52 @@
                 <div class="box-body table-responsive no-padding" >
                     <table class="table table-hover" >
                         <tr>
-                            <th>Cedula</th>
+                            <th>Identificación</th>
+                            <th>Nacionalidad</th>
                             <th>Nombres</th>
                             <th>Ciudad</th>
                             <th>Telefono</th>
                             <th>Email</th>
+                            <th>Rol</th>
                             <th>Ocupación</th>
                             <th>Acción</th>
                         </tr>
                         @foreach($usuarios as $usuario)
                             <tr data-id="{{$usuario->id}}">
                                 <td class="sorting_1">{{$usuario->id}}</td>
+                                <td>{{$usuario->nacionalidad}}</td>
+
                                 <td><i class="fa fa-user"></i>&nbsp;&nbsp{{$usuario->nombres." ".$usuario->apellidos}}</td>
-                                <td>{{$usuario->ciudad}}</td>
+                                @if($usuario->id_cantones!=null)
+                                    <td>{{$usuario->canton->nombre}}</td>
+                                    @else
+                                    <td>{{$usuario->ciudad}}</td>
+                                @endif
+
                                 <td>{{$usuario->telefono}}</td>
                                 <td>{{$usuario->email}}</td>
-                                @if($usuario->titulo =="")
+                                <td>{{$usuario->rol->nombre}}</td>
+
+                            @if($usuario->titulo =="")
                                     <td>Estudiante</td>
                                 @else
                                     <td>Profesional</td>
                                 @endif
                                 <td>
+                                    @if(Auth::user()->id_roles==2)
+                                        @if($usuario->rol->id==1)
+                                            {!!link_to_route('usuarios.edit', $title = 'Editar', $parameters = $usuario->id, $attributes = ['class'=>'btn  btn-primary btn-sm','disabled'=>'disabled'])!!}
+                                            <button type="button" class="btn btn-danger btn-sm btn-delete" disabled ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
+                                        @else
+                                            {!!link_to_route('usuarios.edit', $title = 'Editar', $parameters = $usuario->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
+                                            <button type="button" class="btn btn-danger btn-sm btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
+
+                                        @endif
+                                    @else
+
                                     {!!link_to_route('usuarios.edit', $title = 'Editar', $parameters = $usuario->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
                                     <button type="button" class="btn btn-danger btn-sm btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
-
+                                    @endif
                                 </td>
 
                             </tr>

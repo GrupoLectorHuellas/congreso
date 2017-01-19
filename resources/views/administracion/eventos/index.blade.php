@@ -20,7 +20,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Expositores Registrados</h3>
+                    <h3 class="box-title">Eventos Registrados</h3>
 
                     <div class="box-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -33,38 +33,38 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                @if(count($expositores) >0)
+                @if(count($eventos) >0)
                     <div class="ajax-tabla">
                         <div class="box-body table-responsive no-padding" >
                             <table class="table table-hover" >
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Titulo</th>
-                                    <th>Email</th>
-                                    <th>Experiencia</th>
                                     <th>Foto</th>
-                                    <th>Acción</th>
+                                    <th>Nombre</th>
+                                    <th>Fecha Inicio</th>
+                                    <th>Fecha Fin</th>
+                                    <th>Precio Estudiante</th>
+                                    <th>Precio Profesional</th>
+                                    <th>Accion</th>
                                 </tr>
-                                @foreach($expositores as $expositor)
-                                    <tr data-id="{{$expositor->id}}">
-                                        <td class="sorting_1">{{$expositor->id}}</td>
-                                        <td>{{$expositor->nombres." ".$expositor->apellidos}}</td>
-                                        <td>{{$expositor->titulo}}</td>
-                                        <td>{{$expositor->email}}</td>
-                                        <td>{{$expositor->experiencia_laboral}}</td>
+                                @foreach($eventos as $evento)
+                                    <tr data-id="{{$evento->id}}">
                                         <td>
-                                            <img src="{{url('uploads/'.$expositor->path)}}" alt="" style="width:100px;"/>
+                                            <img src="{{url('uploads/'.$evento->path)}}" alt="" style="width:70px;"/>
                                         </td>
+                                        <td>{{$evento->nombre}}</td>
+                                        <td>{{$evento->fecha_inicio}}</td>
+                                        <td>{{$evento->fecha_fin}}</td>
+                                        <td>{{$evento->precio_estudiante}}</td>
+                                        <td>{{$evento->precio_profesional}}</td>
                                         <td>
-                                            {!!link_to_route('expositores.edit', $title = 'Editar', $parameters = $expositor->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
+                                            {!!link_to_route('eventos.edit', $title = 'Editar', $parameters = $evento->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
                                             <button type="button" class="btn btn-danger btn-sm btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
                                         </td>
 
                                     </tr>
                                 @endforeach
                             </table>
-                            {{$expositores->links()}}
+                            {{$eventos->links()}}
                         </div>
                     </div>
                 @else
@@ -75,11 +75,11 @@
         </div>
     </div>
 
-    {!! Form::open(['route' => ['expositores.destroy', ':USER_ID'], 'method' => 'DELETE', 'id' => 'form-delete']) !!}
+    {!! Form::open(['route' => ['eventos.destroy', ':USER_ID'], 'method' => 'DELETE', 'id' => 'form-delete']) !!}
     {!! Form::close() !!}
 @endsection
 @section('script')
-    <script src="{{url('administration/dist/js/expositores/java-expositor.js')}}"></script>
+    <script src="{{url('administration/dist/js/eventos/java-evento.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {

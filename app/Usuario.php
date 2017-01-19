@@ -27,6 +27,13 @@ class Usuario extends Authenticatable
     public function carrera(){
         return $this->belongsTo(Carrera::class,'id_carreras','id');
     }
+
+    public function canton(){
+        return $this->belongsTo(Canton::class,'id_cantones','id');
+    }
+    public function rol(){
+        return $this->belongsTo(Rol::class,'id_roles','id');
+    }
 /*
     public function setPasswordAttribute($valor){
         if(!empty($valor)){
@@ -34,4 +41,16 @@ class Usuario extends Authenticatable
         }
     }
 */
+    public function setPathAttribute($path){
+
+        if(!empty($path)){
+            /* Para Actualizar Imagen */
+            if(!empty($this->attributes['path'])){
+                \Storage::delete($this->attributes['path']);
+            }
+            $this->attributes['path'] = Carbon::now()->second.$path->getClientOriginalName();
+            $name = Carbon::now()->second.$path->getClientOriginalName();
+            \Storage::disk('local')->put($name, \File::get($path));
+        }
+    }
 }

@@ -13,4 +13,9 @@ class Canton extends Model
         return Canton::where('id_provincias','=',$id)->get();
 
     }
+    public function provincia(){
+        return $this->belongsTo(Provincia::class,'id_provincias','id');
+    }
+
+
 }

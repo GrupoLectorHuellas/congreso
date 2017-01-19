@@ -26,9 +26,9 @@ class ExpositorController extends Controller
 
     public function store(Request $request){
 
-            Expositor::create($request->all());
+        Expositor::create($request->all());
 
-                return Redirect::to('administracion/expositores/create')->with('mensaje-registro', 'Expositor Registrado Correctamente');
+        return Redirect::to('administracion/expositores/create')->with('mensaje-registro', 'Expositor Registrado Correctamente');
 
 
     }

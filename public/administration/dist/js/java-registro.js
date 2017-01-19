@@ -111,18 +111,11 @@ $("#registro").click(function(){
              });
              */
 
-            alertify.alert('Usuario Registrado', 'Usuario registrado, ahora puede iniciar sesion!',
-                function(){
-                    window.location.href = "/";
+            alertify.alert("Usuario registrado correctamente !!", function () {
+                window.location=getAbsolutePath();
+            });
 
-                })
-                .setHeader('<em> Usuario Registrado!! </em> ')
-                .setContent('<b>Datos enviados correctamente. Ahora puede iniciar sesion!</b>').show()
-                .set({transition:'zoom'}).show();
-
-
-
-            // window.location="login";
+           // window.location="login";
         },
         error:function(msj){
 
@@ -189,3 +182,8 @@ $("#registro").click(function(){
         }
     });
 });
+function getAbsolutePath() {
+    var loc = window.location;
+    var pathName = loc.pathname.substring(0, loc.pathname.lastIndexOf('/') + 1);
+    return loc.href.substring(0, loc.href.length - ((loc.pathname + loc.search + loc.hash).length - pathName.length));
+}

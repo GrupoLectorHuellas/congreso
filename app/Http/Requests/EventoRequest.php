@@ -4,7 +4,7 @@ namespace Congreso\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoriaFormRequest extends FormRequest
+class EventoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,11 @@ class CategoriaFormRequest extends FormRequest
     {
         return [
             'nombre'=>'required|max:255',
-            'descripcion'=>'max:255',
-
+            'descripcion'=>'required|max:255',
+            'fecha_inicio'=>'required|before:fecha_fin',
+            'fecha_fin'=>'required|after:fecha_inicio',
+            'precio_estudiante'=>'required',
+            'id_categorias'=>'required',
         ];
     }
 }

@@ -13,4 +13,8 @@ class Rol extends Model
         'nombre',
         'descripcion',
     ];
+
+    public function eventos(){
+        return $this->hasMany(Evento::class);
+    }
 }

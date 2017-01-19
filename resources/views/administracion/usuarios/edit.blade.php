@@ -41,8 +41,29 @@
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
+                            <label>Nacionalidad</label>
+                            <select class="form-control select2" style="width: 100%;" name="nacionalidades" id="nacionalidades">
+                                @if($usuario->nacionalidad =="Ecuatoriano")
+                                    <option value="Ecuatoriano" selected >Ecuatoriano</option>
+                                    <option value="Extranjero Residente">Extranjero Residente</option>
+                                    <option value="Extranjero No Residente">Extranjero No Residente</option>
+                                @elseif($usuario->nacionalidad =="Extranjero Residente")
+                                    <option value="Ecuatoriano"  >Ecuatoriano</option>
+                                    <option value="Extranjero Residente" selected>Extranjero Residente</option>
+                                    <option value="Extranjero No Residente">Extranjero No Residente</option>
+                                @elseif($usuario->nacionalidad =="Extranjero No Residente")
+                                    <option value="Ecuatoriano"  >Ecuatoriano</option>
+                                    <option value="Extranjero Residente" >Extranjero Residente</option>
+                                    <option value="Extranjero No Residente" selected>Extranjero No Residente</option>
+                                @endif
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
                             <label>Ocupacion</label>
-                            <select class="form-control select2" style="width: 100%;" id ="ocupacion" name ="ocupacion">
+                            <select class="form-control select2" style="width: 100%;" id ="ocupacion" name ="optradio">
                                 @if($usuario->titulo =="")
                                 <option value="Estudiante" selected >Estudiante</option>
                                 <option value="Profesional">Profesional</option>
@@ -54,13 +75,32 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-12">
-                        <div class="form-group">
-                            <label for="cedula">Cedula</label>
-                            <input type="text" class="form-control"  id ="cedula" name="id" placeholder="Cedula" onkeypress="return soloNumeros(event)" maxlength="10" value="{{$usuario->id }}">
-                        </div>
-                    </div>
+
                 </div><!--Fin de row -->
+
+            <div class="row"><!--Inicio de row -->
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label id ="label-dni" for ="identificacion">Identificación (Cédula)</label>
+                        <input type="text" class="form-control"  id ="id" name="id" placeholder="Identificacion"   value="{{$usuario->id }}">
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label for="rol">Rol</label>
+                        <select class="form-control select2" style="width: 100%;" id ="rol" name ="id_roles">
+                            @foreach($roles as $rol)
+                                @if($rol->id == $usuario->rol->id)
+                                    <option value="{{$rol->id}}" selected>  {{ $rol->nombre }} </option>
+                                @else
+                                    <option value="{{$rol->id}}">  {{ $rol->nombre }} </option>
+                                @endif
+                            @endforeach
+
+                        </select>
+                    </div>
+                </div>
+            </div><!--Fin de row -->
 
                 <div class="row"><!--Inicio de row -->
                     <div class="col-md-6 col-xs-12">
@@ -76,20 +116,139 @@
                         </div>
                     </div>
                 </div><!--Fin de row -->
+
+            <div class="row"><!--Inicio de row -->
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label for="genero">Genero</label>
+                        <select class="form-control select2" style="width: 100%;"  name ="radio-genero">
+                            @if($usuario->genero=="Masculino")
+                                <option value="Masculino" selected>{{ $usuario->genero }}</option>
+                                <option value="Femenino">Femenino</option>
+                            @elseif($usuario->genero=="Femenino")
+                                <option value="Masculino" >Masculino </option>
+                                <option value="Femenino" selected>{{ $usuario->genero }}</option>
+                            @endif
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="form-group">
+                        <label for="telefono">Telefono</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" onkeypress="return soloNumeros(event)" maxlength="10" value="{{$usuario->telefono }}">
+                    </div>
+                </div>
+            </div><!--Fin de row -->
+
                 <div class="row"><!--Inicio de row -->
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
-                            <label for="ciudad">Ciudad</label>
-                            <input type="text" class="form-control" id="ciudad"  name="ciudad" placeholder="Ciudad" onkeypress="return soloLetras(event) " maxlength="30" value="{{$usuario->ciudad}}">
+                            <label id ="label-pais" for ="pais">País</label>
+                            <input type="text" class="form-control" id="pais"  name="pais" placeholder="Pais"  maxlength="50" value="{{$usuario->pais}}">
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
-                            <label for="telefono">Telefono</label>
-                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" onkeypress="return soloNumeros(event)" maxlength="10" value="{{$usuario->telefono }}">
+                            <label for="direccion">Direccion</label>
+                            <input type="text" class="form-control" id="direccion"  name="direccion" placeholder="Direccion"  maxlength="50" value="{{$usuario->direccion}}">
                         </div>
                     </div>
                 </div><!--Fin de row -->
+                <!--Inicio condicion canton-->
+            @if($usuario->nacionalidad!="Extranjero No Residente")
+                @if($usuario->id_cantones!=null)
+                <div class="row" id ="provincia"><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12"  >
+                        <div class="form-group">
+                            <label id ="label-provincia" >Provincia</label>
+                            <select class="form-control select2" name="provincia" id="provincias" style="width: 100%;" >
+                                @foreach($provincias as $provincia)
+                                    @if($provincia->id == $usuario->canton->provincia->id)
+                                        <option value="{{$provincia->id}}" selected>  {{ $provincia->nombre }} </option>
+                                    @else
+                                        <option value="{{$provincia->id}}">  {{ $provincia->nombre }} </option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12 " id ="canton" >
+                        <div class="form-group">
+                            <label id ="label-canton">Cantón</label>
+                            <select class="form-control select2" name="canton" id ="cantones" style="width: 100%;">
+
+                            @foreach($usuario->canton->cantones($usuario->canton->provincia->id) as $canton)
+
+                                    @if($canton->id == $usuario->canton->id)
+                                        <option value="{{$canton->id}}" selected>  {{ $canton->nombre }} </option>
+                                    @else
+                                        <option value="{{$canton->id}}">  {{ $canton->nombre }} </option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div><!--Fin de row -->
+                @endif
+
+            @else
+                <div class="row" id="ciudad" ><!--Inicio de row -->
+                    <div class="col-md-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="ciudad_input">Ciudad</label>
+                            <input type="text" class="form-control" name="ciudad" id="ciudad_input" value="{{$usuario->ciudad}}"  maxlength="50" >
+                        </div>
+                    </div>
+                </div><!--Fin de row -->
+            @endif
+
+            @if($usuario->id_cantones!=null)
+
+            <div class="row" id ="provincia" style="display: none"><!--Inicio de row -->
+                <div class="col-md-6 col-xs-12"  >
+                    <div class="form-group">
+                        <label id ="label-provincia" >Provincia</label>
+                        <select class="form-control select2" name="provincia" id="provincias"  >
+                            @foreach($provincias as $provincia)
+                                @if($provincia->id == $usuario->canton->provincia->id)
+                                    <option value="{{$provincia->id}}" selected>  {{ $provincia->nombre }} </option>
+                                @else
+                                    <option value="{{$provincia->id}}">  {{ $provincia->nombre }} </option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xs-12 " id ="canton" style="display:none;">
+                    <div class="form-group">
+                        <label id ="label-canton">Cantón</label>
+                        <select class="form-control select2" name="canton" id ="canton" >
+
+                            @foreach($usuario->canton->cantones($usuario->canton->provincia->id) as $canton)
+
+                                @if($canton->id == $usuario->canton->id)
+                                    <option value="{{$canton->id}}" selected>  {{ $canton->nombre }} </option>
+                                @else
+                                    <option value="{{$canton->id}}">  {{ $canton->nombre }} </option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div><!--Fin de row -->
+            @endif
+            <div class="row" id="ciudad" style="display: none"><!--Inicio de row -->
+                <div class="col-md-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="ciudad_input">Ciudad</label>
+                        <input type="text" class="form-control" name="ciudad" id="ciudad_input" value="{{$usuario->ciudad}}"  maxlength="50" >
+                    </div>
+                </div>
+            </div><!--Fin de row -->
+
+
+
                 @if($usuario->titulo =="")
                 <div class="row" id ="facultad"><!--Inicio de row -->
                     <div class="col-md-6 col-xs-12"   >
@@ -140,6 +299,7 @@
                         <div class="form-group">
                             <label>Facultad</label>
                             <select class="form-control select2" name="facultad" id="facultades" style="width: 100%;" >
+                                <option value="" disabled selected>Seleccione la facultad</option>
                                 @foreach($facultades as $facultad)
                                     <option value="{{$facultad->id}}" >  {{ $facultad->nombre }} </option>
                                 @endforeach

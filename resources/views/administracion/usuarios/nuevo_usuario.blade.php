@@ -44,19 +44,56 @@
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
-                            <label>Ocupacion</label>
-                            <select class="form-control select2" style="width: 100%;" id ="ocupacion" name ="ocupacion">
-                                <option value="" disabled selected>Seleccione la ocupación</option>
-                                <option value="Estudiante" >Estudiante</option>
-                                <option value="Profesional">Profesional</option>
-
+                            <label>Nacionalidad</label>
+                            <select class="form-control select2" name="nacionalidades" id="nacionalidades" style="width: 100%" >
+                                <option value="Ecuatoriano" selected>Ecuatoriano</option>
+                                <option value="Extranjero Residente">Extranjero Residente</option>
+                                <option value="Extranjero No Residente">Extranjero No Residente</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
-                            <label for="cedula">Cedula</label>
-                            <input type="text" class="form-control"  id ="cedula" name="id" placeholder="Cedula" onkeypress="return soloNumeros(event)" maxlength="10" value="{{old('cedula')}}">
+                            <label>Ocupacion</label>
+                            <select class="form-control select2" style="width: 100%;" id ="ocupacion" name ="optradio">
+                                    <option value="Estudiante" selected>Estudiante</option>
+                                     <option value="Profesional" >Profesional</option>
+
+
+                            </select>
+                        </div>
+                    </div>
+
+                </div><!--Fin de row -->
+
+                <div class="row"><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label id ="label-dni" for ="identificacion">Identificación (Cédula)</label>
+                            <input type="text" class="form-control"  id ="id" name="id" placeholder="Identificacion"   value="{{old("id") }}">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="rol">Rol</label>
+                            <select class="form-control select2" style="width: 100%;" id ="rol" name ="id_roles">
+                                <option value="" disabled selected>Seleccione el rol</option>
+                                @if(Auth::user()->id_roles==2)
+                                        @foreach($roles as $rol)
+                                            @if($rol->id ==3)
+                                                <option value="{{$rol->id}}" >  {{ $rol->nombre }} </option>
+                                            @endif
+                                        @endforeach
+                                @else
+                                    @foreach($roles as $rol)
+                                        <option value="{{$rol->id}}" >  {{ $rol->nombre }} </option>
+
+                                    @endforeach
+
+                                @endif
+
+
+                            </select>
                         </div>
                     </div>
                 </div><!--Fin de row -->
@@ -65,32 +102,86 @@
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
                             <label for="nombres">Nombres</label>
-                            <input type="text" class="form-control" id="nombres"  name="nombres" placeholder="Nombres" onkeypress="return soloLetras(event)" maxlength="30" value="{{old('nombres')}}">
+                            <input type="text" class="form-control" id="nombres"  name="nombres" placeholder="Nombres" onkeypress="return soloLetras(event)" maxlength="30" value="{{old("nombres") }}">
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
                             <label for="apellidos">Apellidos</label>
-                            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" onkeypress="return soloLetras(event)" maxlength="30" value="{{old('apellidos')}}" >
+                            <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" onkeypress="return soloLetras(event)" maxlength="30" value="{{old("apellidos")}}"  >
                         </div>
                     </div>
                 </div><!--Fin de row -->
+
                 <div class="row"><!--Inicio de row -->
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
-                            <label for="ciudad">Ciudad</label>
-                            <input type="text" class="form-control" id="ciudad"  name="ciudad" placeholder="Ciudad" onkeypress="return soloLetras(event) " maxlength="30" value="{{old('ciudad')}}">
+                            <label for="genero">Genero</label>
+                            <select class="form-control select2" style="width: 100%;"  name ="radio-genero">
+                                    <option value="" disabled selected>Seleccione el genero</option>
+                                    <option value="Masculino" >Masculino</option>
+                                    <option value="Femenino" >Femenino</option>
+
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
                             <label for="telefono">Telefono</label>
-                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" onkeypress="return soloNumeros(event)" maxlength="10" value="{{old('telefono')}}">
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" onkeypress="return soloNumeros(event)"  value="{{old("telefono") }}">
                         </div>
                     </div>
                 </div><!--Fin de row -->
+
                 <div class="row"><!--Inicio de row -->
-                    <div class="col-md-6 col-xs-12" id ="facultad" style="display:none;" >
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label id ="label-pais" for ="pais">País</label>
+                            <input type="text" class="form-control" id="pais"  name="pais" placeholder="Pais"  maxlength="50" value="{{old("pais")}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="direccion">Direccion</label>
+                            <input type="text" class="form-control" id="direccion"  name="direccion" placeholder="Direccion"  maxlength="50" value="{{old("direccion")}}">
+                        </div>
+                    </div>
+                </div><!--Fin de row -->
+
+                <div class="row" id ="provincia"><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12" >
+                        <div class="form-group">
+                            <label id ="label-provincia" >Provincia</label>
+                            <select class="form-control select2" name="provincia" id="provincias"  >
+                                <option value="" disabled selected>Seleccione la provincia</option>
+                                @foreach($provincias as $provincia)
+                                    <option value="{{$provincia->id}}">  {{ $provincia->nombre }} </option>
+
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12 " id ="canton" >
+                        <div class="form-group">
+                            <label id ="label-canton">Cantón</label>
+                            <select class="form-control select2" name="canton" id ="cantones" >
+                                <option value="" disabled selected>Seleccione el canton</option>
+                            </select>
+                        </div>
+                    </div>
+                </div><!--Fin de row -->
+                <div class="row" id="ciudad" style="display: none"><!--Inicio de row -->
+                    <div class="col-md-12 col-xs-12">
+                        <div class="form-group">
+                            <label for="ciudad_input">Ciudad</label>
+                            <input type="text" class="form-control" name="ciudad" id="ciudad_input" value="{{old('ciudad')}}"  maxlength="50" >
+                        </div>
+                    </div>
+                </div><!--Fin de row -->
+
+
+                <div class="row" id ="facultad" ><!--Inicio de row -->
+                    <div class="col-md-6 col-xs-12"   >
                         <div class="form-group">
                             <label>Facultad</label>
                             <select class="form-control select2" name="facultad" id="facultades" style="width: 100%;" >
@@ -98,42 +189,46 @@
                                 @foreach($facultades as $facultad)
                                     <option value="{{$facultad->id}}" >  {{ $facultad->nombre }} </option>
                                 @endforeach
+
+
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-12 " id ="carrera" style="display:none;" @if(old('facultad')) style="display:block;" @endif>
+                    <div class="col-md-6 col-xs-12 " id ="carrera" >
                         <div class="form-group">
                             <label>Carrera</label>
                             <select class="form-control select2" name="carrera" id ="carreras" style="width: 100%;">
-                                <option value="" disabled selected >Seleccione la carrera</option>
+                                <option value="" disabled selected>Seleccione la carrera</option>
                             </select>
                         </div>
                     </div>
                 </div><!--Fin de row -->
-                <div class="row" id="titulo" style="display:none;"><!--Inicio de row -->
+                <div class="row" id="titulo" style="display: none"><!--Inicio de row -->
                     <div class="col-md-12 col-xs-12">
                         <div class="form-group">
                             <label for="titulo_input">Titulo</label>
-                            <input type="text" class="form-control" name="titulo" id="titulo_input" value="{{old('titulo')}}"  maxlength="50" >
+                            <input type="text" class="form-control" name="titulo" id="titulo_input" value="{{old("titulo")}}"  maxlength="50" >
                         </div>
                     </div>
-
                 </div><!--Fin de row -->
+
                 <div class="row" ><!--Inicio de row -->
-                    <div class="col-md-6 col-xs-12">
+                    <div class="col-md-12 col-xs-12">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" id="email"  name="email" placeholder="Email" value="{{old('email')}}" >
+                            <input type="text" class="form-control" id="email"  name="email" placeholder="Email" value="{{old("email")}}" >
                         </div>
                     </div>
-                    <div class="col-md-6 col-xs-12">
-                        <div class="form-group">
-                            <label for="password">Contraseña</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" value="{{old('password')}}" >
-                        </div>
-                    </div>
-                </div><!--Fin de row -->
 
+                </div><!--Fin de row -->
+                <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" value="{{old('password')}}" >
+                    </div>
+                </div>
+                </div>
 
                 <div class="box-footer col-xs-12 ">
                     <button type="submit" class="btn btn-primary">Guardar</button>

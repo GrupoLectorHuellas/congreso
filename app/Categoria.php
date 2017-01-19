@@ -3,6 +3,8 @@
 namespace Congreso;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 class Categoria extends Model
 {
@@ -14,5 +16,9 @@ class Categoria extends Model
         'descripcion',
         'estado'
     ];
+
+    public function eventos(){
+        return $this->hasMany(Evento::class);
+    }
 
 }

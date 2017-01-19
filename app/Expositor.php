@@ -18,7 +18,7 @@ class Expositor extends Model
         'titulo',
         'email',
         'experiencia_laboral',
-        'path'
+        'path',
     ];
 
     public function setPathAttribute($path){

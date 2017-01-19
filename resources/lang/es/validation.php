@@ -120,6 +120,7 @@ return [
     'attributes' => [
         'password'=>'contraseña',
         'id'=>'cedula',
+        'id_categorias'=>'categoria'
     ],
 
 ];

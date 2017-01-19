@@ -24,9 +24,7 @@
   <link rel="stylesheet" href="{{url('frontend/styles/skin.css')}}">
   <link rel="stylesheet" href="{{url('frontend/styles/fonts.css')}}">
   <link rel="stylesheet" href="{{url('administration/dist/css/sweetalert.css')}}">
-  <link rel="stylesheet" href="{{url('administration/dist/css/alertify.min.css')}}">
-  <link rel="stylesheet" href="{{url('administration/dist/css/default.min.css')}}">
-  <link rel="stylesheet" href="{{url('administration/dist/css/semantic.min.css')}}">
+  <link rel="stylesheet" href="{{url('administration/dist/css/alertify.css')}}">
 
 
 

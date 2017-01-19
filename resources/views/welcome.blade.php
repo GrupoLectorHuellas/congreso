@@ -173,7 +173,7 @@
                     <!-- Begin # Login Form -->
                     <form id ="form" method="post">
 
-                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>" id ="token">
                         <div class="alert alert-danger" id="error" style="display: none">
                             <p><strong>Error!! </strong>Usuario o contraseña incorrectos</p>
                         </div>

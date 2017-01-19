@@ -28,20 +28,22 @@
             <h3 class="box-title">Nuevo Evento</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
-            {!!Form::open(['route'=>'eventos.store', 'method'=>'POST','files' => true])!!}
+            {!!Form::open(['route' => 'eventos.store','method'=>'POST','files' => true,'id'=>'form'])!!}
             <div id="msj-success" class="alert alert-success alert-dismissible aprobado" role="alert" style="display:none">
                 <strong> Expositor Agregado Correctamente.</strong>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
             @include('administracion.eventos.form.create')
-            {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+            {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
     </div>
 @endsection
 @section('script')
-    <script src="{{url('administration/dist/js/expositores/java-expositor.js')}}"></script>
+    <script src="{{url('administration/dist/js/eventos/java-evento.js')}}"></script>
     <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
+    <script src="{{url('administration/dist/js/alertify.js')}}"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {
@@ -49,21 +51,16 @@
             },3000);
         });
     </script>
-
     <script>
         $(function () {
-
             //Datemask dd/mm/yyyy
             $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
             //Datemask2 mm/dd/yyyy
             $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
             //Money Euro
             $("[data-mask]").inputmask();
-
-
         });
     </script>
-
 @endsection
 
 

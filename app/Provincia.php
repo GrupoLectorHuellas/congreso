@@ -8,4 +8,7 @@ class Provincia extends Model
 {
     protected $table="provincias";
     protected $fillable=['nombre'];
+    public function cantones(){
+        return $this->hasMany(Canton::class);
+    }
 }

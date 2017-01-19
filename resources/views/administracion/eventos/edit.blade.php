@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('title')
     <section class="content-header">
-        <h1>Expositores<small>Agregar</small></h1>
+        <h1>Eventos<small>Aditar</small></h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></li>
-            <li class="active">Expositores</li>
-            <li class="active">Agregar</li>
+            <li class="active">Eventos</li>
+            <li class="active">Editar</li>
         </ol>
     </section>
 @endsection
@@ -25,28 +25,96 @@
     @endif
     <div class="box box-primary">
         <div class="box-header">
-            <h3 class="box-title">Nuevo Expositor</h3>
+            <h3 class="box-title">Editar Evento</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
-            {{Form::model($expositor, ['route' => ['expositores.update',$expositor->id],'method'=>'PUT','files' => true ])}}
+            {{Form::model($evento, ['route' => ['eventos.update',$evento->id],'method'=>'PUT','files' => true ])}}
             <div id="msj-success" class="alert alert-success alert-dismissible aprobado" role="alert" style="display:none">
-                <strong> Expositor Agregado Correctamente.</strong>
+                <strong> Evento Agregado Correctamente.</strong>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-            @include('administracion.expositores.form.create')
+            <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
+            <div class="form-group">
+                {!! Form::label('Nombre') !!}
+                {!! Form::text('nombre',null,['placeholder'=>'Nombre','class'=>'form-control','onkeypress'=>'return soloLetras(event)']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('Descripción') !!}
+                {!! Form::text('descripcion',null,['placeholder'=>'Descripcion','class'=>'form-control','onkeypress'=>'return soloLetras(event)']) !!}
+            </div>
+            <div class="form-group">
+                {!! Form::label('Fecha Inicio') !!}
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha_inicio" value="{{$evento->fecha_inicio}}" >
+
+
+                </div>
+            </div>
+            <div class="form-group">
+                {!! Form::label('Fecha Finalizacion') !!}
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                    </div>
+                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha_fin" value="{{$evento->fecha_fin}}" >
+                </div>
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('Precio Estudiante') !!}
+                {!! Form::number('precio_estudiante',null,['placeholder'=>'Precio Estudiante','class'=>'form-control' ,'step' => 'any']) !!}
+            </div>
+
+            <div class="form-group">
+                {!! Form::label('Precio Profesional') !!}
+                {!! Form::number('precio_profesional',null,['placeholder'=>'Precio Profesional','class'=>'form-control', 'step' => 'any']) !!}
+            </div>
+
+            <div class="form-group">
+                <label>Categoria</label>
+                <select class="form-control select2" name="id_categorias" id="categorias" style="width: 100%;" >
+                    <option value="" disabled selected>Seleccione la categoria</option>
+
+                @foreach($categorias as $categoria)
+                        @if($categoria->id == $evento->categoria->id)
+                            <option value="{{$categoria->id}}" selected>  {{ $categoria->nombre }} </option>
+                        @else
+                            <option value="{{$categoria->id}}">  {{ $categoria->nombre }} </option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="form-group">
+                {!!Form::label('Foto','Foto:')!!}
+                {!!Form::file('path',['class'=>'form-control'])!!}
+            </div>
             {!! Form::submit('Actualizar',['class'=>'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
     </div>
 @endsection
 @section('script')
-    <script src="{{url('administration/dist/js/expositores/java-expositor.js')}}"></script>
+    <script src="{{url('administration/dist/js/eventos/java-evento.js')}}"></script>
     <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {
                 $(".aprobado").fadeOut(300);
             },3000);
+        });
+    </script>
+    <script>
+        $(function () {
+            //Datemask dd/mm/yyyy
+            $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+            //Datemask2 mm/dd/yyyy
+            $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+            //Money Euro
+            $("[data-mask]").inputmask();
         });
     </script>
 @endsection
