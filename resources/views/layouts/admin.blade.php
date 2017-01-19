@@ -168,6 +168,19 @@
                     </ul>
                 </li>
 
+                 <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pencil-square-o"></i>
+                        <span>Firmas</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                         <li><a href="{{route('firmas.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
+                        <li><a href="{{route('firmas.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
+                       
+                    </ul>
+                </li>
+
 
             </ul>
         </section>
