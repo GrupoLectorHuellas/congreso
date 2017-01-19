@@ -51,10 +51,9 @@
                                         <td>{{$firma->abreviatura}}</td>
                                         <td>{{$firma->nombre}}</td>
                                         <td>{{$firma->apellidos}}</td>
-                                        <td>{{$firma->estado}}</td>
-                                        
+
                                         <td>
-                                            <img src="{{url('uploads/'.$firma->path)}}" alt="" style="width:100px;"/>
+                                            <img src="{{url('uploads/'.$firma->path)}}" alt="" style="width:70px;"/>
                                         </td>
                                         <td>
                                             {!!link_to_route('firmas.edit', $title = 'Editar', $parameters = $firma->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}

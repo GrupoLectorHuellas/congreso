@@ -40,8 +40,8 @@ class EventoController extends Controller
      */
     public function store(EventoRequest $request)
     {
-        Evento::create($request->all());
-        return Redirect::to('administracion/eventos/create')->with('mensaje-registro', 'Evento Registrado Correctamente');
+        $evento = Evento::create($request->all());
+        return Redirect::to('administracion/eventos/create')->with('mensaje-registro', 'Evento Registrado Correctamente '.$evento->id);
     }
 
     /**

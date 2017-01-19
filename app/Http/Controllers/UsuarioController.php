@@ -316,7 +316,6 @@ class UsuarioController extends Controller
             } else {
                 $user->id_cantones = $data['canton'];
             }
-
         }
         if($user->save()){
             return Redirect::to('administracion/usuarios')->with('mensaje-registro', 'Usuario Actualizado Correctamente');

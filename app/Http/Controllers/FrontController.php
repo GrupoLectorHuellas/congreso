@@ -2,6 +2,7 @@
 
 namespace Congreso\Http\Controllers;
 
+use Congreso\Usuario;
 use Illuminate\Http\Request;
 use Congreso\Video;
 
@@ -26,6 +27,7 @@ class FrontController extends Controller
     }
 
     public function admin(){
-        return view('administracion.index');
+        $total_usuarios = Usuario::where('estado',1)->count();
+        return view('administracion.index',compact('total_usuarios'));
     }
 }
