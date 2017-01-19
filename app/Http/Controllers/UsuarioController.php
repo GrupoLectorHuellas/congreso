@@ -164,7 +164,7 @@ class UsuarioController extends Controller
             $user->email = $data['email'];
             $user->estado = 1;
             $user->password=bcrypt($data['password']);
-            $user->id_roles = $data['id_roles'];;
+            $user->id_roles = $data['id_roles'];
             if ($data['nacionalidades'] == "Extranjero No Residente") {
                 $user->ciudad = $data['ciudad'];
             } else {
@@ -310,7 +310,7 @@ class UsuarioController extends Controller
             $user->titulo = $data['titulo'];
             $user->email = $data['email'];
             $user->estado = 1;
-            $user->id_roles = $data['id_roles'];;
+            $user->id_roles = $data['id_roles'];
             if ($data['nacionalidades'] == "Extranjero No Residente") {
                 $user->ciudad = $data['ciudad'];
             } else {
