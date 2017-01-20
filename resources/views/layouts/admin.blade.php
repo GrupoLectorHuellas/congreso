@@ -158,6 +158,19 @@
 
                 <li class="treeview">
                     <a href="#">
+                        <i class="fa fa-book"></i>
+                        <span>Temario</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                         <li><a href="{{route('temarios.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
+                        <li><a href="{{route('temarios.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
+                       
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
                         <i class="fa fa-video-camera"></i>
                         <span>Video</span>
                         <i class="fa fa-angle-left pull-right"></i>

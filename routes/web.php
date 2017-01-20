@@ -30,6 +30,7 @@ Route::post('administracion/expositores/create','ExpositorController@store');
 Route::resource('administracion/eventos','EventoController');
 Route::resource('administracion/videos','VideoController');
 Route::resource('administracion/firmas','FirmaController');
+Route::resource('administracion/temarios','TemarioController');
 
 //Route::get('administracion/expositores','ExpositorController@listing');
 
