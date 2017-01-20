@@ -14,7 +14,7 @@
             <i class="fa fa-calendar"></i>
         </div>
 
-        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha_inicio" >
+        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha_inicio" value="{{old('fecha_inicio')}}">
     </div>
 </div>
 <div class="form-group">

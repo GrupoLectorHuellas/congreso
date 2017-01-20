@@ -159,21 +159,11 @@
   <!-- /footer -->
   
   <!-- build:js({.tmp,app}) scripts/app.min.js -->
-  <script src="{{url('frontend/vendor/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{url('frontend/vendor/jquery/dist/jquery.js')}}"></script>
-  
+
   <script src="{{url('frontend/vendor/bootstrap/dist/js/bootstrap.js')}}"></script>
-  
-
-  <!-- template scripts -->
   <script src="{{url('frontend/scripts/main.js')}}"></script>
-  <!-- /template scripts -->
-
-  <!-- page script -->
-  <!-- /page script -->
-<a onClick="arriba();" class="arrowtop ti-arrow-up"></a>
-  <script src="{{url('frontend/vendor/jquery/dist/jquery-latest.js')}}"></script>
-
+  <a onClick="arriba();" class="arrowtop ti-arrow-up"></a>
   <script>
       //Se encarga de mostrar el botón cuando se hace scroll
       $(window).scroll(function(){

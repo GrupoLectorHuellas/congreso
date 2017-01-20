@@ -50,6 +50,7 @@ var myApplication = function () {
     }
   }
 
+
   function bindEvents() {
     // fade out loading spinner on load
     $(window).on('load', function () {

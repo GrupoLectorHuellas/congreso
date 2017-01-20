@@ -82,7 +82,8 @@ class AuthController extends Controller
                         'facultad'  => [ 'required' ],
                         'carrera'   => [ 'required' ],
                         'email'     => [ 'required', 'unique:usuarios' ],
-                        'password'  => [ 'required','min:5' ],
+                        'password'  => [ 'required','min:5','confirmed' ],
+                        'password_confirmation'  => [ 'required','min:5' ],
                     ]);
                 } else {
                     if ($data['nacionalidades'] == "Ecuatoriano") {
@@ -97,7 +98,8 @@ class AuthController extends Controller
                             'facultad'  => [ 'required' ],
                             'carrera'   => [ 'required' ],
                             'email'     => [ 'required', 'unique:usuarios' ],
-                            'password'  => [ 'required','min:5' ],
+                            'password'  => [ 'required','min:5','confirmed' ],
+                            'password_confirmation'  => [ 'required','min:5' ],
                         ]);
                     } else {
                         $this->validate($request, [
@@ -112,7 +114,8 @@ class AuthController extends Controller
                             'facultad'  => [ 'required' ],
                             'carrera'   => [ 'required' ],
                             'email'     => [ 'required', 'unique:usuarios' ],
-                            'password'  => [ 'required','min:5' ],
+                            'password'  => [ 'required','min:5','confirmed' ],
+                            'password_confirmation'  => [ 'required','min:5' ],
                         ]);
                     }
                 }
@@ -151,7 +154,8 @@ class AuthController extends Controller
                         'direccion' => [ 'required' ],
                         'titulo'    => [ 'required' ],
                         'email'     => [ 'required', 'unique:usuarios' ],
-                        'password'  => [ 'required','min:5' ],
+                        'password'  => [ 'required','min:5','confirmed' ],
+                        'password_confirmation'  => [ 'required','min:5' ],
                     ]);
                 } else {
                     if ($data['nacionalidades'] == "Ecuatoriano") {
@@ -165,7 +169,8 @@ class AuthController extends Controller
                             'direccion' => [ 'required' ],
                             'titulo'    => [ 'required' ],
                             'email'     => [ 'required', 'unique:usuarios' ],
-                            'password'  => [ 'required','min:5' ],
+                            'password'  => [ 'required','min:5','confirmed' ],
+                            'password_confirmation'  => [ 'required','min:5' ],
                         ]);
                     } else {
                         $this->validate($request, [
@@ -179,7 +184,8 @@ class AuthController extends Controller
                             'direccion' => [ 'required' ],
                             'titulo'    => [ 'required' ],
                             'email'     => [ 'required', 'unique:usuarios' ],
-                            'password'  => [ 'required','min:5' ],
+                            'password'  => [ 'required','min:5','confirmed' ],
+                            'password_confirmation'  => [ 'required','min:5' ],
                         ]);
                     }
                 }

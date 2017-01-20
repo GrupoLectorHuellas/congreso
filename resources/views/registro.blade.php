@@ -62,9 +62,9 @@
                                         </i>
                                     </div>
                                      <input type="text" maxlength="10" size="10" class="form-control" name="identificacion"  value="{{old('identificacion')}}" >
-                                    <div class="text-danger" id='error_identificacion'>{{$errors->first('identificacion')}}</div>
                                 </div>
-                            </div>
+                               <div class="text-danger" id='error_identificacion'>{{$errors->first('identificacion')}}</div>
+                           </div>
                      </div>
              </div><!--Fin de row -->
 
@@ -79,8 +79,8 @@
                                         </i>
                                     </div>
                                 <input type="text" class="form-control" name="nombres" value="{{old('nombres')}}">
-                                 <div class="text-danger" id='error_nombres'>{{$errors->first('nombres')}}</div>
                             </div>
+                            <div class="text-danger" id='error_nombres'>{{$errors->first('nombres')}}</div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -92,8 +92,8 @@
                                         </i>
                                     </div>
                                  <input type="text" class="form-control" name="apellidos" value="{{old('apellidos')}}">
-                                <div class="text-danger" id='error_apellidos'>{{$errors->first('cedula')}}</div>
                             </div>
+                            <div class="text-danger" id='error_apellidos'>{{$errors->first('cedula')}}</div>
                         </div>
                     </div>
             </div> <!--Fin de row -->
@@ -123,9 +123,8 @@
                                         </i>
                                     </div>
                                  <input type="text" class="form-control" name="telefono" value="{{old('telefono')}}">
-                                <div class="text-danger" >{{$errors->first('telefono')}}</div>
-                                <div class="text-danger" id='error_telefono'>{{$errors->first('telefono')}}</div>
                             </div>
+                            <div class="text-danger" id='error_telefono'>{{$errors->first('telefono')}}</div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -137,9 +136,8 @@
                                         </i>
                                     </div>
                                  <input type="text" class="form-control" name="pais" value="Ecuador" id ="pais" disabled>
-                                <div class="text-danger" >{{$errors->first('pais')}}</div>
-                                <div class="text-danger" id='error_pais'>{{$errors->first('pais')}}</div>
                             </div>
+                            <div class="text-danger" id='error_pais'>{{$errors->first('pais')}}</div>
                         </div>
                     </div>
              </div> <!--Fin de row -->
@@ -160,8 +158,9 @@
                                         <option value="{{$provincia->id}}"> {{ $provincia->nombre }} </option>
                                     @endforeach
                                     </select>
-                                    <div class="text-danger" id='error_provincia'>{{$errors->first('provincia')}}</div>
                                 </div>
+                                <div class="text-danger" id='error_provincia'>{{$errors->first('provincia')}}</div>
+
                             </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -176,8 +175,8 @@
                                          <option value="" disabled selected>Seleccione el cantón</option>
                                         <div class="text-danger" >{{$errors->first('canton')}}</div>
                                     </select>
-                                    <div class="text-danger" id='error_canton'>{{$errors->first('canton')}}</div>
                                 </div>
+                                <div class="text-danger" id='error_canton'>{{$errors->first('canton')}}</div>
                             </div>
                     </div>
              </div> <!--Fin de row -->
@@ -190,9 +189,8 @@
                                         </i>
                                     </div>
                                  <input type="text" class="form-control" name="ciudad" value="{{old('ciudad')}}">
-                                  <div class="text-danger" id='error_ciudad'>{{$errors->first('ciudad')}}</div>
                             </div>
-           
+                <div class="text-danger" id='error_ciudad'>{{$errors->first('ciudad')}}</div>
             </div>
 
              <div class="row"><!--Inicio de row -->
@@ -205,8 +203,9 @@
                                         </i>
                                     </div>
                                     <input type="text" class="form-control" name="direccion" id ="direccion">
-                                    <div class="text-danger" id='error_direccion'>{{$errors->first('direccion')}}</div>
                             </div>
+                            <div class="text-danger" id='error_direccion'>{{$errors->first('direccion')}}</div>
+
                         </div>
                     </div>
 
@@ -219,8 +218,9 @@
                                         </i>
                                     </div>
                                 <input type="email" class="form-control" name="email" value="{{old('email')}}" >
-                                <div class="text-danger" id='error_email'>{{$errors->first('email')}}</div>
                             </div>
+                            <div class="text-danger" id='error_email'>{{$errors->first('email')}}</div>
+
                         </div>
                         
                     </div>
@@ -256,8 +256,9 @@
                                         <option value="{{$facultad->id}}"> {{ $facultad->nombre }} </option>
                                     @endforeach
                                 </select>
-                                 <div class="text-danger" id='error_facultad'>{{$errors->first('facultad')}}</div>
                             </div>
+                            <div class="text-danger" id='error_facultad'>{{$errors->first('facultad')}}</div>
+
                         </div>
                     </div>
 
@@ -272,8 +273,9 @@
                                 <select class="form-control select2" name="carrera" id="carreras" style="width: 100%">
                                      <option value="" disabled selected>Seleccione la carrera</option>
                                  </select>
-                                <div class="text-danger" id='error_carrera'>{{$errors->first('carrera')}}</div>
                             </div>
+                            <div class="text-danger" id='error_carrera'>{{$errors->first('carrera')}}</div>
+
                         </div>
                     </div>
             </div> <!--Fin de row -->
@@ -281,24 +283,37 @@
             <div class="form-group has-feedback" id="titulo" style="display:none;">
                 <label>Título</label>
                 <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-university">
-                                        </i>
-                                    </div>
+                    <div class="input-group-addon">
+                        <i class="fa fa-university">
+                        </i>
+                    </div>
                     <input type="text" class="form-control" name="titulo" value="{{old('titulo')}}" >
                     <div class="text-danger" id='error_titulo'>{{$errors->first('titulo')}}</div>
                 </div>
             </div>
 
-
-
-            <div class="form-group has-feedback">
+            <div class="form-group has-feedback" >
                 <label>Contraseña</label>
                 <div class="input-group">
-                    <span class="input-group-addon glyphicon glyphicon-lock"></span>
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </div>
                     <input type="password" class="form-control" name="password" value="{{old('password')}}">
-                    <div class="text-danger" id='error_password'>{{$errors->first('password')}}</div>
                 </div>
+                <div class="text-danger" id='error_password'>{{$errors->first('password')}}</div>
+
+            </div>
+
+            <div class="form-group has-feedback" >
+                <label>Confirmar Contraseña</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <i class="glyphicon glyphicon-lock"></i>
+                    </div>
+                    <input type="password" class="form-control" name="password_confirmation" >
+                </div>
+                <div class="text-danger" id='error_password_confirmation'></div>
+
             </div>
 
 

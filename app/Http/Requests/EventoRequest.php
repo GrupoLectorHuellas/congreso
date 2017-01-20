@@ -26,8 +26,8 @@ class EventoRequest extends FormRequest
         return [
             'nombre'=>'required|max:255',
             'descripcion'=>'required|max:255',
-            'fecha_inicio'=>'required|before:fecha_fin',
-            'fecha_fin'=>'required|after:fecha_inicio',
+            'fecha_inicio'=>'required|before:fecha_fin|date_format:d/m/Y',
+            'fecha_fin'=>'required|after:fecha_inicio|date_format:d/m/Y',
             'precio_estudiante'=>'required',
             'id_categorias'=>'required',
         ];

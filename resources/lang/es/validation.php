@@ -29,7 +29,7 @@ return [
         'array'   => 'El campo :attribute debe contener entre :min y :max elementos.',
     ],
     'boolean'              => 'El campo :attribute debe ser verdadero o falso.',
-    'confirmed'            => 'El campo confirmación de :attribute no coincide.',
+    'confirmed'            => 'El campo  :attribute no coincide.',
     'country'              => 'El campo :attribute no es un país válido.',
     'date'                 => 'El campo :attribute no corresponde con una fecha válida.',
     'date_format'          => 'El campo :attribute no corresponde con el formato de fecha :format.',
@@ -120,7 +120,8 @@ return [
     'attributes' => [
         'password'=>'contraseña',
         'id'=>'cedula',
-        'id_categorias'=>'categoria'
+        'id_categorias'=>'categoria',
+        'password_confirmation'=>'confirmación de contraseña',
     ],
 
 ];
