@@ -16,6 +16,7 @@ class CreateTableTemario extends Migration
         Schema::create('temario', function (Blueprint $table) {
             $table->increments('id'); // te crea automaticamente la clave primaria
             $table->string('nombre',100);
+            $table->integer('duracion');
             $table->char('estado',1)->default(1);
             $table->integer('id_temario')->unsigned()->nullable();
             $table->foreign('id_temario')

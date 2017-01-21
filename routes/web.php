@@ -31,6 +31,7 @@ Route::resource('administracion/eventos','EventoController');
 Route::resource('administracion/videos','VideoController');
 Route::resource('administracion/firmas','FirmaController');
 Route::resource('administracion/temarios','TemarioController');
+Route::resource('administracion/contenidos','ContenidoController');
 
 //Route::get('administracion/expositores','ExpositorController@listing');
 

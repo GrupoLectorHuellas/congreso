@@ -22,6 +22,11 @@
     <link rel="stylesheet" href="{{url('administration/plugins/morris/morris.css')}}">
     <!-- Date Picker -->
     <link rel="stylesheet" href="{{url('administration/plugins/datepicker/datepicker3.css')}}">
+
+    <!-- Time Picker -->
+    <link rel="stylesheet" href="{{url('administration/plugins/timepicker/bootstrap-timepicker.css')}}">
+
+
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{url('administration/plugins/daterangepicker/daterangepicker-bs3.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
@@ -153,7 +158,20 @@
                     <ul class="treeview-menu">
                          <li><a href="{{route('temarios.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
                         <li><a href="{{route('temarios.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
-                       
+
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-book"></i>
+                        <span>Contenido</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                         <li><a href="{{route('contenidos.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
+                        <li><a href="{{route('contenidos.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
+
                     </ul>
                 </li>
 
@@ -165,7 +183,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{route('videos.index')}}"><i class="fa fa-circle-o"></i>Actualizar</a></li>
-                       
+
                     </ul>
                 </li>
 
@@ -178,7 +196,7 @@
                     <ul class="treeview-menu">
                          <li><a href="{{route('firmas.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
                         <li><a href="{{route('firmas.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
-                       
+
                     </ul>
                 </li>
 
@@ -215,6 +233,10 @@
     <script src="{{url('administration/plugins/daterangepicker/daterangepicker.js')}}"></script>
     <!-- datepicker -->
     <script src="{{url('administration/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
+
+    <!-- Time Picker -->
+    <script src="{{url('administration/plugins/timepicker/bootstrap-timepicker.js')}}"></script>
+
       <!-- Slimscroll -->
     <script src="{{url('administration/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
 
