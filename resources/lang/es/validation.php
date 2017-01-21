@@ -119,9 +119,10 @@ return [
 
     'attributes' => [
         'password'=>'contraseña',
-        'id'=>'cedula',
+        'id'=>'identificacion',
         'id_categorias'=>'categoria',
         'password_confirmation'=>'confirmación de contraseña',
+        'radio-genero'=>'genero',
     ],
 
 ];

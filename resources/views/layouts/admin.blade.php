@@ -14,17 +14,14 @@
     <link rel="stylesheet" href="{{url('administration/fonts/ionicons.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{url('administration/dist/css/AdminLTE.css')}}">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+
     <link rel="stylesheet" href="{{url('administration/dist/css/skins/_all-skins.min.css')}}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{url('administration/plugins/iCheck/flat/blue.css')}}">
+    <link rel="stylesheet" href="{{url('administration/plugins/iCheck/all.css')}}">
     <!-- Morris chart -->
     <link rel="stylesheet" href="{{url('administration/plugins/morris/morris.css')}}">
-
     <!-- Date Picker -->
     <link rel="stylesheet" href="{{url('administration/plugins/datepicker/datepicker3.css')}}">
-
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{url('administration/plugins/daterangepicker/daterangepicker-bs3.css')}}">
     <!-- bootstrap wysihtml5 - text editor -->
@@ -32,20 +29,11 @@
     <link rel="stylesheet" href="{{url('administration/dist/css/mensajes.css')}}">
     <link rel="stylesheet" href="{{url('administration/dist/css/sweetalert.css')}}">
     <link rel="stylesheet" href="{{url('administration/dist/css/alertify.css')}}">
-
-
-
-
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
     <link rel="shortcut icon" href="{{url('administration/img/favicon.png')}}">
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5 !important;">
 <div class="wrapper" id="contenido_principal">
-
     <header class="main-header">
-
         <!-- Logo -->
         <a href="{{url('administracion')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->

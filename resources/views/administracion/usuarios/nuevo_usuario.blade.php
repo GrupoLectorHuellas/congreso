@@ -38,8 +38,7 @@
 
         <div id="notificacion_resul_fanu"></div>
         <div class="box-body">
-            <form  id="f_nuevo_usuario"  method="post"  action="{{action('UsuarioController@store')}}"  >
-                {!!csrf_field()!!}
+            {!!Form::open(['action' => 'UsuarioController@store','method'=>'POST','files' => true,'id'=>'form'])!!}
                 <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
@@ -77,16 +76,15 @@
                         <div class="form-group">
                             <label for="rol">Rol</label>
                             <select class="form-control select2" style="width: 100%;" id ="rol" name ="id_roles">
-                                <option value="" disabled selected>Seleccione el rol</option>
                                 @if(Auth::user()->id_roles==2)
                                         @foreach($roles as $rol)
                                             @if($rol->id ==3)
-                                                <option value="{{$rol->id}}" >  {{ $rol->nombre }} </option>
+                                                <option value="{{$rol->id}}" selected>  {{ $rol->nombre }} </option>
                                             @endif
                                         @endforeach
                                 @else
                                     @foreach($roles as $rol)
-                                        <option value="{{$rol->id}}" >  {{ $rol->nombre }} </option>
+                                        <option value="{{$rol->id}}" selected>  {{ $rol->nombre }} </option>
 
                                     @endforeach
 
@@ -137,7 +135,7 @@
                     <div class="col-md-6 col-xs-12">
                         <div class="form-group">
                             <label id ="label-pais" for ="pais">País</label>
-                            <input type="text" class="form-control" id="pais"  name="pais" placeholder="Pais"  maxlength="50" value="{{old("pais")}}">
+                            <input type="text" class="form-control" id="pais"  name="pais" placeholder="Pais"  maxlength="50" value="Ecuador" disabled>
                         </div>
                     </div>
                     <div class="col-md-6 col-xs-12">
@@ -213,22 +211,38 @@
                 </div><!--Fin de row -->
 
                 <div class="row" ><!--Inicio de row -->
-                    <div class="col-md-12 col-xs-12">
+                    <div class="col-md-6 col-xs-12">
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" class="form-control" id="email"  name="email" placeholder="Email" value="{{old("email")}}" >
                         </div>
                     </div>
+                    <div class="col-md-6 col-xs-12">
+                         <div class="form-group">
+                            {!!Form::label('Foto','Foto:')!!}
+                            {!!Form::file('path',['class'=>'form-control'])!!}
+                        </div>
+
+                    </div>
+
 
                 </div><!--Fin de row -->
                 <div class="row">
-                <div class="col-md-12 col-xs-12">
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" value="{{old('password')}}" >
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" value="{{old('password')}}" >
+                         </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            <label for="password">Confirmar Contraseña</label>
+                            <input type="password" class="form-control"  name="password_confirmation" placeholder="Confirmar Contraseña" value="{{old('password_confirmation')}}" >
+                        </div>
                     </div>
                 </div>
-                </div>
+
+
 
                 <div class="box-footer col-xs-12 ">
                     <button type="submit" class="btn btn-primary">Guardar</button>

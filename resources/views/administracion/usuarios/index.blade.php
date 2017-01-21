@@ -38,11 +38,11 @@
                 <div class="box-body table-responsive no-padding" >
                     <table class="table table-hover" >
                         <tr>
+                            <th>Foto</th>
                             <th>Identificación</th>
                             <th>Nacionalidad</th>
                             <th>Nombres</th>
                             <th>Ciudad</th>
-                            <th>Telefono</th>
                             <th>Email</th>
                             <th>Rol</th>
                             <th>Ocupación</th>
@@ -50,6 +50,16 @@
                         </tr>
                         @foreach($usuarios as $usuario)
                             <tr data-id="{{$usuario->id}}">
+                                @if($usuario->path!=null)
+                                    <td>
+                                        <img src="{{url('uploads/'.$usuario->path)}}" alt="" style="width:50px;"/>
+                                    </td>
+                                @else
+                                    <td>
+                                        <img src="{{url('uploads/noavatar.png')}}" alt="" style="width:50px;"/>
+                                    </td>
+                                @endif
+
                                 <td class="sorting_1">{{$usuario->id}}</td>
                                 <td>{{$usuario->nacionalidad}}</td>
 
@@ -60,7 +70,6 @@
                                     <td>{{$usuario->ciudad}}</td>
                                 @endif
 
-                                <td>{{$usuario->telefono}}</td>
                                 <td>{{$usuario->email}}</td>
                                 <td>{{$usuario->rol->nombre}}</td>
 
