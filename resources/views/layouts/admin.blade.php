@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{url('administration/fonts/font-awesome.min.css')}}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{url('administration/fonts/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{url('administration/plugins/select2/select2.min.css')}}">
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{url('administration/dist/css/AdminLTE.css')}}">
 
@@ -25,7 +27,6 @@
 
     <!-- Time Picker -->
     <link rel="stylesheet" href="{{url('administration/plugins/timepicker/bootstrap-timepicker.css')}}">
-
 
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{url('administration/plugins/daterangepicker/daterangepicker-bs3.css')}}">
