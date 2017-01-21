@@ -11,6 +11,7 @@ class Temario extends Model
     public $timestamps = false;
     protected $fillable=[
         'nombre',
+        'duracion',
         'estado',
         'id_temario'
     ];

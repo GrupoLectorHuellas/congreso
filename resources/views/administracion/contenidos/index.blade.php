@@ -20,7 +20,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Temarios Registrados</h3>
+                    <h3 class="box-title">Contenidos Registrados</h3>
 
                     <div class="box-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -33,48 +33,48 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                @if(count($temarios) >0)
+                @if(count($contenidos) >0)
                     <div class="ajax-tabla">
                         <div class="box-body table-responsive no-padding" >
                             <table class="table table-hover" >
                                 <tr>
                                     
+                                    <th>SubTema</th>
                                     <th>Temario</th>
-                                    <th>Evento</th>
-                                    <th>Duración</th>
+                                    <th>Hora Inicio</th>
                                     <th>Accion</th>
                                 </tr>
-                                @foreach($temarios as $temario)
+                                @foreach($contenidos as $contenido)
                                     <tr data-id="{{$temario->id}}">
                                        
-                                        <td>{{$temario->nombre}}</td>
-                                        <td>{{$temario->eventos->nombre}}</td>
-                                        <td>{{$temario->duracion}}</td>
+                                        <td>{{$contenido->subtemas}}</td>
+                                        <td>{{$contenido->temarios->nombre}}</td>
+                                        <td>{{$contenido->hora_inicio}}</td>
                                         
                                         <td>
-                                            {!!link_to_route('temarios.edit', $title = 'Editar', $parameters = $temario->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
+                                            {!!link_to_route('contenidos.edit', $title = 'Editar', $parameters = $contenido->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
                                             <button type="button" class="btn btn-danger btn-sm btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
                                         </td>
 
                                     </tr>
                                 @endforeach
                             </table>
-                            {{$temarios->links()}}
+                            {{$contenidos->links()}}
                         </div>
                     </div>
                 @else
-                    <br/><div class='rechazado'><label style='color:#FA206A'>...No se ha encontrado ningun temario...</label>  </div>
+                    <br/><div class='rechazado'><label style='color:#FA206A'>...No se ha encontrado ningun contenido...</label>  </div>
                 @endif
             </div>
             <!-- /.box -->
         </div>
     </div>
 
-    {!! Form::open(['route' => ['temarios.destroy', ':USER_ID'], 'method' => 'DELETE', 'id' => 'form-delete']) !!}
+    {!! Form::open(['route' => ['contenidos.destroy', ':USER_ID'], 'method' => 'DELETE', 'id' => 'form-delete']) !!}
     {!! Form::close() !!}
 @endsection
 @section('script')
-    <script src="{{url('administration/dist/js/temarios/java-temario.js')}}"></script>
+    <script src="{{url('administration/dist/js/contenidos/java-contenido.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {

@@ -38,6 +38,10 @@
                 {!! Form::label('Temario') !!}
                 {!! Form::text('nombre',null,['placeholder'=>'Temario','class'=>'form-control']) !!}
             </div>
+            <div class="form-group">
+                {!! Form::label('Duración en Horas') !!}
+                {!! Form::text('duracion',null,['placeholder'=>'duración horas','class'=>'form-control','onkeypress'=>'return soloNumeros(event)']) !!}
+            </div>
             
 
             <div class="form-group">
