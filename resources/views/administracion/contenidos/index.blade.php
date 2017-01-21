@@ -42,14 +42,16 @@
                                     <th>SubTema</th>
                                     <th>Temario</th>
                                     <th>Hora Inicio</th>
+                                    <th>Hora Fin</th>
                                     <th>Accion</th>
                                 </tr>
                                 @foreach($contenidos as $contenido)
-                                    <tr data-id="{{$temario->id}}">
+                                    <tr data-id="{{$contenido->id}}">
                                        
                                         <td>{{$contenido->subtemas}}</td>
                                         <td>{{$contenido->temarios->nombre}}</td>
                                         <td>{{$contenido->hora_inicio}}</td>
+                                        <td>{{$contenido->hora_fin}}</td>
                                         
                                         <td>
                                             {!!link_to_route('contenidos.edit', $title = 'Editar', $parameters = $contenido->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
