@@ -21,6 +21,11 @@ class Expositor extends Model
         'path',
     ];
 
+    public function eventos(){
+        return $this->belongsToMany(Evento::class);
+
+    }
+
     public function setPathAttribute($path){
 
         if(!empty($path)){

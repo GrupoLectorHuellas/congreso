@@ -4,7 +4,7 @@ namespace Congreso\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EventoRequest extends FormRequest
+class EventoEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,7 +31,6 @@ class EventoRequest extends FormRequest
             'precio_estudiante'=>'required',
             'id_categorias'=>'required',
             'expositores'=>'required',
-            'path'=>'required|file|mimes:jpeg,bmp,png|max:10240',
         ];
     }
 }

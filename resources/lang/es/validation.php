@@ -123,6 +123,7 @@ return [
         'id_categorias'=>'categoria',
         'password_confirmation'=>'confirmación de contraseña',
         'radio-genero'=>'genero',
+        'path'=>'imagen',
     ],
 
 ];

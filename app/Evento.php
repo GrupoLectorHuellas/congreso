@@ -39,6 +39,10 @@ class Evento extends Model
         return $this->hasMany(Temario::class);
     }
 
+    public function expositores(){
+         return $this->belongsToMany(Expositor::class);
+    }
+
 
     public function setPathAttribute($path){
 

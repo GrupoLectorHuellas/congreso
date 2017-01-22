@@ -49,14 +49,10 @@
 
 <div class="form-group">
         <label>Expositores</label>
-        <select class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
-            <option>Alabama</option>
-            <option>Alaska</option>
-            <option>California</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
+        <select class="form-control select2" multiple="multiple" data-placeholder="Selecione los expositores" name ="expositores[]" style="width: 100%;">
+            @foreach($expositores as $expositor)
+                <option value="{{$expositor->id}}" >  {{ $expositor->nombres.' '.$expositor->apellidos }} </option>
+            @endforeach
         </select>
 </div>
 

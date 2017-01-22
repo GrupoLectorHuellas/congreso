@@ -14,7 +14,7 @@ class CreateExpositoresTable extends Migration
     public function up()
     {
         Schema::create('expositores', function (Blueprint $table) {
-            $table->string('id',10);
+            $table->string('id');
             $table->string('nombres',50);
             $table->string('apellidos',50);
             $table->string('experiencia_laboral');
