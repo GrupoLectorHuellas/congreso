@@ -208,6 +208,7 @@
                     <!-- End # Login Form -->
 
 
+                    <!-- Begin | Olvido contraseña -->
                     <form id="lost-form" style="display:none;">
                         <div class="modal-body">
                             <div id="div-lost-msg">
@@ -222,8 +223,13 @@
                             <div>
                               <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
                             </div>
+                            <div>
+                              <button id="lost_login_btn" type="button" class="btn btn-link">Login</button>
+                              <a href="{{url ('register')}}" type="button" class="btn btn-link">Registrarme</a>
+                            </div>
                       </div>
                     </form>
+                    <!-- End | Olvido Contraseña -->
                     
                     
                     
