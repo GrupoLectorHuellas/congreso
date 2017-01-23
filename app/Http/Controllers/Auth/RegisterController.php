@@ -2,7 +2,7 @@
 
 namespace Congreso\Http\Controllers\Auth;
 
-use Congreso\User;
+use Congreso\Usuario;
 use Congreso\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -67,5 +67,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+
     }
 }

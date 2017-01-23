@@ -13,15 +13,11 @@ use Congreso\Usuario;
 //Para las vistas principales
 Route::get('/', 'FrontController@index');
 Route::get('administracion','FrontController@admin');
-
-//Login y Register
 //Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('login', ['as' =>'login', 'uses' => 'Auth\AuthController@postLogin']);
-
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', ['as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister']);
-
 #administracion
 Route::resource('administracion/categorias','CategoriaController');
 Route::resource('administracion/usuarios','UsuarioController');
@@ -32,19 +28,14 @@ Route::resource('administracion/videos','VideoController');
 Route::resource('administracion/firmas','FirmaController');
 Route::resource('administracion/temarios','TemarioController');
 Route::resource('administracion/contenidos','ContenidoController');
-
-//Route::get('administracion/expositores','ExpositorController@listing');
-
-
-
-
 #para el select carrera-facultad
 Route::get('carreras/{id}','Auth\AuthController@getCarreras');
 Route::get('cantones/{id}','Auth\AuthController@getCantones');
-
 #perfil y editar perfil
 Route::get('MiPerfil/EditarPerfil', 'FrontController@editarPerfil');
 Route::get('MiPerfil', 'FrontController@MiPerfil');
+
+
 
 
 
