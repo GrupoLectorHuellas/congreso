@@ -34,6 +34,7 @@ Route::get('cantones/{id}','Auth\AuthController@getCantones');
 #perfil y editar perfil
 Route::get('MiPerfil/EditarPerfil', 'FrontController@editarPerfil');
 Route::get('MiPerfil', 'FrontController@MiPerfil');
+Route::get('recuperar_password', 'FrontController@recuperar_pass');
 
 
 

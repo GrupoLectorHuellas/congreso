@@ -216,8 +216,7 @@
                                   <span id="text-lost-msg">Ingrese los datos solicitados</span>
                             </div>
                             <input id="lost_email" class="form-control" type="text" placeholder="Ingrese el email" required>
-                            <input id="login_password" class="form-control" type="password" name ="password" placeholder="Contraseña">
-                            <input id="login_password2" class="form-control" type="password" name ="password2" placeholder="Confirmar Contraseña">
+                            
                         </div>
                       <div class="modal-footer">
                             <div>
