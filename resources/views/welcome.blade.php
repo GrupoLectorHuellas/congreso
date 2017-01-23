@@ -177,8 +177,8 @@
                         <div class="alert alert-danger" id="error" style="display: none">
                             <p><strong>Error!! </strong>Usuario o contraseña incorrectos</p>
                         </div>
-		                <div class="modal-body">
-				    		<div id="div-login-msg">
+		                   <div class="modal-body">
+				    		      <div id="div-login-msg">
                                 <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
                                 <span id="text-login-msg">Escriba aquí su Usuario y Contraseña</span>
                             </div>
@@ -200,11 +200,30 @@
                             </div>
 				    	    <div>
                                 <button id="login_lost_btn" type="button" class="btn btn-link">Olvidó su contraseña?</button>
-                                <button id="login_register_btn" type="button" class="btn btn-link">Registrarme</button>
+                                <a href="{{url ('register')}}" type="button" class="btn btn-link">Registrarme</a>
+                               
                             </div>
 				        </div>
                     </form>
                     <!-- End # Login Form -->
+
+
+                    <form id="lost-form" style="display:none;">
+                        <div class="modal-body">
+                            <div id="div-lost-msg">
+                                  <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                  <span id="text-lost-msg">Ingrese los datos solicitados</span>
+                            </div>
+                            <input id="lost_email" class="form-control" type="text" placeholder="Ingrese el email" required>
+                            <input id="login_password" class="form-control" type="password" name ="password" placeholder="Contraseña">
+                            <input id="login_password2" class="form-control" type="password" name ="password2" placeholder="Confirmar Contraseña">
+                        </div>
+                      <div class="modal-footer">
+                            <div>
+                              <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+                            </div>
+                      </div>
+                    </form>
                     
                     
                     
