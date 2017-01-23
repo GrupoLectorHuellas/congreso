@@ -36,7 +36,8 @@
 <body class="hold-transition login-page"> 
 <div class="login-box" style="margin-bottom: 25px; margin-top: 40px;">
   <div class="login-logo">
-    <a href="#"><b>Utmach </b>Eventos</a>
+  <b><font face="verdana" color="white" size="6">Recuperar Contraseña</font></b>
+
   </div><!-- /.login-logo -->
   <div class="login-box-body">
     <div align="center">
@@ -69,7 +70,7 @@
       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
       <div class="form-group has-feedback">
-        <label>Identificación</label>
+        <label>Email</label>
         <input type="text" class="form-control" name="identificacion" value="{{old('identificacion')}}">
       </div>
       <div class="form-group has-feedback">
@@ -77,12 +78,17 @@
         <input type="password" class="form-control" name="password" value="{{old('password')}}">
       </div>
 
+      <div class="form-group has-feedback">
+        <label>Confirmar Contraseña</label>
+        <input type="password" class="form-control" name="password" value="{{old('password')}}">
+      </div>
+
 
       <div class="row">
         <div class="col-xs-12">
           <center>
-            <button type="submit" class="btn btn-primary" style='width:100px; height:35px'>Ingresar</button>
-            <a href="{{url ('/')}}" class="btn btn-primary " style='width:100px; height:35px; text-align: center'>Salir</a>
+            <button type="submit" class="btn btn-primary">Reset Password</button>
+            
           </center>
         </div><!-- /.col -->
 
@@ -92,16 +98,7 @@
       </div>
 
 
-      <div class="row">
-        <div class="account" >
-
-          <center>
-          <br>
-            <p>Tienes problemas? <a href=""> Olvidaste la contraseña ?</a></p>
-          </center>
-        </div>
-
-      </div>
+      
 
     </form>
 

@@ -22,6 +22,10 @@ class FrontController extends Controller
         return view('editar_perfil');
     }
 
+    public function recuperar_pass(){
+        return view('recuperar_pass');
+    }
+
     public function MiPerfil(){
         return view('mi_perfil');
     }

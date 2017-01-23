@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('title')
     <section class="content-header">
-        <h1>Eventos<small>Aditar</small></h1>
+        <h1>Eventos<small>Editar</small></h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></li>
             <li class="active">Eventos</li>
@@ -89,6 +89,25 @@
             </div>
 
             <div class="form-group">
+                <label>Expositores</label>
+                <select class="form-control select2" multiple="multiple" data-placeholder="Selecione los expositores" name ="expositores[]" style="width: 100%;">
+                        <?php $array = array(); ?>
+                        @foreach($evento->expositores as $expositor_propio)
+                            <?php $array[] = $expositor_propio->id;?>
+                        @endforeach
+                        @foreach($expositores as $expositor)
+                            @if(in_array($expositor->id,$array) )
+                                <option value="{{$expositor->id}}" selected> {{ $expositor->nombres.' '.$expositor->apellidos }} </option>
+                            @else
+                                <option value="{{$expositor->id}}" > {{ $expositor->nombres.' '.$expositor->apellidos }} </option>
+                            @endif
+                        @endforeach
+
+                </select>
+            </div>
+
+
+            <div class="form-group">
                 {!!Form::label('Foto','Foto:')!!}
                 {!!Form::file('path',['class'=>'form-control'])!!}
             </div>
@@ -100,6 +119,8 @@
 @section('script')
     <script src="{{url('administration/dist/js/eventos/java-evento.js')}}"></script>
     <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
+    <script src="{{url('administration/plugins/select2/select2.full.min.js')}}"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {
@@ -109,6 +130,8 @@
     </script>
     <script>
         $(function () {
+            //Initialize Select2 Elements
+            $(".select2").select2();
             //Datemask dd/mm/yyyy
             $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
             //Datemask2 mm/dd/yyyy

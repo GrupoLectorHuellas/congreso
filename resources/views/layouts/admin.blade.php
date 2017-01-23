@@ -12,18 +12,21 @@
     <link rel="stylesheet" href="{{url('administration/fonts/font-awesome.min.css')}}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{url('administration/fonts/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{url('administration/plugins/select2/select2.min.css')}}">
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{url('administration/dist/css/AdminLTE.css')}}">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
+
     <link rel="stylesheet" href="{{url('administration/dist/css/skins/_all-skins.min.css')}}">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{url('administration/plugins/iCheck/flat/blue.css')}}">
+    <link rel="stylesheet" href="{{url('administration/plugins/iCheck/all.css')}}">
     <!-- Morris chart -->
     <link rel="stylesheet" href="{{url('administration/plugins/morris/morris.css')}}">
-
     <!-- Date Picker -->
     <link rel="stylesheet" href="{{url('administration/plugins/datepicker/datepicker3.css')}}">
+
+    <!-- Time Picker -->
+    <link rel="stylesheet" href="{{url('administration/plugins/timepicker/bootstrap-timepicker.css')}}">
 
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{url('administration/plugins/daterangepicker/daterangepicker-bs3.css')}}">
@@ -32,20 +35,11 @@
     <link rel="stylesheet" href="{{url('administration/dist/css/mensajes.css')}}">
     <link rel="stylesheet" href="{{url('administration/dist/css/sweetalert.css')}}">
     <link rel="stylesheet" href="{{url('administration/dist/css/alertify.css')}}">
-
-
-
-
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
     <link rel="shortcut icon" href="{{url('administration/img/favicon.png')}}">
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini" style="background: #ecf0f5 !important;">
 <div class="wrapper" id="contenido_principal">
-
     <header class="main-header">
-
         <!-- Logo -->
         <a href="{{url('administracion')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
@@ -158,13 +152,39 @@
 
                 <li class="treeview">
                     <a href="#">
+                        <i class="fa fa-book"></i>
+                        <span>Temario</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                         <li><a href="{{route('temarios.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
+                        <li><a href="{{route('temarios.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-book"></i>
+                        <span>Contenido</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                         <li><a href="{{route('contenidos.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
+                        <li><a href="{{route('contenidos.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
+
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
                         <i class="fa fa-video-camera"></i>
                         <span>Video</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{route('videos.index')}}"><i class="fa fa-circle-o"></i>Actualizar</a></li>
-                       
+
                     </ul>
                 </li>
 
@@ -177,7 +197,7 @@
                     <ul class="treeview-menu">
                          <li><a href="{{route('firmas.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
                         <li><a href="{{route('firmas.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
-                       
+
                     </ul>
                 </li>
 
@@ -214,6 +234,10 @@
     <script src="{{url('administration/plugins/daterangepicker/daterangepicker.js')}}"></script>
     <!-- datepicker -->
     <script src="{{url('administration/plugins/datepicker/bootstrap-datepicker.js')}}"></script>
+
+    <!-- Time Picker -->
+    <script src="{{url('administration/plugins/timepicker/bootstrap-timepicker.js')}}"></script>
+
       <!-- Slimscroll -->
     <script src="{{url('administration/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
 

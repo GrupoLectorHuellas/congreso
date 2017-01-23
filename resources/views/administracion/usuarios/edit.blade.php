@@ -36,7 +36,7 @@
 
         <div id="notificacion_resul_fanu"></div>
         <div class="box-body">
-            {{Form::model($usuario, ['route' => ['usuarios.update',$usuario->id],'method'=>'PUT', 'id'=>'formdata' ])}}
+            {{Form::model($usuario, ['route' => ['usuarios.update',$usuario->id],'method'=>'PUT', 'id'=>'formdata','files' => true, ])}}
                 <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
                 <div class="row">
                     <div class="col-md-6 col-xs-12">
@@ -327,16 +327,28 @@
                 </div><!--Fin de row -->
 
                 <div class="row" ><!--Inicio de row -->
-                    <div class="col-md-12 col-xs-12">
+                    <div class="col-md-6 col-xs-12">
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" class="form-control" id="email"  name="email" placeholder="Email" value="{{$usuario->email }}" >
                         </div>
                     </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="form-group">
+                            {!!Form::label('Foto','Foto:')!!}
+                            {!!Form::file('path',['class'=>'form-control'])!!}
+                        </div>
+                    </div>
 
                 </div><!--Fin de row -->
-
-
+            <div class="row">
+                <div class="col-md-12 col-xs-12">
+                    <div class="form-group">
+                        <label>Eliminar Avatar </label>
+                        <label for=""> <input type="checkbox" class="flat-red" value ="eliminar" name="eliminar-avatar" @if(old('eliminar-avatar')=="eliminar") checked @endif></label>
+                    </div>
+                </div>
+            </div>
                 <div class="box-footer col-xs-12 ">
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
@@ -350,5 +362,12 @@
 @section('script')
     <script src="{{url('administration/dist/js/usuarios/java-usuario.js')}}"></script>
     <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
+    <script src="{{url('administration/plugins/iCheck/icheck.min.js')}}"></script>
+    <script>
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        });
+    </script>
 
 @endsection

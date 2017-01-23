@@ -44,6 +44,7 @@ class UsuarioController extends Controller
                     'id'    => [ 'required','unique:usuarios,id', ],
                     'nombres'   => [ 'required' ],
                     'apellidos' => [ 'required' ],
+                    'radio-genero' => [ 'required' ],
                     'telefono'  => [ 'required' ],
                     'pais'      => [ 'required' ],
                     'ciudad'    => [ 'required' ],
@@ -51,6 +52,8 @@ class UsuarioController extends Controller
                     'facultad'  => [ 'required' ],
                     'carrera'   => [ 'required' ],
                     'email'     => [ 'required','unique:usuarios' ],
+                    'password'  => [ 'required','min:5','confirmed' ],
+                    'password_confirmation'  => [ 'required','min:5' ],
                 ]);
             } else {
                 if ($data['nacionalidades'] == "Ecuatoriano") {
@@ -58,6 +61,7 @@ class UsuarioController extends Controller
                         'id'    => [ 'required','validar_cedula','unique:usuarios,id', ],
                         'nombres'   => [ 'required' ],
                         'apellidos' => [ 'required' ],
+                        'radio-genero' => [ 'required' ],
                         'telefono'  => [ 'required' ],
                         'provincia' => [ 'required' ],
                         'canton'    => [ 'required' ],
@@ -65,12 +69,15 @@ class UsuarioController extends Controller
                         'facultad'  => [ 'required' ],
                         'carrera'   => [ 'required' ],
                         'email'     => [ 'required', 'unique:usuarios' ],
+                        'password'  => [ 'required','min:5','confirmed' ],
+                        'password_confirmation'  => [ 'required','min:5' ],
                     ]);
                 } else {
                     $this->validate($request, [
                         'id'    => [ 'required','unique:usuarios,id', ],
                         'nombres'   => [ 'required' ],
                         'apellidos' => [ 'required' ],
+                        'radio-genero' => [ 'required' ],
                         'telefono'  => [ 'required' ],
                         'pais'      => [ 'required' ],
                         'provincia' => [ 'required' ],
@@ -79,6 +86,8 @@ class UsuarioController extends Controller
                         'facultad'  => [ 'required' ],
                         'carrera'   => [ 'required' ],
                         'email'     => [ 'required', 'unique:usuarios' ],
+                        'password'  => [ 'required','min:5','confirmed' ],
+                        'password_confirmation'  => [ 'required','min:5' ],
                     ]);
                 }
             }
@@ -98,6 +107,7 @@ class UsuarioController extends Controller
             $user->id_carreras = $data['carrera'];
             $user->email = $data['email'];
             $user->password=bcrypt($data['password']);
+            $user->path = $data['path'];
             $user->estado = 1;
             $user->id_roles = $data['id_roles'];;
             if ($data['nacionalidades'] == "Extranjero No Residente") {
@@ -111,12 +121,15 @@ class UsuarioController extends Controller
                     'id'    => [ 'required','unique:usuarios,id', ],
                     'nombres'   => [ 'required' ],
                     'apellidos' => [ 'required' ],
+                    'radio-genero' => [ 'required' ],
                     'telefono'  => [ 'required' ],
                     'pais'      => [ 'required' ],
                     'ciudad'    => [ 'required' ],
                     'direccion' => [ 'required' ],
                     'titulo'    => [ 'required' ],
                     'email'     => [ 'required', 'unique:usuarios' ],
+                    'password'  => [ 'required','min:5','confirmed' ],
+                    'password_confirmation'  => [ 'required','min:5' ],
                 ]);
             } else {
                 if ($data['nacionalidades'] == "Ecuatoriano") {
@@ -124,18 +137,22 @@ class UsuarioController extends Controller
                         'id'    => [ 'required','validar_cedula','unique:usuarios,id', ],
                         'nombres'   => [ 'required' ],
                         'apellidos' => [ 'required' ],
+                        'radio-genero' => [ 'required' ],
                         'telefono'  => [ 'required' ],
                         'provincia' => [ 'required' ],
                         'canton'    => [ 'required' ],
                         'direccion' => [ 'required' ],
                         'titulo'    => [ 'required' ],
                         'email'     => [ 'required','unique:usuarios' ],
+                        'password'  => [ 'required','min:5','confirmed' ],
+                        'password_confirmation'  => [ 'required','min:5' ],
                     ]);
                 } else {
                     $this->validate($request, [
                         'id'    => [ 'required','unique:usuarios,id'],
                         'nombres'   => [ 'required' ],
                         'apellidos' => [ 'required' ],
+                        'radio-genero' => [ 'required' ],
                         'telefono'  => [ 'required' ],
                         'pais'      => [ 'required' ],
                         'provincia' => [ 'required' ],
@@ -143,6 +160,8 @@ class UsuarioController extends Controller
                         'direccion' => [ 'required' ],
                         'titulo'    => [ 'required' ],
                         'email'     => [ 'required', 'unique:usuarios' ],
+                        'password'  => [ 'required','min:5','confirmed' ],
+                        'password_confirmation'  => [ 'required','min:5' ],
                     ]);
                 }
             }
@@ -164,6 +183,8 @@ class UsuarioController extends Controller
             $user->email = $data['email'];
             $user->estado = 1;
             $user->password=bcrypt($data['password']);
+            $user->password=bcrypt($data['password']);
+            $user->path = $data['path'];
             $user->id_roles = $data['id_roles'];
             if ($data['nacionalidades'] == "Extranjero No Residente") {
                 $user->ciudad = $data['ciudad'];
@@ -173,7 +194,7 @@ class UsuarioController extends Controller
 
         }
         if($user->save()){
-            return Redirect::to('administracion/usuarios')->with('mensaje-registro', 'Usuario Actualizado Correctamente');
+            return Redirect::to('administracion/usuarios')->with('mensaje-registro', 'Usuario Agregado Correctamente');
         }
     }
 
@@ -247,6 +268,12 @@ class UsuarioController extends Controller
             $user->genero = $data['radio-genero'];
             $user->id_carreras = $data['carrera'];
             $user->email = $data['email'];
+            if (! isset( $data['eliminar-avatar'] )) {
+                $user->path = $data['path'];
+            }else{
+                $user->path = "eliminar";
+            }
+
             $user->estado = 1;
             $user->id_roles = $data['id_roles'];;
             if ($data['nacionalidades'] == "Extranjero No Residente") {
@@ -309,6 +336,11 @@ class UsuarioController extends Controller
             $user->direccion = $data['direccion'];
             $user->titulo = $data['titulo'];
             $user->email = $data['email'];
+            if (! isset( $data['eliminar-avatar'] )) {
+                $user->path = $data['path'];
+            }else{
+                $user->path = "eliminar";
+            }
             $user->estado = 1;
             $user->id_roles = $data['id_roles'];
             if ($data['nacionalidades'] == "Extranjero No Residente") {

@@ -14,7 +14,7 @@
             <i class="fa fa-calendar"></i>
         </div>
 
-        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha_inicio" >
+        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha_inicio" value="{{old('fecha_inicio')}}">
     </div>
 </div>
 <div class="form-group">
@@ -45,6 +45,15 @@
             <option value="{{$categoria->id}}" >  {{ $categoria->nombre }} </option>
         @endforeach
     </select>
+</div>
+
+<div class="form-group">
+        <label>Expositores</label>
+        <select class="form-control select2" multiple="multiple" data-placeholder="Selecione los expositores" name ="expositores[]" style="width: 100%;">
+            @foreach($expositores as $expositor)
+                <option value="{{$expositor->id}}" >  {{ $expositor->nombres.' '.$expositor->apellidos }} </option>
+            @endforeach
+        </select>
 </div>
 
 <div class="form-group">

@@ -35,6 +35,14 @@ class Evento extends Model
         return $this->belongsTo(Categoria::class,'id_categorias','id');
     }
 
+     public function temarios(){
+        return $this->hasMany(Temario::class);
+    }
+
+    public function expositores(){
+         return $this->belongsToMany(Expositor::class);
+    }
+
 
     public function setPathAttribute($path){
 

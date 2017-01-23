@@ -43,6 +43,7 @@
     <script src="{{url('administration/dist/js/eventos/java-evento.js')}}"></script>
     <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
     <script src="{{url('administration/dist/js/alertify.js')}}"></script>
+    <script src="{{url('administration/plugins/select2/select2.full.min.js')}}"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -53,6 +54,8 @@
     </script>
     <script>
         $(function () {
+            //Initialize Select2 Elements
+            $(".select2").select2();
             //Datemask dd/mm/yyyy
             $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
             //Datemask2 mm/dd/yyyy

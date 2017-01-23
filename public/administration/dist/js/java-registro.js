@@ -114,8 +114,6 @@ $("#registro").click(function(){
             alertify.alert("Usuario registrado correctamente !!", function () {
                 window.location=getAbsolutePath();
             });
-
-           // window.location="login";
         },
         error:function(msj){
 
@@ -136,6 +134,8 @@ $("#registro").click(function(){
             $("#error_carrera").html("");
             $("#error_email").html("");
             $("#error_password").html("");
+            $("#error_password_confirmation").html("");
+
             $.each(msj.responseJSON, function(i, field){
                 if(i==="identificacion"){
                     $("#error_identificacion").html(field);
@@ -175,6 +175,9 @@ $("#registro").click(function(){
                 }
                 else if(i==="password"){
                     $("#error_password").html(field);
+                }
+                else if(i==="password_confirmation"){
+                    $("#error_password_confirmation").html(field);
                 }
             });
 

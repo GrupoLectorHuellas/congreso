@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
+
 
 class Usuario extends Authenticatable
 {
@@ -44,13 +46,22 @@ class Usuario extends Authenticatable
     public function setPathAttribute($path){
 
         if(!empty($path)){
-            /* Para Actualizar Imagen */
-            if(!empty($this->attributes['path'])){
-                \Storage::delete($this->attributes['path']);
+            if ($path =="eliminar"){
+                if ( ! empty($this->attributes['path'])) {
+                    \Storage::delete($this->attributes['path']);
+                }
+                $this->attributes['path']=null;
             }
-            $this->attributes['path'] = Carbon::now()->second.$path->getClientOriginalName();
-            $name = Carbon::now()->second.$path->getClientOriginalName();
-            \Storage::disk('local')->put($name, \File::get($path));
+            else {
+                /* Para Actualizar Imagen */
+                if ( ! empty($this->attributes['path'])) {
+                    \Storage::delete($this->attributes['path']);
+                }
+                $this->attributes['path'] = Carbon::now()->second.$path->getClientOriginalName();
+                $name = Carbon::now()->second.$path->getClientOriginalName();
+                \Storage::disk('local')->put($name, \File::get($path));
+            }
         }
+
     }
 }
