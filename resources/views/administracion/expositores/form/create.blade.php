@@ -1,7 +1,7 @@
 <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
 <div class="form-group">
-    {!! Form::label('Cedula') !!}
-    {!! Form::text('id',null,['placeholder'=>'Cedula','class'=>'form-control','onkeypress'=>'return soloNumeros(event)']) !!}
+    {!! Form::label('Identificación') !!}
+    {!! Form::text('id',null,['placeholder'=>'Identificación','class'=>'form-control','onkeypress'=>'return soloNumeros(event)']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('Nombres') !!}
@@ -17,11 +17,11 @@
 </div>
 <div class="form-group">
     {!! Form::label('Email') !!}
-    {!! Form::email('email',null,['placeholder'=>'Email','class'=>'form-control','onkeypress'=>'return soloLetras(event)']) !!}
+    {!! Form::email('email',null,['placeholder'=>'Email','class'=>'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('Experiencia Laborarl') !!}
-    {!! Form::textarea('experiencia_laboral',null,['placeholder'=>'Experiencia Laboral','class'=>'form-control','onkeypress'=>'return soloLetras(event)','size' => '30x4']) !!}
+    {!! Form::textarea('experiencia_laboral',null,['placeholder'=>'Experiencia Laboral','class'=>'form-control','size' => '30x4']) !!}
 </div>
 <div class="form-group">
     {!!Form::label('Foto','Foto:')!!}

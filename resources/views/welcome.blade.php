@@ -209,7 +209,9 @@
 
 
                     <!-- Begin | Olvido contraseña -->
-                    <form id="lost-form" style="display:none;">
+                    <form id="lost-form" method="POST" action="{{ url('/password/email') }}" style="display:none;">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="token" value="{{ $token }}">
                         <div class="modal-body">
                             <div id="div-lost-msg">
                                   <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
