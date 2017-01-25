@@ -38,8 +38,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('carreras/{id}','Auth\AuthController@getCarreras');
 Route::get('cantones/{id}','Auth\AuthController@getCantones');
 #perfil y editar perfil
-Route::get('MiPerfil/EditarPerfil', 'FrontController@editarPerfil');
-Route::get('MiPerfil', 'FrontController@MiPerfil');
+Route::get('User/MiPerfil', 'HomeUserController@mi_perfil');
+Route::get('User/MiPerfil/EditarPerfil', 'HomeUserController@editar_perfil');
 Route::get('recuperar_password', 'FrontController@recuperar_pass');
 
 

@@ -1,11 +1,15 @@
-@extends("layouts.base")
+@extends("layouts.home_user")
 @section('title')
-    <title>Mi Perfil</title>
-    @endsection()
+    <h1 class="page-header">Mi Perfil</h1>
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                Bienvenido
+        </div>
+@endsection()
 
 @section('contenido')
-<div class="container" style="padding-top: 60px;">
-  <h1 class="page-header">Mi Perfil</h1>
+<div class="container" style="padding-top: 30px;">
+  
   <div class="row">
         <!-- left column -->
         <div class="col-md-5 col-sm-6 col-xs-12">
@@ -85,7 +89,7 @@
                                 </table>
                                 
                                 <span class="pull-right">
-                                        <a href="{{url ('MiPerfil/EditarPerfil')}}" class="btn btn-primary">Editar Mi Perfil</a>
+                                        <a href="{{url ('User/MiPerfil/EditarPerfil')}}" class="btn btn-primary">Editar Mi Perfil</a>
                                 </span>
                                 
                             

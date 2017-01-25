@@ -1,11 +1,11 @@
-@extends("layouts.base")
+@extends("layouts.home_user")
 @section('title')
-    <title>Editar Mi Perfil</title>
+    <h1 class="page-header">Editar Perfil</h1>
     @endsection()
 
 @section('contenido')
 <div class="container" style="padding-top: 60px;">
-  <h1 class="page-header">Editar Perfil</h1>
+  
   <div class="row">
     <!-- left column -->
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -20,14 +20,16 @@
     </div>
     <!-- edit form column -->
     <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+      
+
+      <form class="form-horizontal" role="form">
+
       <div class="alert alert-info alert-dismissable">
         <a class="panel-close close" data-dismiss="alert">×</a> 
         <i class="fa fa-coffee"></i>
         Por Favor Completar todos los campos con información Verídica
       </div>
       <h3>Información Personal</h3>
-
-      <form class="form-horizontal" role="form">
 
         <div class="form-group">
           <label class="col-lg-3 control-label">Nombres:</label>
