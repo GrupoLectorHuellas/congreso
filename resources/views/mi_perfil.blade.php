@@ -8,7 +8,7 @@
 @endsection()
 
 @section('contenido')
-<div class="container" style="padding-top: 30px;">
+<div class="container" style="padding-top: 10px;">
   
   <div class="row">
         <!-- left column -->
@@ -35,41 +35,41 @@
                                     <tbody>
                                     <tr>
                                         <td><b>Cédula:</b></td>
-                                        <td>0706829116</td>
+                                        <td>{!! Auth::user()->id !!}</td>
                                     </tr>
                                     <tr>
                                         <td><b>Nacionalidad:</b></td>
-                                        <td>Ecuatoriana</td>
+                                        <td>{!! Auth::user()->nacionalidad !!}</td>
                                     </tr>
                                     <tr>
                                         <td><b>Nombres:</b></td>
-                                        <td>Fernando</td>
+                                        <td>{!! Auth::user()->nombres !!}</td>
                                     </tr>
                                 
                                        <td><b>Apellidos:</b></td>
-                                        <td>Castillo</td>
+                                        <td>{!! Auth::user()->apellidos !!}</td>
                                     </tr>
                                         
                                         <td><b>Género:</b></td>
-                                        <td>Masculino</td>
+                                        <td>{!! Auth::user()->genero !!}</td>
                                     </tr>
                                     <tr>
                                         <td><b>Email</b></td>
                                         <td><a href="mailto:jfnando_cas_30_@hotmail.com">jfnando_cas_30_@hotmail.com</a></td>
                                     </tr>
                                         <td><b>Télefono:</b></td>
-                                        <td>0991851033</td>
+                                        <td>{!! Auth::user()->telefono!!}</td>
                                         
                                     </tr>
 
                                     </tr>
                                         <td><b>Dirección:</b></td>
-                                        <td>Puerto Bolivar</td>
+                                        <td>{!! Auth::user()->direccion !!}</td>
                                         
                                     </tr>
                                      </tr>
                                         <td><b>Facultad:</b></td>
-                                        <td>Ingeniería Civil</td>
+                                        <td>{!! Auth::user()->id !!}</td>
                                         
                                     </tr>
 
@@ -81,7 +81,7 @@
 
                                      </tr>
                                         <td><b>Título:</b></td>
-                                        <td>-------------------</td>
+                                        <td>{!! Auth::user()->titulo !!}</td>
                                         
                                     </tr>
                                     
