@@ -54,9 +54,6 @@ class AuthController extends Controller
 
 
     }
-
-
-
     protected function getRegister(){
         $facultades = Facultad::all();
         //$carreras = Carrera::pluck('nombre','id');
@@ -224,8 +221,20 @@ class AuthController extends Controller
         }
 
 }
+    protected function getPasswordReset(){
+        return view('passwords.email');
 
-//registro
+    }
+
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email]
+        );
+    }
+
+
+
 
     protected function getLogout(){
         $this->auth->logout();

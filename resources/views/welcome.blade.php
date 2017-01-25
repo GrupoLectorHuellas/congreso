@@ -199,7 +199,7 @@
                                 <a href="javascript:void(0);" class="btn btn-primary btn-lg btn-block" id ="login">Ingresar</a>
                             </div>
 				    	    <div>
-                                <button id="login_lost_btn" type="button" class="btn btn-link">Olvidó su contraseña?</button>
+                                <a href="{{ url('/password/reset') }}" type="button" class="btn btn-link">Olvido su contraseña</a>
                                 <a href="{{url ('register')}}" type="button" class="btn btn-link">Registrarme</a>
                                
                             </div>
@@ -211,7 +211,8 @@
                     <!-- Begin | Olvido contraseña -->
                     <form id="lost-form" method="POST" action="{{ url('/password/email') }}" style="display:none;">
                         {{ csrf_field() }}
-                        <input type="hidden" name="token" value="{{ $token }}">
+                        <input type="hidden" name="token" value="<?php echo csrf_token(); ?>">
+
                         <div class="modal-body">
                             <div id="div-lost-msg">
                                   <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>

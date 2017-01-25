@@ -30,9 +30,9 @@ Route::resource('administracion/temarios','TemarioController');
 Route::resource('administracion/contenidos','ContenidoController');
 #para recuperacion de contraseña
 // Password Reset Routes...
-//Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm');
+Route::get('password/reset', 'Auth\AuthController@getPasswordReset');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
-Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+Route::get('password/reset/{token}', 'Auth\AuthController@showResetForm');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 #para el select carrera-facultad
 Route::get('carreras/{id}','Auth\AuthController@getCarreras');
