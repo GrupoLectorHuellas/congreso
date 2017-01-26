@@ -36,6 +36,10 @@ class Usuario extends Authenticatable
     public function rol(){
         return $this->belongsTo(Rol::class,'id_roles','id');
     }
+
+    public function eventos(){
+        return $this->belongsToMany(Evento::class);
+    }
 /*
     public function setPasswordAttribute($valor){
         if(!empty($valor)){

@@ -42,6 +42,10 @@ class Evento extends Model
     public function expositores(){
          return $this->belongsToMany(Expositor::class);
     }
+    public function usuarios(){
+        return $this->belongsToMany(Usuario::class);
+    }
+
 
 
     public function setPathAttribute($path){
