@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 @section('title')
     <section class="content-header">
-        <h1>Eventos<small>Agregar</small></h1>
+        <h1>Inscripciones <small>Agregar</small></h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Inicio</a></li>
-            <li class="active">Eventos</li>
+            <li class="active">Inscripcion</li>
             <li class="active">Agregar</li>
         </ol>
     </section>
@@ -25,22 +25,22 @@
     @endif
     <div class="box box-primary">
         <div class="box-header">
-            <h3 class="box-title">Nuevo Evento</h3>
+            <h3 class="box-title">Nueva Inscripción</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
-            {!!Form::open(['route' => 'eventos.store','method'=>'POST','files' => true,'id'=>'form'])!!}
+            {!!Form::open(['route' => 'inscripciones.store','method'=>'POST','files' => true,'id'=>'form'])!!}
             <div id="msj-success" class="alert alert-success alert-dismissible aprobado" role="alert" style="display:none">
-                <strong> Evento Agregado Correctamente.</strong>
+                <strong> Inscripcion Agregada Correctamente.</strong>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-            @include('administracion.eventos.form.create')
+            @include('administracion.inscripciones.form.create')
             {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
     </div>
 @endsection
 @section('script')
-    <script src="{{url('administration/dist/js/eventos/java-evento.js')}}"></script>
+    <script src="{{url('administration/dist/js/inscripciones/java-inscripcion.js')}}"></script>
     <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
     <script src="{{url('administration/dist/js/alertify.js')}}"></script>
     <script src="{{url('administration/plugins/select2/select2.full.min.js')}}"></script>

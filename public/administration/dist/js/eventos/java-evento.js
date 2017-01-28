@@ -43,7 +43,7 @@ $(document).ready(function () {
                     });
 
                 } else {
-                    swal("Cancelado", "La categoria no fue eliminada", "error");
+                    swal("Cancelado", "El evento no fue eliminado", "error");
                 }
             });
     });

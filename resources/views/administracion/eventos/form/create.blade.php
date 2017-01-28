@@ -1,11 +1,11 @@
 <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
 <div class="form-group">
     {!! Form::label('Nombre') !!}
-    {!! Form::text('nombre',null,['placeholder'=>'Nombre','class'=>'form-control','onkeypress'=>'return soloLetras(event)']) !!}
+    {!! Form::text('nombre',null,['placeholder'=>'Nombre','class'=>'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('Descripción') !!}
-    {!! Form::text('descripcion',null,['placeholder'=>'Descripcion','class'=>'form-control','onkeypress'=>'return soloLetras(event)']) !!}
+    {!! Form::text('descripcion',null,['placeholder'=>'Descripcion','class'=>'form-control']) !!}
 </div>
 <div class="form-group">
     {!! Form::label('Fecha Inicio') !!}

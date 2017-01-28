@@ -38,7 +38,7 @@ class Usuario extends Authenticatable
     }
 
     public function eventos(){
-        return $this->belongsToMany(Evento::class);
+        return $this->belongsToMany(Evento::class,'inscripciones');
     }
 /*
     public function setPasswordAttribute($valor){

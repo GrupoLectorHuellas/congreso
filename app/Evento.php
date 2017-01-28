@@ -43,7 +43,25 @@ class Evento extends Model
          return $this->belongsToMany(Expositor::class);
     }
     public function usuarios(){
-        return $this->belongsToMany(Usuario::class);
+        return $this->belongsToMany(Usuario::class,'inscripciones');
+    }
+
+    public static function eventosNoMatriculados($id){
+        $array = array();
+        $usuario = Usuario::find($id);
+        foreach($usuario->eventos as $eventos_propio) {
+            $array[] = $eventos_propio->id; //los id de los eventos que el usuario tine matricula
+        }
+        return Evento::whereNotIn('id', $array)->get();
+    }
+
+    public static function eventosMatriculados($id){
+        $array = array();
+        $usuario = Usuario::find($id);
+        foreach($usuario->eventos as $eventos_propio) {
+            $array[] = $eventos_propio->id; //los id de los eventos que el usuario tine matricula
+        }
+        return Evento::whereIn('id', $array)->get();
     }
 
 
