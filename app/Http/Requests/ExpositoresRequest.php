@@ -4,7 +4,7 @@ namespace Congreso\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EventoRequest extends FormRequest
+class ExpositoresRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,12 @@ class EventoRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'=>'required|max:255',
-            'descripcion'=>'required|max:255',
-            'fecha_inicio'=>'required|before:fecha_fin|date_format:d/m/Y',
-            'fecha_fin'=>'required|after:fecha_inicio|date_format:d/m/Y',
-            'precio_estudiante'=>'required',
-            'precio_profesional'=>'required',
-            'id_categorias'=>'required',
-            'expositores'=>'required',
+            'id'=>'required',
+            'nombres'=>'required|max:255',
+            'apellidos'=>'required|max:255',
+            'experiencia_laboral'=>'required|max:255',
+            'titulo'=>'required',
+            'email'=>'required',
             'path'=>'required|file|mimes:jpeg,bmp,png|max:10240',
         ];
     }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Congreso\Contenido;
 use Congreso\Temario;
+use Congreso\Http\Requests\ContenidoRequest;
 
 class ContenidoController extends Controller
 {
@@ -38,7 +39,7 @@ class ContenidoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContenidoRequest $request)
     {
         Contenido::create($request->all());
         return Redirect::to('administracion/contenidos/create')->with('mensaje-registro', 'Contenido Registrado Correctamente');
@@ -67,7 +68,7 @@ class ContenidoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContenidoRequest $request, $id)
     {
         $contenido = Contenido::find($id);
         $contenido->fill($request->all());

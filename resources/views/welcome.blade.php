@@ -159,7 +159,7 @@
 <!-- BEGIN # MODAL LOGIN -->
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display:none;">
     	<div class="modal-dialog">
-			<div class="modal-content" style="padding-top: 10px;">
+			<div class="modal-content" style="padding-top: 20px;">
 				<div class="modal-header" align="center">
 					<img class="img-circle" id="img_logo" src="{{url('frontend/images/logito-escuela.jpg')}}">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">

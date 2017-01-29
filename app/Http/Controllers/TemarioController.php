@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Congreso\Evento;
 use Congreso\Temario;
+use Congreso\Http\Requests\TemarioRequest;
 
 class TemarioController extends Controller
 {
@@ -38,7 +39,7 @@ class TemarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TemarioRequest $request)
     {
         Temario::create($request->all());
         return Redirect::to('administracion/temarios/create')->with('mensaje-registro', 'Temario Registrado Correctamente');
@@ -76,7 +77,7 @@ class TemarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TemarioRequest $request, $id)
     {
         $temario = Temario::find($id);
         $temario->fill($request->all());

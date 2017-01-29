@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
 use Congreso\Firma;
+use Congreso\Http\Requests\FirmasRequest;
+use Congreso\Http\Requests\FirmasEditRequest;
 
 
 class FirmaController extends Controller
@@ -24,7 +26,7 @@ class FirmaController extends Controller
         return View('administracion.firmas.create');
     }
 
-    public function store(Request $request){
+    public function store(FirmasRequest $request){
 
             Firma::create($request->all());
 
@@ -40,7 +42,7 @@ class FirmaController extends Controller
 
     }
 
-    public function update(Request $request, $id){
+    public function update(FirmasEditRequest $request, $id){
         $firma = Firma::find($id);
         $firma->fill($request->all());
 

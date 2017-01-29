@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Congreso\Video;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Congreso\Http\Requests\VideoRequest;
 
 class VideoController extends Controller
 {
@@ -25,7 +26,7 @@ class VideoController extends Controller
 
     }
 
-     public function update(Request $request, $id){
+     public function update(VideoRequest $request, $id){
         $video = Video::find($id);
         $video->fill($request->all());
 

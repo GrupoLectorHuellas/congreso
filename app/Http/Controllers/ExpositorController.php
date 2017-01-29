@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
 use Congreso\Expositor;
+use Congreso\Http\Requests\ExpositoresRequest;
+use Congreso\Http\Requests\ExpositoresEditRequest;
 
 class ExpositorController extends Controller
 {
@@ -24,7 +26,7 @@ class ExpositorController extends Controller
         return View('administracion.expositores.create');
     }
 
-    public function store(Request $request){
+    public function store(ExpositoresRequest $request){
 
         Expositor::create($request->all());
 
@@ -40,7 +42,7 @@ class ExpositorController extends Controller
 
     }
 
-    public function update(Request $request, $id){
+    public function update(ExpositoresEditRequest $request, $id){
         $expositor = Expositor::find($id);
         $expositor->fill($request->all());
 
