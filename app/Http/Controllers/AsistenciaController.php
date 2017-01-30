@@ -5,11 +5,11 @@ namespace Congreso\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Congreso\Evento;
-use Congreso\Temario;
-use Congreso\Http\Requests\TemarioRequest;
+use Congreso\Inscripcion;
+use Congreso\Asistencia;
+use Congreso\Http\Requests\AsistenciaRequest;
 
-class TemarioController extends Controller
+class AsistenciaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,8 @@ class TemarioController extends Controller
      */
     public function index()
     {
-        $temarios = Temario::where('estado',1)->orderBy('id')->paginate(6);
-        return View('administracion.temarios.index',compact('temarios'));
+        $asistencias = Asistencia::where('estado',1)->orderBy('id')->paginate(6);
+        return View('administracion.asistencias.index',compact('asistencias'));
     }
 
     /**
@@ -29,8 +29,8 @@ class TemarioController extends Controller
      */
     public function create()
     {
-        $eventos = Evento::where('estado',1)->get();
-        return View('administracion.temarios.create',compact('eventos'));
+        $inscripciones = Inscripcion::where('estado',1)->get();
+        return View('administracion.asistencias.create',compact('inscripciones'));
     }
 
     /**
@@ -39,10 +39,10 @@ class TemarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TemarioRequest $request)
+    public function store(AsistenciaRequest $request)
     {
-        Temario::create($request->all());
-        return Redirect::to('administracion/temarios/create')->with('mensaje-registro', 'Temario Registrado Correctamente');
+        Asistencia::create($request->all());
+        return Redirect::to('administracion/asistencias/create')->with('mensaje-registro', 'Asistencia Registrada Correctamente');
     }
 
     /**
@@ -64,9 +64,9 @@ class TemarioController extends Controller
      */
     public function edit($id)
     {
-        $temario = Temario::find($id);
-        $eventos = Evento::where('estado',1)->get();
-        return view('administracion.temarios.edit',compact('temario','eventos'));
+        $asistencia = Asistencia::find($id);
+        $inscripciones = Inscripcion::where('estado',1)->get();
+        return view('administracion.asistencias.edit',compact('asistencia','inscripciones'));
 
     }
 
@@ -77,13 +77,13 @@ class TemarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TemarioRequest $request, $id)
+    public function update(AsistenciaRequest $request, $id)
     {
-        $temario = Temario::find($id);
-        $temario->fill($request->all());
+        $asistencia = Asistencia::find($id);
+        $asistencia->fill($request->all());
 
-        if($temario->save()){
-            return Redirect::to('administracion/temarios')->with('mensaje-registro', 'Temario Actualizado Correctamente');
+        if($asistencia->save()){
+            return Redirect::to('administracion/asistencias')->with('mensaje-registro', 'Asistencia Actualizada Correctamente');
         }
     }
 
@@ -95,14 +95,14 @@ class TemarioController extends Controller
      */
     public function destroy($id,Request $request)
     {
-        $temario = Temario::find($id);
-        $temario->estado = 0;
-        $temario->save();
+        $asistencia = Asistencia::find($id);
+        $asistencia->estado = 0;
+        $asistencia->save();
 
         $message = "Eliminado Correctamente";
         if ($request->ajax()) {
             return response()->json([
-                'id'      => $temario->id,
+                'id'      => $asistencia->id,
                 'message' => $message
             ]);
         }

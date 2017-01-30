@@ -29,6 +29,7 @@ Route::resource('administracion/firmas','FirmaController');
 Route::resource('administracion/temarios','TemarioController');
 Route::resource('administracion/contenidos','ContenidoController');
 Route::resource('administracion/inscripciones','InscripcionController');
+Route::resource('administracion/asistencias','AsistenciaController');
 
 Route::get('administracion/validar-inscripcion','InscripcionController@getValidar');
 Route::post('administracion/validar-inscripcion','InscripcionController@postValidar');
