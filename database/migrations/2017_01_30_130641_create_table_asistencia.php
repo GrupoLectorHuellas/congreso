@@ -23,7 +23,7 @@ class CreateTableAsistencia extends Migration
             $table->char('estado',1)->default(1);
             $table->integer('id_inscripciones')->unsigned()->nullable();
             $table->foreign('id_inscripciones')
-                ->references('id')->on('id_inscripciones');
+                ->references('id')->on('inscripciones');
             
 
         });
