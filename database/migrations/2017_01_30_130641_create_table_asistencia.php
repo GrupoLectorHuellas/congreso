@@ -21,9 +21,9 @@ class CreateTableAsistencia extends Migration
             $table->time('hora_segunda_inicial');
             $table->time('hora_segunda_final');
             $table->char('estado',1)->default(1);
-            $table->integer('id_asistencia')->unsigned()->nullable();
-            $table->foreign('id_asistencia')
-                ->references('id')->on('inscripciones');
+            $table->integer('id_inscripciones')->unsigned()->nullable();
+            $table->foreign('id_inscripciones')
+                ->references('id')->on('id_inscripciones');
             
 
         });
