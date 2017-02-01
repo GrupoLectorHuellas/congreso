@@ -11,7 +11,10 @@ class Asistencia extends Model
     public $timestamps = false;
     protected $fillable=[
         'fecha',
-        'hora',
+        'hora_primera_inicial',
+        'hora_primera_final',
+        'hora_segunda_inicial',
+        'hora_segunda_final',
         'estado',
         'id_asistencia',
         

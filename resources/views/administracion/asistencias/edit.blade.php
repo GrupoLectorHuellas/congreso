@@ -59,20 +59,68 @@
             </div>
 
             <div class="bootstrap-timepicker">
-                            <div class="form-group">
-                            {!! Form::label('Hora Asistencia') !!}
+                    <div class="form-group">
+                    {!! Form::label('Hora Primera Inicial') !!}
 
-                            <div class="input-group">
-                                <input type="text" class="form-control timepicker" name ="hora">
+                    <div class="input-group">
+                        <input type="text" class="form-control timepicker" name ="hora_primera_inicial">
 
-                                <div class="input-group-addon">
-                                <i class="fa fa-clock-o"></i>
-                                </div>
-                            </div>
-                            <!-- /.input group -->
-                            </div>
-                        <!-- /.form group -->
+                        <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                        </div>
                     </div>
+                    <!-- /.input group -->
+                    </div>
+                <!-- /.form group -->
+              </div>
+
+              <div class="bootstrap-timepicker">
+                    <div class="form-group">
+                    {!! Form::label('Hora Primera Final') !!}
+
+                    <div class="input-group">
+                        <input type="text" class="form-control timepicker" name ="hora_primera_final">
+
+                        <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                        </div>
+                    </div>
+                    <!-- /.input group -->
+                    </div>
+                <!-- /.form group -->
+              </div>
+
+              <div class="bootstrap-timepicker">
+                    <div class="form-group">
+                    {!! Form::label('Hora Segunda Inicial') !!}
+
+                    <div class="input-group">
+                        <input type="text" class="form-control timepicker" name ="hora_segunda_inicial">
+
+                        <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                        </div>
+                    </div>
+                    <!-- /.input group -->
+                    </div>
+                <!-- /.form group -->
+              </div>
+
+              <div class="bootstrap-timepicker">
+                    <div class="form-group">
+                    {!! Form::label('Hora Segunda Final') !!}
+
+                    <div class="input-group">
+                        <input type="text" class="form-control timepicker" name ="hora_segunda_final">
+
+                        <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                        </div>
+                    </div>
+                    <!-- /.input group -->
+                    </div>
+                <!-- /.form group -->
+              </div>
 
             {!! Form::submit('Actualizar',['class'=>'btn btn-primary']) !!}
             {!! Form::close() !!}

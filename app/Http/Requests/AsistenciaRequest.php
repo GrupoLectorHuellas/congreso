@@ -25,7 +25,6 @@ class AsistenciaRequest extends FormRequest
     {
         return [
             'fecha'=>'required|date_format:d/m/Y',
-            'hora'=>'required',
             'id_asistencia'=>'required',
         ];
     }

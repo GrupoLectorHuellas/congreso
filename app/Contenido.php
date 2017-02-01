@@ -11,6 +11,7 @@ class Contenido extends Model
     public $timestamps = false;
     protected $fillable=[
         'subtemas',
+        'fecha',
         'hora_inicio',
         'hora_fin',
         'estado',

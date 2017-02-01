@@ -16,5 +16,16 @@
         <textarea name='subtemas' class="form-control" rows="3" placeholder="Subtemas ..."></textarea>
     </div>
 
+    <div class="form-group">
+    {!! Form::label('Fecha Contenido') !!}
+    <div class="input-group">
+        <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+        </div>
+
+        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha" value="{{old('fecha')}}">
+    </div>
+</div>
+
 
     

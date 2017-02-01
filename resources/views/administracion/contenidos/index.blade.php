@@ -40,6 +40,7 @@
                                 <tr>
                                     
                                     <th>SubTema</th>
+                                    <th>Fecha</th>
                                     <th>Temario</th>
                                     <th>Hora Inicio</th>
                                     <th>Hora Fin</th>
@@ -49,6 +50,7 @@
                                     <tr data-id="{{$contenido->id}}">
                                        
                                         <td>{{$contenido->subtemas}}</td>
+                                        <td>{{$contenido->fecha}}</td>
                                         <td>{{$contenido->temarios->nombre}}</td>
                                         <td>{{$contenido->hora_inicio}}</td>
                                         <td>{{$contenido->hora_fin}}</td>
