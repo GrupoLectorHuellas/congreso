@@ -31,8 +31,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Fecha</th>
-                                    <th>Hora</th>
-                                    <th>Cédula</th>               
+                                    <th>Usuario</th>
+                                    <th>Evento</th>
                                     <th>Editar</th>
 
                                 </tr>
@@ -42,8 +42,9 @@
                                     <tr data-id="{{$asistencia->id}}">
                                         <td>{{$asistencia->id}}</td>
                                         <td>{{$asistencia->fecha}}</td>
-                                         <td>{{$asistencia->hora}}</td>
-                                        <td>{{$asistencia->inscripciones->usuario_id}}</td>
+                                        <td>{{$asistencia->inscripciones->usuario->id}}</td>
+                                        <td>{{$asistencia->inscripciones->evento->nombre}}</td>
+
                                         <td>
                                             {!!link_to_route('asistencias.edit', $title = 'Editar', $parameters = $asistencia->id, $attributes = ['class'=>'btn  btn-primary btn-xs'])!!}
 

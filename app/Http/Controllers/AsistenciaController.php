@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Congreso\Inscripcion;
 use Congreso\Asistencia;
+use Congreso\Usuario;
 use Congreso\Http\Requests\AsistenciaRequest;
+use Carbon\Carbon;
+
 
 class AsistenciaController extends Controller
 {
@@ -18,7 +21,7 @@ class AsistenciaController extends Controller
      */
     public function index()
     {
-        $asistencias = Asistencia::where('estado',1)->orderBy('id')->paginate(6);
+        $asistencias= Asistencia::where('estado',1)->paginate(5);
         return View('administracion.asistencias.index',compact('asistencias'));
     }
 
@@ -29,8 +32,11 @@ class AsistenciaController extends Controller
      */
     public function create()
     {
+        $date = Carbon::now();
+        $date = $date->format('d-m-Y');
+        $usuarios= Usuario::where('estado',1)->get();
         $inscripciones = Inscripcion::where('estado',1)->get();
-        return View('administracion.asistencias.create',compact('inscripciones'));
+        return View('administracion.asistencias.create',compact('inscripciones','date','usuarios'));
     }
 
     /**
@@ -40,8 +46,24 @@ class AsistenciaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(AsistenciaRequest $request)
-    {
-        Asistencia::create($request->all());
+    {   $id_inscripcion="";
+        $date = Carbon::now();
+        $date = $date->format('d-m-Y');
+        $inscripcion = Inscripcion::where('usuario_id', $request->input('usuario_id'))
+            ->where('evento_id',$request->input('evento_id'))->get();
+        foreach ($inscripcion as $inscripcion) {
+            $id_inscripcion=$inscripcion->id;
+        }
+
+        Asistencia::create([
+            'fecha'=>$date,
+            'hora_primera_inicial'=>$request->input('hora_primera_inicial'),
+            'hora_primera_final'=>$request->input('hora_segunda_final'),
+            'hora_segunda_inicial'=>$request->input('hora_segunda_inicial'),
+            'hora_segunda_final'=>$request->input('hora_segunda_final'),
+            'id_inscripciones'=>$id_inscripcion,
+            'estado'=>1,
+        ]);
         return Redirect::to('administracion/asistencias/create')->with('mensaje-registro', 'Asistencia Registrada Correctamente');
     }
 
@@ -77,7 +99,7 @@ class AsistenciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AsistenciaRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $asistencia = Asistencia::find($id);
         $asistencia->fill($request->all());

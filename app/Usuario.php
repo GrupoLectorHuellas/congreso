@@ -40,6 +40,11 @@ class Usuario extends Authenticatable
     public function eventos(){
         return $this->belongsToMany(Evento::class,'inscripciones');
     }
+
+    public function inscripcion(){
+        return $this->hasMany(Inscripcion::class);
+
+    }
 /*
     public function setPasswordAttribute($valor){
         if(!empty($valor)){

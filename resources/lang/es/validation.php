@@ -126,6 +126,8 @@ return [
         'password_confirmation'=>'confirmación de contraseña',
         'radio-genero'=>'genero',
         'path'=>'imagen',
+        'evento_id'=>'evento',
+        'usuario_id'=>'usuario',
     ],
 
 ];

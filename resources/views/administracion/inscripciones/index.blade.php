@@ -40,6 +40,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <?php $tiene_asistencia =0?>
                                 @foreach($inscripciones as $inscripcion)
                                     <tr data-id="{{$inscripcion->id}}">
                                         <td>{{$inscripcion->id}}</td>
@@ -51,16 +52,27 @@
                                         @else
                                             <td><span class="label label-success">Validado</span></td>
                                         @endif
+                                        @foreach($inscripcion->asistencias as $asistencia)
+                                            <?php $tiene_asistencia++;?>
+                                        @endforeach
+                                        @if($tiene_asistencia ==0)
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-xs btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
+                                            </td>
+                                            @else
+                                            <td>
+                                                <button type="button" class="btn btn-danger btn-xs btn-delete" disabled ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
+                                            </td>
+                                        @endif
 
-                                        <td>
-                                            <button type="button" class="btn btn-danger btn-xs btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
-                                        </td>
+
                                         <td>
                                             {!!link_to_route('inscripciones.edit', $title = 'Editar', $parameters = $inscripcion->id, $attributes = ['class'=>'btn  btn-primary btn-xs'])!!}
 
                                         </td>
 
                                     </tr>
+                                    <?php $tiene_asistencia =0?>
                                 @endforeach
                                 </tbody>
                             </table>

@@ -16,11 +16,11 @@ class Asistencia extends Model
         'hora_segunda_inicial',
         'hora_segunda_final',
         'estado',
-        'id_asistencia',
+        'id_inscripciones',
         
     ];
 
     public function inscripciones(){
-        return $this->belongsTo(Inscripcion::class,'id_asistencia','id');
+        return $this->belongsTo(Inscripcion::class,'id_inscripciones','id');
     }
 }

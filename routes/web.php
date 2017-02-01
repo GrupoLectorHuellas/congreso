@@ -48,6 +48,8 @@ Route::get('carreras/{id}','Auth\AuthController@getCarreras');
 Route::get('cantones/{id}','Auth\AuthController@getCantones');
 Route::get('eventosNoMatriculados/{id}','InscripcionController@getEventosNoMatriculados');
 Route::get('eventosMatriculados/{id}','InscripcionController@getEventosMatriculados');
+Route::get('eventosMatriculadosValidados/{id_usuario}/','InscripcionController@getEventosMatriculadosValidados');
+
 
 
 #perfil y editar perfil

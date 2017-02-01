@@ -120,7 +120,6 @@ class InscripcionController extends Controller
         $date = $date->format('d-m-Y');
         $data = $request;
         $inscripcion = Inscripcion::find($id);
-        $inscripcion->fecha =$date;
         $inscripcion->usuario_id =$data['usuario_id'];
         $inscripcion->evento_id =$data['evento_id'];
 
@@ -167,6 +166,14 @@ class InscripcionController extends Controller
     public function getEventosMatriculados(Request $request,$id){
         if ($request->ajax()){
             $eventos = Evento::eventosMatriculados($id);
+            return response()->json($eventos);
+
+        }
+    }
+
+    public function getEventosMatriculadosValidados(Request $request,$id_usuario){
+        if ($request->ajax()){
+            $eventos = Evento::eventosMatriculadosValidados($id_usuario);
             return response()->json($eventos);
 
         }

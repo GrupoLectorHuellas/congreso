@@ -24,8 +24,8 @@ class AsistenciaRequest extends FormRequest
     public function rules()
     {
         return [
-            'fecha'=>'required|date_format:d/m/Y',
-            'id_asistencia'=>'required',
+            'usuario_id'=>'required',
+            'evento_id'=>'required',
         ];
     }
 }

@@ -23,6 +23,9 @@ class Inscripcion extends Model
         return $this->belongsTo(Usuario::class,'usuario_id','id');
     }
     public function evento(){
-        return $this->belongsTo(Evento::class,'evento_id','id');
+    return $this->belongsTo(Evento::class,'evento_id','id');
+    }
+    public function asistencias(){
+        return $this->hasMany(Asistencia::class,'id_inscripciones');
     }
 }

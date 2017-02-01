@@ -47,8 +47,6 @@ $(document).ready(function () {
                 }
             });
     });
-
-
     $("#registro").click(function(){
         var form = $('#form-data');
         var dato = form.serialize();
@@ -68,6 +66,25 @@ $(document).ready(function () {
             }
         });
     });
+});
+$("#usuarios").change(function (event) {
+    var cod = document.getElementById("usuarios").value;
 
+    var ruta = document.getElementById("ruta").value;
+    if(cod==''){
+        $("#eventos").empty();
+        $("#eventos").append("<option value=''>Seleccione el evento</option>")
+    }
+    else {
+        $.get(ruta+'/eventosMatriculadosValidados/' + event.target.value +"", function (response, facultades) {
+            $("#eventos").empty();
+            $("#eventos").append("<option value='' disabled selected>Seleccione el evento</option>")
+            for (i = 0; i < response.length; i++) {
+
+                $("#eventos").append("<option value='" + response[i].id + "'>" + response[i].nombre + "</option>")
+
+            }
+        })
+    }
 
 });

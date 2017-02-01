@@ -35,17 +35,6 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
             <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
 
-            <div class="form-group">
-                <label>Inscripción</label>
-                <select class="form-control select2" name="id_asistencia" id="inscripciones" style="width: 100%;" >
-                    
-                    @foreach($inscripciones as $inscripcion)
-                        <option value="{{$inscripcion->id}}" >  {{ $inscripcion->usuario_id }} </option>
-                    @endforeach
-                </select>
-            </div>
-
-          
 
             <div class="form-group">
                 {!! Form::label('Fecha Asistencia') !!}
@@ -54,8 +43,22 @@
                         <i class="fa fa-calendar"></i>
                     </div>
 
-                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha" value="{{old('fecha')}}">
+                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha" value="{{$asistencia->fecha}}">
                 </div>
+            </div>
+
+            <div class="form-group">
+                <label>Usuario</label>
+                <select class="form-control select2" name="usuario_id" id="usuarios" style="width: 100%;" >
+                        <option value="{{$asistencia->inscripciones->usuario->id}}" disabled selected>  {{ $asistencia->inscripciones->usuario->nombres.' '.$asistencia->inscripciones->usuario->apellidos }} </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Evento</label>
+                <select class="form-control select2" name="evento_id" id="eventos" style="width: 100%;" >
+                    <option value="{{$asistencia->inscripciones->evento->id}}" disabled selected>  {{ $asistencia->inscripciones->evento->nombre }} </option>
+                </select>
             </div>
 
             <div class="bootstrap-timepicker">
@@ -63,39 +66,7 @@
                     {!! Form::label('Hora Primera Inicial') !!}
 
                     <div class="input-group">
-                        <input type="text" class="form-control timepicker" name ="hora_primera_inicial">
-
-                        <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
-                        </div>
-                    </div>
-                    <!-- /.input group -->
-                    </div>
-                <!-- /.form group -->
-              </div>
-
-              <div class="bootstrap-timepicker">
-                    <div class="form-group">
-                    {!! Form::label('Hora Primera Final') !!}
-
-                    <div class="input-group">
-                        <input type="text" class="form-control timepicker" name ="hora_primera_final">
-
-                        <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
-                        </div>
-                    </div>
-                    <!-- /.input group -->
-                    </div>
-                <!-- /.form group -->
-              </div>
-
-              <div class="bootstrap-timepicker">
-                    <div class="form-group">
-                    {!! Form::label('Hora Segunda Inicial') !!}
-
-                    <div class="input-group">
-                        <input type="text" class="form-control timepicker" name ="hora_segunda_inicial">
+                        <input type="text" class="form-control timepicker" name ="hora_primera_inicial" value="{{$asistencia->hora_primera_inicial}}">
 
                         <div class="input-group-addon">
                         <i class="fa fa-clock-o"></i>
@@ -111,7 +82,39 @@
                     {!! Form::label('Hora Segunda Final') !!}
 
                     <div class="input-group">
-                        <input type="text" class="form-control timepicker" name ="hora_segunda_final">
+                        <input type="text" class="form-control timepicker" name ="hora_primera_final" value="{{$asistencia->hora_primera_final}}">
+
+                        <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                        </div>
+                    </div>
+                    <!-- /.input group -->
+                    </div>
+                <!-- /.form group -->
+              </div>
+
+              <div class="bootstrap-timepicker">
+                    <div class="form-group">
+                    {!! Form::label('Hora Segunda Inicial') !!}
+
+                    <div class="input-group">
+                        <input type="text" class="form-control timepicker" name ="hora_segunda_inicial" value="{{$asistencia->hora_segunda_inicial}}">
+
+                        <div class="input-group-addon">
+                        <i class="fa fa-clock-o"></i>
+                        </div>
+                    </div>
+                    <!-- /.input group -->
+                    </div>
+                <!-- /.form group -->
+              </div>
+
+              <div class="bootstrap-timepicker">
+                    <div class="form-group">
+                    {!! Form::label('Hora Segunda Final') !!}
+
+                    <div class="input-group">
+                        <input type="text" class="form-control timepicker" name ="hora_segunda_final" value="{{$asistencia->hora_segunda_final}}">
 
                         <div class="input-group-addon">
                         <i class="fa fa-clock-o"></i>
@@ -151,10 +154,8 @@
             $("[data-mask]").inputmask();
 
               //Timepicker
-            $(".timepicker").timepicker({
-            showInputs: false
-            });
+
         });
-        
+
     </script>
 @endsection
