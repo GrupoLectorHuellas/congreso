@@ -21,6 +21,11 @@ class Evento extends Model
         'estado',
     ];
 
+    protected $date=[
+        //'fecha_inicio',
+        //'fecha_fin',
+    ];
+
 
     public function getFechaInicioAttribute()
     {
@@ -36,7 +41,7 @@ class Evento extends Model
     }
 
      public function temarios(){
-        return $this->hasMany(Temario::class);
+        return $this->hasMany(Temario::class,'id_temario');//corregir cuando la migracin temario tenga id_eventos
     }
 
     public function expositores(){
@@ -44,6 +49,10 @@ class Evento extends Model
     }
     public function usuarios(){
         return $this->belongsToMany(Usuario::class,'inscripciones');
+    }
+
+    public function asistencias(){
+        return $this->belongsToMany(Asistencia::class,'inscripciones');
     }
 
     public function inscripcion(){
@@ -92,6 +101,8 @@ class Evento extends Model
         }
         return Evento::whereIn('id', $array)->get();
     }
+
+
 
 
 

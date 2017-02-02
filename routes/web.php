@@ -57,6 +57,17 @@ Route::get('User/MiPerfil', 'HomeUserController@mi_perfil');
 Route::get('User/MiPerfil/EditarPerfil', 'HomeUserController@editar_perfil');
 Route::get('recuperar_password', 'FrontController@recuperar_pass');
 
+Route::get('pdf', 'ReporteController@prueba');
+Route::get('administracion/reportes/aprobados', 'ReporteController@getAprobados');
+Route::post('administracion/reportes/aprobados', 'ReporteController@postAprobados');
+
+Route::get('administracion/reportes/reprobados', 'ReporteController@getReprobados');
+Route::post('administracion/reportes/reprobados', 'ReporteController@postReprobados');
+
+
+
+
+
 
 
 
