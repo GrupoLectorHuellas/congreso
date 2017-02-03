@@ -5,14 +5,17 @@ namespace Congreso\Http\Controllers;
 use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Congreso\Evento;
+use Congreso\Firma;
 use Congreso\Inscripcion;
 use Illuminate\Http\Request;
 
 class ReporteController extends Controller
 {
 
-    public function prueba(){
-        $pdf = PDF::loadView('administracion.pdf.pruebla');
+    public function certificados($id){
+        $firmas = Firma::where('estado',1)->get();
+        $inscripcion = Inscripcion::find($id);
+        $pdf = PDF::loadView('administracion.pdf.certificado',['firmas'=>$firmas,'inscripcion'=>$inscripcion])->setPaper('a4', 'landscape');
         return $pdf->download('archivo.pdf');
     }
 
@@ -92,7 +95,6 @@ class ReporteController extends Controller
             foreach ($inscripciones->asistencias as $asistencia){
                 if ($asistencia->hora_primera_final != null){
                     $primera =  $this->restarHoras($asistencia->hora_primera_inicial, $asistencia->hora_primera_final);
-
                 }
                 else{
                     $primera = '0-0';

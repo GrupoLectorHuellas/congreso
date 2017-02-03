@@ -1,0 +1,85 @@
+a {
+  color: #5D6975;
+  text-decoration: underline;
+}
+
+.nombre{
+    padding: 279px 30px 50px 480px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 26px;
+    font-weight:bold;
+}
+.evento{
+  padding: 34px 30px 0px 450px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 26px;
+  font-weight:bold;
+
+}
+
+.dia{
+  padding: 0px 30px 0px 463px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight:bold;
+}
+.mes{
+  padding: 0px 30px 0px 473px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight:bold;
+  border:2px solid red;
+}
+.fecha{
+  padding: 0px 30px 0px 483px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight:bold;
+}
+
+.primera{
+  display: inline-block;
+
+  padding: 0px 30px 0px 350px;
+  width: 100px;
+}
+.segunda{
+  display: inline-block;
+
+  padding: 0px 30px 0px 100px;
+  width: 100px;
+}
+
+.tercera{
+  display: inline-block;
+
+  padding: 0px 30px 0px 100px;
+  width: 100px;
+}
+
+.primera-nombre{
+  display:inherit;
+
+  padding: 0px 30px 0px 300px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    font-weight:bold;
+    border: 1px solid red;
+  width: 100px;
+
+}
+
+.segunda-nombre{
+  display: inline-block;
+
+  padding: 0px 30px 0px 350px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  font-weight:bold;
+  border: 1px solid red;
+  width: 100px;
+
+}
+
+
+

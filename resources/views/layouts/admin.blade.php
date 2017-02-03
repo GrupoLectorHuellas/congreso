@@ -225,6 +225,20 @@
 
                     </ul>
                 </li>
+
+
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-th"></i>
+                        <span>Certificados</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{url('administracion/certificados/generar')}}"><i class="fa fa-circle-o"></i>Generar</a></li>
+                        <li><a href="{{url('administracion/certificados/listado')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
+
+                    </ul>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->

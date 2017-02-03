@@ -68,6 +68,13 @@ Route::post('administracion/reportes/reprobados', 'ReporteController@postReproba
 Route::get('administracion/reportes/inscritos', 'ReporteController@getInscritos');
 Route::post('administracion/reportes/inscritos', 'ReporteController@postInscritos');
 
+Route::get('administracion/certificados/generar', 'CertificadoController@getGenerar');
+Route::post('administracion/certificados/generar', 'CertificadoController@postGenerar');
+
+Route::get('administracion/certificados/listado', 'CertificadoController@getListado');
+Route::get('administracion/certificados/{id}', 'ReporteController@certificados');
+
+
 
 
 

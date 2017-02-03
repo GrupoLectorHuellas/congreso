@@ -8,6 +8,7 @@ use Congreso\Http\Requests\InscripcionRequest;
 use Congreso\Inscripcion;
 use Congreso\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Expr\Include_;
 
@@ -48,11 +49,14 @@ class InscripcionController extends Controller
     {
         $date = Carbon::now();
         $date = $date->format('d-m-Y');
-        Inscripcion::create([
+        $inscripciones=Inscripcion::create([
             'fecha'=>$date,
             'usuario_id'=>$request->input('usuario_id'),
             'evento_id'=>$request->input('evento_id'),
         ]);
+        //enviar correo
+        Mail::to($inscripciones->usuario->email,$inscripciones->usuario->nombre)
+            ->send(new \Congreso\Mail\Evento($inscripciones));
        return Redirect::to('administracion/inscripciones/create')->with('mensaje-registro', 'Inscripción Registrada Correctamente');
     }
 

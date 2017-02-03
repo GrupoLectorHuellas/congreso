@@ -32,6 +32,7 @@
                                     <th>#</th>
                                     <th>Fecha</th>
                                     <th>Usuario</th>
+                                    <th>Tipo</th>
                                     <th>Evento</th>
                                     <th>Validado</th>
                                     <th>Eliminar</th>
@@ -46,6 +47,11 @@
                                         <td>{{$inscripcion->id}}</td>
                                         <td>{{$inscripcion->fecha}}</td>
                                         <td>{{$inscripcion->usuario->nombres.' '.$inscripcion->usuario->apellidos}}</td>
+                                        @if($inscripcion->usuario->titulo =="")
+                                            <td>Estudiante</td>
+                                        @else
+                                            <td>Profesional</td>
+                                        @endif
                                         <td>{{$inscripcion->evento->nombre}}</td>
                                         @if($inscripcion->validado==0)
                                         <td><span class="label label-danger">No Validado</span></td>

@@ -28,4 +28,8 @@ class Inscripcion extends Model
     public function asistencias(){
         return $this->hasMany(Asistencia::class,'id_inscripciones');
     }
+
+    public function certificados(){
+        return $this->hasMany(Certificado::class,'id_inscripciones');
+    }
 }
