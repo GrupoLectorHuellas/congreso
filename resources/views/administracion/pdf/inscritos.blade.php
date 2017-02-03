@@ -11,7 +11,7 @@
     <div id="logo">
         <img src="frontend/images/logoutm.png">
     </div>
-    <h1>{{strtoupper($evento->nombre)}} | {{$total_horas_evento. 'HORAS'}} | REPROBADOS </h1>
+    <h1>{{strtoupper($evento->nombre)}} | INSCRITOS </h1>
 
 
 </header>
@@ -22,8 +22,8 @@
         <th class="desc">IDENTIFICACIÓN</th>
         <th>NOMBRES</th>
         <th>APELLIDOS</th>
-        <th>HORAS ASISTIDAS</th>
-        <th>PORCENTAJE</th>
+        <th>EMAIL</th>
+
     </tr>
     </thead>
     <tbody>
@@ -31,11 +31,11 @@
     @foreach($inscripciones as $inscripcion)
         <tr>
             <td class="service">{{$cont+1}}</td>
-            <td class="unit">{{$inscripcion->usuario->id}}</td>
+            <td class="qty">{{$inscripcion->usuario->id}}</td>
             <td class="unit">{{strtoupper($inscripcion->usuario->nombres)}}</td>
             <td class="qty">{{strtoupper($inscripcion->usuario->apellidos)}}</td>
-            <td class="total">{{$horas[$cont]}}</td>
-            <td class="total">{{ round((($horas[$cont]*100)/$total_horas_evento),2).' %'}}</td>
+            <td class="qty">{{strtoupper($inscripcion->usuario->email)}}</td>
+
             <?php $cont++?>
         </tr>
     @endforeach

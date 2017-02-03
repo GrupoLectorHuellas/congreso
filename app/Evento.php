@@ -87,16 +87,18 @@ class Evento extends Model
             foreach($eventos_propio->inscripcion as $evento_inscripcion){
                 if($evento_inscripcion->validado==1) {
                     foreach ($inscripcion as $inscripcion) {
+                        //descomentar cuando se desea registrar validando el dia
+                        /*
                         $asistencia = Asistencia::where('fecha', $date)->where('id_inscripciones', $inscripcion->id)->count();
                         if ($asistencia == 0) {
                             $array[] = $eventos_propio->id;
                         }
+                        */
+                        $array[] = $eventos_propio->id;
+
+
                     }
                 }
-
-
-
-
             }
         }
         return Evento::whereIn('id', $array)->get();

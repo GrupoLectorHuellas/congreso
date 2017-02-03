@@ -58,7 +58,7 @@ class AsistenciaController extends Controller
         Asistencia::create([
             'fecha'=>$date,
             'hora_primera_inicial'=>$request->input('hora_primera_inicial'),
-            'hora_primera_final'=>$request->input('hora_segunda_final'),
+            'hora_primera_final'=>$request->input('hora_primera_final'),
             'hora_segunda_inicial'=>$request->input('hora_segunda_inicial'),
             'hora_segunda_final'=>$request->input('hora_segunda_final'),
             'id_inscripciones'=>$id_inscripcion,

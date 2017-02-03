@@ -64,6 +64,8 @@ Route::post('administracion/reportes/aprobados', 'ReporteController@postAprobado
 Route::get('administracion/reportes/reprobados', 'ReporteController@getReprobados');
 Route::post('administracion/reportes/reprobados', 'ReporteController@postReprobados');
 
+Route::get('administracion/reportes/inscritos', 'ReporteController@getInscritos');
+Route::post('administracion/reportes/inscritos', 'ReporteController@postInscritos');
 
 
 

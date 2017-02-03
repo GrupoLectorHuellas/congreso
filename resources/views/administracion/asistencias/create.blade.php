@@ -40,7 +40,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha" value="{{$date}}" disabled>
+                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha" value="{{$date}}">
                 </div>
             </div>
             <div class="form-group">
@@ -155,8 +155,10 @@
 
              //Timepicker
             $(".timepicker").timepicker({
-            showInputs: false
+            showInputs: false,
+                showMeridian:false
             });
+
         });
     </script>
 

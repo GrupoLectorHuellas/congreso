@@ -221,6 +221,8 @@
                     <ul class="treeview-menu">
                         <li><a href="{{url('administracion/reportes/aprobados')}}"><i class="fa fa-circle-o"></i>Aprobados</a></li>
                         <li><a href="{{url('administracion/reportes/reprobados')}}"><i class="fa fa-circle-o"></i> Reprobados</a></li>
+                        <li><a href="{{url('administracion/reportes/inscritos')}}"><i class="fa fa-circle-o"></i> Inscritos</a></li>
+
                     </ul>
                 </li>
             </ul>
