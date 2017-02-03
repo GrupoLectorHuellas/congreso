@@ -398,7 +398,19 @@
                     </div>
 
              </div>
+                <div class="row">
+            <div class="col-xs-12">
+              <center>
+               <a href="{{url ('cursos')}}" class="btn btn-primary" role="button">Ver Todos Los Cursos</a>
+                
+              </center>
+            </div><!-- /.col -->
 	        </div>
+
+
+   
+
+            
 
      
 
