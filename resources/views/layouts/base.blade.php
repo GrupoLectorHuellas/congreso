@@ -3,10 +3,10 @@
 
 <head>
   <!-- meta -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta charset="utf-8">
   <meta name="description" content="flat, clean, responsive, application frontend template built with bootstrap 3">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="{{url('administration/img/favicon.png')}}">
   <!-- /meta -->
   @yield('title')
   <title>Inicio</title>
@@ -23,8 +23,8 @@
   <link rel="stylesheet" href="{{url('frontend/styles/sublime.css')}}">
   <link rel="stylesheet" href="{{url('frontend/styles/skin.css')}}">
   <link rel="stylesheet" href="{{url('frontend/styles/fonts.css')}}">
-  <link rel="stylesheet" href="{{url('administration/dist/css/sweetalert.css')}}">
-  <link rel="stylesheet" href="{{url('administration/dist/css/alertify.css')}}">
+  
+
 
 
 
@@ -112,7 +112,7 @@
 
  
 <div class="container">
-   <section class="content-section">
+   <section>
         @yield('contenido')
 
     
@@ -160,6 +160,7 @@
   
   <!-- build:js({.tmp,app}) scripts/app.min.js -->
   <script src="{{url('frontend/vendor/jquery/dist/jquery.js')}}"></script>
+
 
   <script src="{{url('frontend/vendor/bootstrap/dist/js/bootstrap.js')}}"></script>
   <script src="{{url('frontend/scripts/main.js')}}"></script>

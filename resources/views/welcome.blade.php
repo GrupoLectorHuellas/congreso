@@ -398,7 +398,7 @@
                     </div>
 
              </div>
-                <div class="row">
+          <div class="row">
             <div class="col-xs-12">
               <center>
                <a href="{{url ('cursos')}}" class="btn btn-primary" role="button">Ver Todos Los Cursos</a>
@@ -488,8 +488,6 @@
   </section>
 
   
-  
-  
   <div class="container">
     <div class="[ col-sm-6  col-md-4 ]">
         <center>
@@ -533,6 +531,9 @@
     </div>
 </div>
 
+
+  
+  
 
 
 

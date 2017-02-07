@@ -54,7 +54,8 @@ Route::get('eventosMatriculadosValidados/{id_usuario}/','InscripcionController@g
 
 #perfil y editar perfil
 Route::get('User/MiPerfil', 'HomeUserController@mi_perfil');
-Route::get('cursos', 'CursosController@cursos');
+Route::get('cursos', 'CursosController@todos_cursos');
+Route::get('cursos/formato', 'CursosController@cursos');
 Route::get('User/MiPerfil/EditarPerfil', 'HomeUserController@editar_perfil');
 Route::get('recuperar_password', 'FrontController@recuperar_pass');
 
