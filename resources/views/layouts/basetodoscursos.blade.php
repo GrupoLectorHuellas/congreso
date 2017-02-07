@@ -111,7 +111,7 @@
   <!-- /menu navigation -->
 
  
-<div class="container2">
+<div class="container">
    <section>
         @yield('contenido')
 

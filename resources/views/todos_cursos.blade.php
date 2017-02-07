@@ -1,4 +1,4 @@
-@extends("layouts.base")
+@extends("layouts.basetodoscursos")
     @section('title')
     <title>Todos los cursos</title>
     @endsection()

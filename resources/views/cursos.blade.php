@@ -10,6 +10,8 @@
     <!-- Theme style -->
 
     <link rel="stylesheet" href="{{url('administration/dist/css/main.css')}}">
+
+    
   
     
     @endsection()
@@ -20,11 +22,26 @@
  @section('contenido')
 
 
- <div class="jumbotron">
-            <h1 align="center" class="blue " style="color:#2196F3;">Material Design Like Cards </h1>
-            <h3 align="center" class="blue">With Headers</h3>
-          
+
+<section class="vertical-center">
+<div class="pagewrapper">
+<section class="cover__home front">
+<div class="background__home">
 </div>
+<div class="container">
+<div class="pagetitle">
+<article class="home__page">
+<h1 class="home__page__title">Aprende nuevas tecnologías web y móvil</h1>
+<p class="home__page__slogan">A través de cursos prácticos, concisos y actualizados, dictados por profesionales con experiencia</p>
+<a data-toggle="modal" data-target="#registroModal" href="#" role="button" class="home__page__button">Inscribete ahora</a>
+</article>
+</div>
+</div>
+</section>
+</div>
+
+  </section>
+
 
 <h4 class="course__agenda__title" data-animation="fadeInUp" data-appear-top-offset="-190"> <span class="color">Temario</span></h4>
 
@@ -284,149 +301,75 @@
     </div>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                            <h4 class="modal-title" id="myModalLabel">More About Joe</h4>
-                            </div>
-                        <div class="modal-body">
-                            <center>
-                            <img src="{{url('frontend/images/fotoo.jpg')}}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
-                            <h3 class="media-heading">Joe Sixpack <small>USA</small></h3>
-                            <span><strong>Skills: </strong></span>
-                                <span class="label label-warning">HTML5/CSS</span>
-                                <span class="label label-info">Adobe CS 5.5</span>
-                                <span class="label label-info">Microsoft Office</span>
-                                <span class="label label-success">Windows XP, Vista, 7</span>
-                            </center>
-                            <hr>
-                            <center>
-                            <p class="text-left"><strong>Bio: </strong><br>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo a, vulputate vel tellus.</p>
-                            <br>
-                            </center>
-                        </div>
-                        <div class="modal-footer">
-                            <center>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about Joe</button>
-                            </center>
-                        </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                            <h4 class="modal-title" id="myModalLabel">More About Joe</h4>
-                            </div>
-                        <div class="modal-body">
-                            <center>
-                            <img src="{{url('frontend/images/fotoo.jpg')}}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
-                            <h3 class="media-heading">Joe Sixpack <small>USA</small></h3>
-                            <span><strong>Skills: </strong></span>
-                                <span class="label label-warning">HTML5/CSS</span>
-                                <span class="label label-info">Adobe CS 5.5</span>
-                                <span class="label label-info">Microsoft Office</span>
-                                <span class="label label-success">Windows XP, Vista, 7</span>
-                            </center>
-                            <hr>
-                            <center>
-                            <p class="text-left"><strong>Bio: </strong><br>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo a, vulputate vel tellus.</p>
-                            <br>
-                            </center>
-                        </div>
-                        <div class="modal-footer">
-                            <center>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about Joe</button>
-                            </center>
-                        </div>
-            </div>
-        </div>
-    </div>
+  
 </div>
 
-
-<!-- contact form -->
-  <section id="contact" class="content-section banner">
-
-    <div class="container" data-animation="fadeIn">
-
-      <div class="row">
-
-        <div class="col-sm-offset-3 col-sm-6">
+<br>
+<h4 class="course__agenda__title" data-animation="fadeInUp" data-appear-top-offset="-190"> <span class="color">Precios</span></h4>
 
 
-          <div class="section-title">
-            <h6 data-animation="fadeInDown" data-appear-top-offset="-200">Try any plan free for 30 days</h6>
-            <h4 data-animation="fadeInUp" data-appear-top-offset="-190">Choose the right plan for your business</h4>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="pricing-table">
-            <div class="pricing-body">
-              <h5>STARTER</h5>
-              <div class="plan-price">
-                <span class="heading-font">$5</span>
-                <small><em>per month</em></small>
-              </div>
-              <ul class="plan-features">
-                <li>2 accounts</li>
-                <li>Limited access</li>
-                <li>4GB of storage</li>
-                <li>-</li>
-                <li><i class="ti-check text-success"></i>
-                </li>
-              </ul>
-              <button class="btn btn-color">Get started</button>
+<!-- Contenedor -->
+    <div class="pricing-wrapper clearfix">
+        <div class="pricing-table">
+            <h3 class="pricing-title">Basico</h3>
+            <div class="price">$60<sup>/ mes</sup></div>
+            <!-- Lista de Caracteristicas / Propiedades -->
+            <ul class="table-list">
+                <li>10 GB <span>De almacenamiento</span></li>
+                <li>1 Dominio <span>incluido</span></li>
+                <li>25 GB <span>De transferencia mensual</span></li>
+                <li>Base de datos <span class="unlimited">ilimitadas</span></li>
+                <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
+                <li>CPanel <span>incluido</span></li>
+            </ul>
+            <!-- Contratar / Comprar -->
+            <div class="table-buy">
+                <p>$60<sup>/ mes</sup></p>
+                <a href="#" class="pricing-action">Contratar</a>
             </div>
-          </div>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3">
-          <div class="pricing-table">
-            <div class="pricing-body">
-              <h5>PROFESSIONAL</h5>
-              <div class="plan-price">
-                <span class="heading-font">$20</span>
-                <small><em>per month</em></small>
-              </div>
-              <ul class="plan-features">
-                <li>10 accounts</li>
-                <li>Unlimited access</li>
-                <li>3TB of storage</li>
-                <li>-</li>
-                <li><i class="ti-close text-danger"></i>
-                </li>
-              </ul>
-              <button class="btn btn-color">Get started</button>
-              <small class="mt10 show">
-                                Try it free for 30 days.
-                            </small>
+ 
+        <div class="pricing-table recommended">
+            <h3 class="pricing-title">Premium</h3>
+            <div class="price">$100<sup>/ mes</sup></div>
+            <!-- Lista de Caracteristicas / Propiedades -->
+            <ul class="table-list">
+                <li>35 GB <span>De almacenamiento</span></li>
+                <li>5 Dominios <span>incluidos</span></li>
+                <li>100 GB <span>De transferencia mensual</span></li>
+                <li>Base de datos <span class="unlimited">ilimitadas</span></li>
+                <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
+                <li>CPanel <span>incluido</span></li>
+            </ul>
+            <!-- Contratar / Comprar -->
+            <div class="table-buy">
+                <p>$100<sup>/ mes</sup></p>
+                <a href="#" class="pricing-action">Contratar</a>
             </div>
-          </div>
         </div>
-        
-                
-      </div>
-
-      <small><em>*All prices quoted in USD. Terms and conditions may apply</em></small>
-
+ 
+        <div class="pricing-table">
+            <h3 class="pricing-title">Ultimate</h3>
+            <div class="price">$200<sup>/ mes</sup></div>
+            <!-- Lista de Caracteristicas / Propiedades -->
+            <ul class="table-list">
+                <li>100 GB <span>De almacenamiento</span></li>
+                <li>8 Dominios <span>incluidos</span></li>
+                <li>200 GB <span>De transferencia mensual</span></li>
+                <li>Base de datos <span class="unlimited">ilimitadas</span></li>
+                <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
+                <li>CPanel <span>incluido</span></li>
+            </ul>
+            <!-- Contratar / Comprar -->
+            <div class="table-buy">
+                <p>$200<sup>/ mes</sup></p>
+                <a href="#" class="pricing-action">Contratar</a>
+            </div>
+        </div>
     </div>
 
-  </section>
-  <!-- /contact form -->
-
-
-
+<br>
+<br>
 
 
 
