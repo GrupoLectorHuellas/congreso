@@ -16,6 +16,15 @@
 </div>
 
 <div class="form-group">
+        <label>Eventos</label>
+        <select class="form-control select2" multiple="multiple" data-placeholder="Selecione los eventos" name ="eventos[]" style="width: 100%;">
+            @foreach($eventos as $evento)
+                <option value="{{$evento->id}}" >  {{ $evento->nombre }} </option>
+            @endforeach
+        </select>
+</div>
+
+<div class="form-group">
     {!!Form::label('Foto','Foto:')!!}
     {!!Form::file('path')!!}
 </div>

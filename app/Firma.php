@@ -32,4 +32,8 @@ class Firma extends Model
             \Storage::disk('local')->put($name, \File::get($path));
         }
     }
+
+    public function eventos(){
+         return $this->belongsToMany(Evento::class);
+    }
 }
