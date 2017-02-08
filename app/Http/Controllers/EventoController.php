@@ -3,6 +3,7 @@
 namespace Congreso\Http\Controllers;
 
 use Congreso\EventoExpositor;
+use Congreso\EventoFirma;
 use Congreso\Http\Requests\EventoRequest;
 use Congreso\Http\Requests\EventoEditRequest;
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Congreso\Evento;
 use Congreso\Categoria;
 use Congreso\Expositor;
+use Congreso\Firma;
 
 
 class EventoController extends Controller
@@ -34,7 +36,8 @@ class EventoController extends Controller
     {
         $categorias = Categoria::where('estado',1)->get();
         $expositores = Expositor::where('estado',1)->get();
-        return View('administracion.eventos.create',compact('categorias','expositores'));
+        $firmas = Firma::where('estado',1)->get();
+        return View('administracion.eventos.create',compact('categorias','expositores', 'firmas'));
     }
 
     /**
@@ -52,6 +55,14 @@ class EventoController extends Controller
             EventoExpositor::create([
                 'evento_id'=>$evento->id,
                 'expositor_id'=>$expositor,
+            ]);
+        }
+
+        $total_firmas = $request->firmas;
+        foreach($total_firmas as $firma){
+            EventoFirma::create([
+                'evento_id'=>$evento->id,
+                'firma_id'=>$firma,
             ]);
         }
         return Redirect::to('administracion/eventos/create')->with('mensaje-registro', 'Evento Registrado Correctamente');
@@ -80,8 +91,9 @@ class EventoController extends Controller
 
         $evento = Evento::find($id);
         $expositores = Expositor::where('estado',1)->get();
+        $firmas = Firma::where('estado',1)->get();
         $categorias = Categoria::where('estado',1)->get();
-        return view('administracion.eventos.edit',compact('evento','categorias','expositores'));
+        return view('administracion.eventos.edit',compact('evento','categorias','expositores', 'firmas'));
 
     }
 
@@ -98,6 +110,7 @@ class EventoController extends Controller
         $evento->fill($request->all());
 
         $evento->expositores()->sync($request->get('expositores'));
+        $evento->firmas()->sync($request->get('firmas'));
         if($evento->save()){
             return Redirect::to('administracion/eventos')->with('mensaje-registro', 'Evento Actualizado Correctamente');
         }

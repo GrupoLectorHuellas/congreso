@@ -106,6 +106,24 @@
                 </select>
             </div>
 
+            <div class="form-group">
+                <label>Firmas</label>
+                <select class="form-control select2" multiple="multiple" data-placeholder="Selecione las firmas" name ="firmas[]" style="width: 100%;">
+                        <?php $array = array(); ?>
+                        @foreach($evento->firmas as $firma_propia)
+                            <?php $array[] = $firma_propia->id;?>
+                        @endforeach
+                        @foreach($firmas as $firma)
+                            @if(in_array($firma->id,$array) )
+                                <option value="{{$firma->id}}" selected> {{ $firma->abreviatura. ' ' .$firma->nombre.' '.$firma->apellidos }} </option>
+                            @else
+                                <option value="{{$firma->id}}" > {{ $firma->abreviatura. ' ' .$firma->nombre.' '.$firma->apellidos }}</option>
+                            @endif
+                        @endforeach
+
+                </select>
+            </div>
+
 
             <div class="form-group">
                 {!!Form::label('Foto','Foto:')!!}

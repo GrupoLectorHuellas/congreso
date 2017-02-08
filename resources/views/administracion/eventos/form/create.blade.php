@@ -57,6 +57,17 @@
 </div>
 
 <div class="form-group">
+        <label>Firmas</label>
+        <select class="form-control select2" multiple="multiple" data-placeholder="Selecione las firmas" name ="firmas[]" style="width: 100%;">
+            @foreach($firmas as $firma)
+                <option value="{{$firma->id}}" >  {{ $firma->abreviatura. ' ' .$firma->nombre.' '.$firma->apellidos }} </option>
+            @endforeach
+        </select>
+</div>
+
+
+
+<div class="form-group">
     {!!Form::label('Foto','Foto:')!!}
     {!!Form::file('path',['class'=>'form-control'])!!}
 </div>
