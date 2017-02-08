@@ -29,11 +29,11 @@ class Evento extends Model
 
     public function getFechaInicioAttribute()
     {
-        return Carbon::parse($this->attributes['fecha_inicio'])->format('m/d/Y');
+        return Carbon::parse($this->attributes['fecha_inicio'])->format('d/m/Y');
     }
     public function getFechaFinAttribute()
     {
-        return Carbon::parse($this->attributes['fecha_fin'])->format('m/d/Y');
+        return Carbon::parse($this->attributes['fecha_fin'])->format('d/m/Y');
     }
 
     public function categoria(){

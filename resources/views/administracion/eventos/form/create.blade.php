@@ -13,19 +13,19 @@
         <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
         </div>
-
-        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha_inicio" value="{{old('fecha_inicio')}}">
+        <input type="text" class="form-control pull-right" id="datepicker" name = "fecha_inicio" value="{{old('fecha_inicio')}}">
     </div>
 </div>
 <div class="form-group">
-    {!! Form::label('Fecha Finalizacion') !!}
+    {!! Form::label('Fecha Fin') !!}
     <div class="input-group">
         <div class="input-group-addon">
             <i class="fa fa-calendar"></i>
         </div>
-        <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha_fin" value="{{old('fecha_fin')}}">
+        <input type="text" class="form-control pull-right" id="datepicker2" name = "fecha_fin" value="{{old('fecha_fin')}}">
     </div>
 </div>
+
 
 <div class="form-group">
     {!! Form::label('Precio Estudiante') !!}

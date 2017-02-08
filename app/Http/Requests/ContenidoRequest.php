@@ -24,10 +24,10 @@ class ContenidoRequest extends FormRequest
     public function rules()
     {
         return [
+            'id_temarios'=>'required',
             'subtemas'=>'required|max:200',
-            'hora_inicio'=>'required|before:hora_fin',
-            'hora_fin'=>'required|after:hora_inicio',
-            'id_contenido'=>'required',
+            'fecha_inicio'=>'required|before:fecha_fin|date_format:d/m/Y',
+            'fecha_fin'=>'required|after:fecha_inicio|date_format:d/m/Y',
         ];
     }
 }

@@ -26,11 +26,13 @@ class AppServiceProvider extends ServiceProvider
 
         });
 
-        Validator::extend('validar_fechas', function($attribute, $value, $parameters, $validator) {
-            $validador = new ValidarIdentificacion();
-            if ($validador->validarCedula($value) && $value != '2222222222')
+        Validator::extend('validar_fecha_inicio', function($attribute, $value, $parameters, $validator) {
+            $fecha_inicio= $parameters[0];
+            if ($fecha_inicio ==114){
                 return true;
-            #si devuelve true no imprime mensaje
+
+            }
+
 
 
         });

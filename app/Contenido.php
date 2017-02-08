@@ -11,14 +11,13 @@ class Contenido extends Model
     public $timestamps = false;
     protected $fillable=[
         'subtemas',
-        'fecha',
-        'hora_inicio',
-        'hora_fin',
+        'fecha_inicio',
+        'fecha_fin',
         'estado',
-        'id_contenido'
+        'id_temarios'
     ];
 
     public function temarios(){
-        return $this->belongsTo(Temario::class,'id_contenido','id');
+        return $this->belongsTo(Temario::class,'id_temarios','id');
     }
 }

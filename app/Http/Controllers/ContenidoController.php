@@ -39,8 +39,19 @@ class ContenidoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ContenidoRequest $request)
+    public function store(Request $request)
     {
+        $this->validate($request, [
+            'id_temarios'=>'required',
+            'subtemas'=>'required|max:200',
+            'fecha_inicio'=>'required|before:fecha_fin|date_format:d/m/Y',
+            'fecha_fin'=>'required|after:fecha_inicio|date_format:d/m/Y',
+            'fecha_inicio'=>'validar_fecha_inicio:10',
+
+        ]);
+        $temario = Temario::find($request->input('id_temarios'));
+        dd($temario->eventos->fecha_inicio);
+
         Contenido::create($request->all());
         return Redirect::to('administracion/contenidos/create')->with('mensaje-registro', 'Contenido Registrado Correctamente');
     }

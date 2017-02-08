@@ -106,6 +106,9 @@ return [
         'identificacion'  => [
             'validar_cedula' => 'La cedula es incorrecta',
         ],
+        'fecha_inicio'  => [
+            'validar_fecha_inicio' => 'La fecha_inicio no esta dentro del rango de duración del evento',
+        ],
     ],
 
     /*
@@ -128,6 +131,7 @@ return [
         'path'=>'imagen',
         'evento_id'=>'evento',
         'usuario_id'=>'usuario',
+        'id_temarios'=>'temario',
     ],
 
 ];
