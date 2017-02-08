@@ -31,8 +31,8 @@
 <div class="container">
 <div class="pagetitle">
 <article class="home__page">
-<h1 class="home__page__title">Aprende nuevas tecnologías web y móvil</h1>
-<p class="home__page__slogan">A través de cursos prácticos, concisos y actualizados, dictados por profesionales con experiencia</p>
+<h1 class="home__page__title">Curso de {{$eventos->nombre}}</h1>
+<p class="home__page__slogan">{{$eventos->descripcion}}</p>
 <a data-toggle="modal" data-target="#registroModal" href="#" role="button" class="home__page__button">Inscribete ahora</a>
 </article>
 </div>
@@ -42,9 +42,9 @@
 
   </section>
 
-
+<div style="padding-top: 75px;">
 <h4 class="course__agenda__title" data-animation="fadeInUp" data-appear-top-offset="-190"> <span class="color">Temario</span></h4>
-
+</div>
 
 <!-- SPEAKERS -->
 

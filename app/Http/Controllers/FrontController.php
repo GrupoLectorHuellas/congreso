@@ -4,7 +4,9 @@ namespace Congreso\Http\Controllers;
 
 use Congreso\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Congreso\Video;
+use Congreso\Evento;
 
 class FrontController extends Controller
 {
@@ -15,8 +17,11 @@ class FrontController extends Controller
 
     public function index(){
         $video= Video::all()->first();
-        return view('welcome', compact('video'));
+        $eventos= Evento::where('estado',1)->paginate(3);
+        return view('welcome', compact('video', 'eventos'));
     }
+
+    
 
     public function editarPerfil(){
         return view('editar_perfil');

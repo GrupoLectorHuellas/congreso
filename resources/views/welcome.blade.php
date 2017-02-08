@@ -276,60 +276,72 @@
     <br>
     <br>
     <div class="container">
-
               <div class="col-md-8 col-md-offset-2">
                 <div class="section-title">
                   <h5 class="heading" data-animation="fadeInDown" data-appear-top-offset="-200"><em>¿Y los cursos?</em></h5>
                   <h4 class="sub-heading" data-animation="fadeInUp" data-appear-top-offset="-190"> <span class="color">La carrera de Ingeniería de Sistemas ofrece los siguientes cursos</span></h4>
                 </div>
               </div>
+  
+       
+          @foreach($eventos as $evento)
+           
 
+           <div class="[ col-sm-6  col-md-4 ]">
+                    <div class="[ info-card ]">
+                      <img style="height: 425px; width:100%; " src=" {{url('uploads')}}/{{$evento->path}}" />
+                          <div class="[ info-card-details ] animate">
+                                <div class="[ info-card-header ]">
+                                  <h1> {{$evento->categoria->nombre}}</h1>
+                                  <h3> Curso de {{$evento->nombre}} </h3>
+                                </div>
+                                  <div class="[ info-card-detail ]">
+                                    <!-- Description -->
+                                    
+                                          
+                                          <p style="font-weight: bold; font-size: 125%;"> Al terminar este curso vas a aprender</p>
+
+                                          <p align=justify>
+
+                                            {{$evento->descripcion}}
+                                            
+                                          </p>
+                                            <p align=justify>
+
+                                            <b>Inicia: </b> {{$evento->fecha_inicio}}
+                                            <br>
+                                            <b>Finaliza: </b> {{$evento->fecha_fin}}
+                                            
+                                          </p>
+
+
+
+                                          {!!link_to('cursos/'.$evento->id.'', $title = 'Más Información', $attributes = ['class'=>'btn  btn-primary btn-md'], $secure = null)!!}
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+           
+          @endforeach
+
+         
+   
+      <div class="row">
+            <div class="col-xs-12">
+              <center>
+               <a href="{{url ('cursos')}}" class="btn btn-primary" role="button">Ver Todos Los Cursos</a>
+                
+              </center>
+            </div>
+	        </div>
+              
+<!--
         <div class="container">
             <div class="row">
-                  <div class="[ col-sm-6  col-md-4 ]">
-                    <div class="[ info-card ]">
-                      <img style="height: 425px; width:100%; " src="{{url('frontend/images/redes-cisco.png')}}" />
-                      <div class="[ info-card-details ] animate">
-                        <div class="[ info-card-header ]">
-                          <h1> Redes CISCO </h1>
-                          <h3> Curso de Redes WAN y LAN </h3>
-                        </div>
-                        <div class="[ info-card-detail ]">
-                          <!-- Description -->
-                           
-                                <div class="feature-icon bordered">
-                                     <i class="ti-cloud color"></i>
-                                </div>
-                                <p style="font-weight: bold; font-size: 125%;"> Al terminar este curso vas a aprender</p>
-
-                                <p align=justify>Aprenderá conceptos básicos de redes wan y lan, de igual forma
-                                  comprenderá los comandos necesarios para la administración y mantenimiento de las mismas
-                                   dfdfdfdffdfdffdfdfdffdffdffddfdfdfdfdfdfdfdfdfdfddddddd
-                                   dddddddddddddddddddddddddddddd
-                                   
-                                  
-                                 </p>
-
-                                 <a href="#" class="btn btn-primary" role="button">Más Información</a>
-
-                          <!--
-                          <div class="social">
-                            <a href="https://www.facebook.com/rem.mcintosh" class="[ social-icon facebook ] animate"><span class="fa fa-facebook"></span></a>
-
-                            <a href="https://twitter.com/Mouse0270" class="[ social-icon twitter ] animate"><span class="fa fa-twitter"></span></a>
-
-                            <a href="https://github.com/mouse0270" class="[ social-icon github ] animate"><span class="fa fa-github-alt"></span></a>
-
-                            <a href="https://plus.google.com/u/0/115077481218689845626/posts" class="[ social-icon google-plus ] animate"><span class="fa fa-google-plus"></span></a>
-
-                            <a href="www.linkedin.com/in/remcintosh/" class="[ social-icon linkedin ] animate"><span class="fa fa-linkedin"></span></a>
-                        
-                          </div>
-                            -->
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                 
 
                   <div class="[ col-sm-6  col-md-4 ]">
                     <div class="[ info-card ]">
@@ -340,7 +352,7 @@
                           <h3> Diseño y Programación Web </h3>
                         </div>
                         <div class="[ info-card-detail ]">
-                          <!-- Description -->
+                   
                                 <div class="feature-icon bordered">
                                      <i class="ti-cloud color"></i>
                                 </div>
@@ -373,7 +385,7 @@
                             <h3> Curso de Derivadas e Integrales </h3>
                           </div>
                           <div class="[ info-card-detail ]">
-                            <!-- Description -->
+                   
                             <div class="feature-icon bordered">
                                      <i class="ti-cloud color"></i>
                                 </div>
@@ -398,17 +410,11 @@
                     </div>
 
              </div>
-          <div class="row">
-            <div class="col-xs-12">
-              <center>
-               <a href="{{url ('cursos')}}" class="btn btn-primary" role="button">Ver Todos Los Cursos</a>
-                
-              </center>
-            </div><!-- /.col -->
-	        </div>
+
+                    
 
 
-   
+   -->
 
             
 
@@ -417,6 +423,8 @@
       
 
     </div>
+
+    
     <br>
     <br>
     <br>

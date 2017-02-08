@@ -74,6 +74,7 @@ Route::post('administracion/certificados/generar', 'CertificadoController@postGe
 
 Route::get('administracion/certificados/listado', 'CertificadoController@getListado');
 Route::get('administracion/certificados/{id}', 'ReporteController@certificados');
+Route::get('cursos/{id}', 'CursosController@cursos');
 
 
 

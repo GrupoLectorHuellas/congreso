@@ -64,7 +64,7 @@ class InscripcionController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Respons
      */
     public function show($id)
     {
