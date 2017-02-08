@@ -4,9 +4,13 @@ namespace Congreso\Http\Controllers;
 
 use Congreso\Certificado;
 use Congreso\Evento;
+use Congreso\Firma;
+use Congreso\Inscripcion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
+use Barryvdh\DomPDF\Facade as PDF;
+
 
 class CertificadoController extends Controller
 {
@@ -26,9 +30,6 @@ class CertificadoController extends Controller
         $suma ='0-0';
         $cont=0;
         $array_inscripciones = array();
-        $array_inscripciones_aprobadas = array();
-        $array_horas_inscripcion = array();
-
         $this->validate($request, [
             'evento_id'=>'required',
         ]);
@@ -79,9 +80,10 @@ class CertificadoController extends Controller
                         'id_inscripciones'=>$inscripciones->id,
 
                     ]);
-                    //enviar correo
+
                     Mail::to($inscripciones->usuario->email,$inscripciones->usuario->nombre)
                         ->send(new \Congreso\Mail\Certificado($inscripciones));
+
 
                 }
 

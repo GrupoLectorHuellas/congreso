@@ -122,43 +122,37 @@
                         <li><a href="{{route('expositores.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
                     </ul>
                 </li>
+
                 <li class="treeview">
                     <a href="#">
-                        <i class="fa fa-address-card-o"></i>
-                        <span>Eventos</span>
+                        <i class="fa fa-address-card-o"></i><span>Eventos</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{route('eventos.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
                         <li><a href="{{route('eventos.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
+                        <li>
+                            <a href="#"><i class="fa fa-book"></i> Temario
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{route('temarios.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
+                                <li><a href="{{route('temarios.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-book"></i> Contenido
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{route('contenidos.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
+                                <li><a href="{{route('contenidos.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
 
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-book"></i>
-                        <span>Temario</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                         <li><a href="{{route('temarios.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
-                        <li><a href="{{route('temarios.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
-
-                    </ul>
-                </li>
-
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-book"></i>
-                        <span>Contenido</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                         <li><a href="{{route('contenidos.index')}}"><i class="fa fa-circle-o"></i>Listado</a></li>
-                        <li><a href="{{route('contenidos.create')}}"><i class="fa fa-circle-o"></i> Agregar</a></li>
-
-                    </ul>
-                </li>
 
                 <li class="treeview">
                     <a href="#">
