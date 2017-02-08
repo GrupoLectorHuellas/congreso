@@ -33,49 +33,7 @@
                 <strong> Firma Agregada Correctamente.</strong>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
-            <input type="hidden" name="ruta" id ="ruta" value="{{url('')}}">
-
-                <div class="form-group">
-                    {!! Form::label('Abreviatura Titulo') !!}
-                    {!! Form::text('abreviatura',null,['placeholder'=>'Abreviatura','class'=>'form-control']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('Nombres') !!}
-                    {!! Form::text('nombre',null,['placeholder'=>'Nombres','class'=>'form-control','onkeypress'=>'return soloLetras(event)']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('Apellidos') !!}
-                    {!! Form::text('apellidos',null,['placeholder'=>'Apellidos','class'=>'form-control','onkeypress'=>'return soloLetras(event)']) !!}
-                </div>
-
-                 <div class="form-group">
-                <label>Eventos</label>
-                <select class="form-control select2" multiple="multiple" data-placeholder="Selecione los eventos" name ="eventos[]" style="width: 100%;">
-                        <?php $array = array(); ?>
-                        @foreach($firma->eventos as $evento_propio)
-                            <?php $array[] = $evento_propio->id;?>
-                        @endforeach
-                        @foreach($eventos as $evento)
-                            @if(in_array($evento->id,$array) )
-                                <option value="{{$evento->id}}" selected> {{ $evento->nombre }} </option>
-                            @else
-                                <option value="{{$evento->id}}" > {{ $evento->nombre }} </option>
-                            @endif
-                        @endforeach
-
-                </select>
-            </div>
-
-                <div class="form-group">
-                    {!!Form::label('Foto','Foto:')!!}
-                    {!!Form::file('path')!!}
-                </div>
-            <!--
             @include('administracion.firmas.form.create')
-
-            -->
             {!! Form::submit('Actualizar',['class'=>'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
@@ -84,20 +42,11 @@
 @section('script')
     <script src="{{url('administration/dist/js/firmas/java-firmas.js')}}"></script>
     <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
-    <script src="{{url('administration/plugins/select2/select2.full.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {
                 $(".aprobado").fadeOut(300);
             },3000);
-        });
-    </script>
-
-     <script>
-        $(function () {
-            //Initialize Select2 Elements
-            $(".select2").select2();
-            
         });
     </script>
 @endsection

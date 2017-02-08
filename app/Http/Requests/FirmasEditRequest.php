@@ -27,7 +27,6 @@ class FirmasEditRequest extends FormRequest
             'abreviatura'=>'required|max:20',
             'nombre'=>'required|max:500',
              'apellidos'=>'required|max:500',
-             'eventos'=>'required',
             
         ];
     }

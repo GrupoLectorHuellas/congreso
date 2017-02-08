@@ -28,7 +28,7 @@
             <h3 class="box-title">Nueva Firma</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
-            {!!Form::open(['route'=>'firmas.store', 'method'=>'POST','files' => true, 'id'=>'form'])!!}
+            {!!Form::open(['route'=>'firmas.store', 'method'=>'POST','files' => true])!!}
             <div id="msj-success" class="alert alert-success alert-dismissible aprobado" role="alert" style="display:none">
                 <strong> Firmas Agregada Correctamente.</strong>
             </div>
@@ -42,22 +42,11 @@
 @section('script')
     <script src="{{url('administration/dist/js/firmas/java-firmas.js')}}"></script>
     <script src="{{url('administration/dist/js/validaNumerosLetras.js')}}"></script>
-    <script src="{{url('administration/dist/js/alertify.js')}}"></script>
-    <script src="{{url('administration/plugins/select2/select2.full.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {
                 $(".aprobado").fadeOut(300);
             },3000);
-        });
-    </script>
-
-    
-    <script>
-        $(function () {
-            //Initialize Select2 Elements
-            $(".select2").select2();
-            
         });
     </script>
 @endsection

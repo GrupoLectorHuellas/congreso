@@ -47,11 +47,6 @@ class Evento extends Model
     public function expositores(){
          return $this->belongsToMany(Expositor::class);
     }
-
-    public function firmas(){
-         return $this->belongsToMany(Firma::class);
-    }
-
     public function usuarios(){
         return $this->belongsToMany(Usuario::class,'inscripciones');
     }
