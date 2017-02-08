@@ -17,8 +17,8 @@ class CreateTableContenido extends Migration
             $table->increments('id'); // te crea automaticamente la clave primaria
             $table->string('subtemas',200);
             $table->date('fecha');
-            $table->time('hora_inicio');
-            $table->time('hora_fin');
+            //$table->time('hora_inicio');
+            //$table->time('hora_fin');
             $table->char('estado',1)->default(1);
             $table->integer('id_contenido')->unsigned()->nullable();
             $table->foreign('id_contenido')

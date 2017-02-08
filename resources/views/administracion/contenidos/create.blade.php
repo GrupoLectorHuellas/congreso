@@ -34,38 +34,7 @@
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
             @include('administracion.contenidos.form.create')
-            <!-- time Picker -->
-              <div class="bootstrap-timepicker">
-                    <div class="form-group">
-                    {!! Form::label('Hora Inicio') !!}
 
-                    <div class="input-group">
-                        <input type="text" class="form-control timepicker" name ="hora_inicio">
-
-                        <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
-                        </div>
-                    </div>
-                    <!-- /.input group -->
-                    </div>
-                <!-- /.form group -->
-              </div>
-
-               <div class="bootstrap-timepicker">
-                    <div class="form-group">
-                    {!! Form::label('Hora Fin') !!}
-
-                    <div class="input-group">
-                        <input type="text" class="form-control timepicker" name ="hora_fin">
-
-                        <div class="input-group-addon">
-                        <i class="fa fa-clock-o"></i>
-                        </div>
-                    </div>
-                    <!-- /.input group -->
-                    </div>
-                <!-- /.form group -->
-              </div>
             {!! Form::submit('Registrar',['class'=>'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>

@@ -20,14 +20,19 @@ class Imagen extends Model
 
     public function setPathAttribute($path){
 
-        if(!empty($path)){
-            /* Para Actualizar Imagen */
-            if(!empty($this->attributes['path'])){
-                \Storage::delete($this->attributes['path']);
+        if(!empty($path)) {
+            //para guardar la imagen por defecto
+            if (empty($this->attributes['path'])) {
+                $this->attributes['path'] = $path;
+            } else {
+                /* Para Actualizar Imagen */
+                if ( ! empty($this->attributes['path'])) {
+                    \Storage::delete($this->attributes['path']);
+                }
+                $this->attributes['path'] = Carbon::now()->second.$path->getClientOriginalName();
+                $name = Carbon::now()->second.$path->getClientOriginalName();
+                \Storage::disk('local')->put($name, \File::get($path));
             }
-            $this->attributes['path'] = Carbon::now()->second.$path->getClientOriginalName();
-            $name = Carbon::now()->second.$path->getClientOriginalName();
-            \Storage::disk('local')->put($name, \File::get($path));
         }
     }
 }
