@@ -25,6 +25,7 @@ Route::resource('administracion/expositores','ExpositorController');
 Route::post('administracion/expositores/create','ExpositorController@store');
 Route::resource('administracion/eventos','EventoController');
 Route::resource('administracion/videos','VideoController');
+Route::resource('administracion/imagenes','ImagenCertificadoController');
 Route::resource('administracion/firmas','FirmaController');
 Route::resource('administracion/temarios','TemarioController');
 Route::resource('administracion/contenidos','ContenidoController');
