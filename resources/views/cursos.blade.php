@@ -49,187 +49,48 @@
 <!-- SPEAKERS -->
 
   <section class="speakers" id="speakers">
-          <div class="row" id="speakers">
+      <div class="row" id="speakers">
         <div class="col-md-10 col-md-offset-1">
-          <div class="title-div speaker">
-            <div class="python-icon col-md-1"/></div>
-            <h2 class="col-md-5">Agenda</h2>
+            <div class="title-div speaker">
+                    <div class="python-icon col-md-1"/></div>
+                      <h2 class="col-md-5">Agenda</h2>
+                    </div>
+                <div class="div-shadow">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th class="col-md-12 text-center" colspan="6">Del {{$eventos->fecha_inicio}} al {{$eventos->fecha_fin}} </th>
+                    </tr>
+                    <tr>
+                      <th class="col-md-3">Tema</th>
+                      <th class="col-md-1">Duración en Horas</th>
+                      <th class="col-md-2">Ponentes</th>
+                      <th class="col-md-2">Contenido</th>
+                      <th class="col-md-2">Fecha Inicio</th>
+                      <th class="col-md-2">Fecha Fin</th>
+                    </tr>
+                    
+                    <tr>
+
+        
+                        @foreach ($eventos as $evento)
+                      
+                                 <td class="col-md-3">{{$evento->temarios->nombre}}</td>
+                                    <td class="col-md-1">Regístro y Acreditación</td>
+                                    <td class="col-md-2">─</td>
+                                    <td class="col-md-2">─</td>
+                                    <td class="col-md-2">─</td>
+                                    <td class="col-md-2">─</td>
+                        @endforeach
+                     
+                    </tr>
+
+                    </table>
+                    
+                    
+                </div>
           </div>
-          <div class="div-shadow">
-            <table class="table table-bordered">
-              <tr>
-                <th class="col-md-12 text-center" colspan="4">8 de Marzo (martes)</th>
-              </tr>
-              <tr>
-                <th class="col-md-1">Hora</th>
-                <th class="col-md-3">Titulo</th>
-                <th class="col-md-2">Presenteador</th>
-                <th class="col-md-6">Descripción</th>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">18:00</td>
-                <td class="col-md-3">Regístro y Acreditación</td>
-                <td class="col-md-2">─</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">18:30</td>
-                <td class="col-md-3">Início</td>
-                <td class="col-md-2">Álvaro Justen</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">18:55</td>
-                <td class="col-md-3">Empezar con Python</td>
-                <td class="col-md-2">Cristian Salamea</td>
-                <td class="col-md-6">Conocer el ambito del lenguaje de programación para construcción de software en diferentes paradigmas.</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">19:25</td>
-                <td class="col-md-3">Cambio de presentadores</td>
-                <td class="col-md-2">─</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">19:30</td>
-                <td class="col-md-3">Capturando datos: la manera Pythónica</td>
-                <td class="col-md-2">Álvaro Justen</td>
-                <td class="col-md-6">Web scraping y parsing: la mejor manera de hacerlo con Python. Uso de librerías para peticiones HTTP, parsing de HTML y automación de browsers con las librerías requests, tapioca-wrapper, splinter y rows.</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">20:00</td>
-                <td class="col-md-3">Coffee break \o/</td>
-                <td class="col-md-2">─</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">20:30</td>
-                <td class="col-md-3">Ciencia de Datos con Python</td>
-                <td class="col-md-2">Carlos De Smedt</td>
-                <td class="col-md-6">Ciencia de Datos, un nuevo perfil. Revisión de conceptos: Datos, Información y Conocimiento desde un enfoque sistémico. Scrapping como fuente de datos. Ya recopillé los datos, ¿ y ahora ? / Tratamiento de Datos. Inteligencia de datos, demostración. El valor de los datos, casos de éxito desde el Growth Hacking</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">21:00</td>
-                <td class="col-md-3">Cambio de presentadores</td>
-                <td class="col-md-2">─</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">21:05</td>
-                <td class="col-md-3">Charlas relámpagos (5 min)</td>
-                <td class="col-md-2">5 presenteadores</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">21:35</td>
-                <td class="col-md-3">Finalización</td>
-                <td class="col-md-2">Álvaro Justen</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-            </table>
-            <table class="table table-bordered">
-              <tr>
-                <th class="col-md-12 text-center" colspan="4">9 de Marzo (miércoles)</th>
-              </tr>
-              <tr>
-                <th class="col-md-1">Hora</th>
-                <th class="col-md-3">Titulo</th>
-                <th class="col-md-2">Presenteador</th>
-                <th class="col-md-6">Descripción</th>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">18:00</td>
-                <td class="col-md-3">Regístro y Acreditación</td>
-                <td class="col-md-2">─</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">18:30</td>
-                <td class="col-md-3">Início</td>
-                <td class="col-md-2">Álvaro Justen</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">18:55</td>
-                <td class="col-md-3">¿Hablo Python?</td>
-                <td class="col-md-2">Karina Mora</td>
-                <td class="col-md-6">Similar a cuando aprendemos un nuevo idioma, podemos cometer errores comunes al expresarnos en ese idioma del mismo modo que lo hacemos en nuestro idioma natal. En Python, podemos utilizar estructuras que nos parecen naturales hasta que aprendemos a hablar Python y entendemos como aprovechar mejor lo que nos ofrece este lenguaje.</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">19:25</td>
-                <td class="col-md-3">Cambio de presentadores</td>
-                <td class="col-md-2">─</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">19:30</td>
-                <td class="col-md-3">De Cero a Producción en 15 min</td>
-                <td class="col-md-2">David Oña</td>
-                <td class="col-md-6">Se mostrara el manejo, ventajas, y herramientas de ansible automatización de aprovisionamiento de servidores remotos y seguridad anti-DDos</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">20:00</td>
-                <td class="col-md-3">Foto oficial :D</td>
-                <td class="col-md-2">─</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">20:05</td>
-                <td class="col-md-3">Coffee break \o/</td>
-                <td class="col-md-2">─</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">20:30</td>
-                <td class="col-md-3">¿Por qué es importante la libertad en el software?</td>
-                <td class="col-md-2">Quiliro Ordóñez</td>
-                <td class="col-md-6">La charla resalta la importancia de usar software libre y cómo cualquier pieza de código no-libre puede afectar el balance de poder entre nosotros y los más inteligentes e influyentes.</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">21:00</td>
-                <td class="col-md-3">Cambio de presentadores</td>
-                <td class="col-md-2">─</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">21:05</td>
-                <td class="col-md-3">Charlas relámpagos (5 min)</td>
-                <td class="col-md-2">6 presenteadores</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-              <tr>
-                <td class="col-md-1">21:40</td>
-                <td class="col-md-3">Finalización</td>
-                <td class="col-md-2">Álvaro Justen</td>
-                <td class="col-md-6">─</td>
-              </tr>
-              
-            </table>
-          </div>
-        </div>
       </div>
+       </div>
 
   </section>
 
