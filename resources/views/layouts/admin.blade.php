@@ -47,11 +47,14 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <small class="bg-red">Online</small>
+                            <img src="{{url('uploads/'.Auth::user()->path)}}" class="user-image" alt="User Image">
                             <span class="hidden-xs">{!! Auth::user()->nombres.' '.Auth::user()->apellidos !!}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
+
+                                <img src="{{url('uploads/'.Auth::user()->path)}}" class="img-circle" alt="User Image">
 
                                 <p>
                                     Administrador
@@ -78,6 +81,15 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                <img src="{{url('uploads/'.Auth::user()->path)}}" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                <p>{!! Auth::user()->nombres.' '.Auth::user()->apellidos !!}</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+            </div>
 
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu">
