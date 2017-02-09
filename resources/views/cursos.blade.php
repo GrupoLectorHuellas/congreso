@@ -58,22 +58,30 @@
                 <div class="div-shadow">
                   <table class="table table-bordered">
                     <tr>
-                      <th class="col-md-12 text-center" colspan="5">Del {{$eventos->fecha_inicio}} al {{$eventos->fecha_fin}} </th>
+                      <th class="col-md-12 text-center" colspan="6">Del {{$eventos->fecha_inicio}} al {{$eventos->fecha_fin}} </th>
                     </tr>
                     <tr>
-                      <th class="col-md-1">Tema</th>
-                      <th class="col-md-3">Duración en Horas</th>
+                      <th class="col-md-3">Tema</th>
+                      <th class="col-md-1">Duración en Horas</th>
                       <th class="col-md-2">Ponentes</th>
-                      <th class="col-md-6">Contenido</th>
-                      <th class="col-md-6">Fecha</th>
+                      <th class="col-md-2">Contenido</th>
+                      <th class="col-md-2">Fecha Inicio</th>
+                      <th class="col-md-2">Fecha Fin</th>
                     </tr>
                     
                     <tr>
-                      <td class="col-md-1">18:00</td>
-                      <td class="col-md-3">Regístro y Acreditación</td>
-                      <td class="col-md-2">─</td>
-                      <td class="col-md-6">─</td>
-                      <td class="col-md-6">─</td>
+
+        
+                        @foreach ($eventos as $evento)
+                      
+                                 <td class="col-md-3">{{$evento->temarios->nombre}}</td>
+                                    <td class="col-md-1">Regístro y Acreditación</td>
+                                    <td class="col-md-2">─</td>
+                                    <td class="col-md-2">─</td>
+                                    <td class="col-md-2">─</td>
+                                    <td class="col-md-2">─</td>
+                        @endforeach
+                     
                     </tr>
 
                     </table>
