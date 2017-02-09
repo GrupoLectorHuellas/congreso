@@ -40,7 +40,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="text" class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask name ="fecha" value="{{$date}}">
+                    <input type="text" class="form-control pull-right" id="datepicker" name = "fecha" value="{{old('fecha')}}">
                 </div>
             </div>
             <div class="form-group">
@@ -158,6 +158,26 @@
             showInputs: false,
                 showMeridian:false
             });
+
+        });
+        $(function() {
+            $.fn.datepicker.dates['en'] = {
+                days: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+                daysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+                daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+                    "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+                monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun",
+                    "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+                today: "Hoy",
+                clear: "Clear",
+                titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+                weekStart: 0
+            };
+            $("#datepicker").datepicker({
+                format: 'dd/mm/yyyy',
+                language:'en'
+            })
 
         });
     </script>

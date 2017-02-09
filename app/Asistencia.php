@@ -3,6 +3,8 @@
 namespace Congreso;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+
 
 class Asistencia extends Model
 {
@@ -19,6 +21,10 @@ class Asistencia extends Model
         'id_inscripciones',
         
     ];
+    public function getFechaAttribute()
+    {
+        return Carbon::parse($this->attributes['fecha'])->format('d/m/Y');
+    }
 
     public function inscripciones(){
         return $this->belongsTo(Inscripcion::class,'id_inscripciones','id');

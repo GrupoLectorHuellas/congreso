@@ -112,6 +112,11 @@ return [
         'fecha_fin'  => [
             'validar_fecha_fin' => 'El campo fecha_fin no está dentro del rango de duración del evento',
         ],
+        'fecha'  => [
+            'validar_fecha_asistencia' => 'El campo fecha no está dentro del rango de duración del evento',
+            'validar_fecha_asistencia_repetida' => 'Ya se encuetra registrada una asistencia con el campo fecha',
+
+        ],
     ],
 
     /*

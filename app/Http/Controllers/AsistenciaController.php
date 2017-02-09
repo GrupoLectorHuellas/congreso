@@ -45,8 +45,16 @@ class AsistenciaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AsistenciaRequest $request)
-    {   $id_inscripcion="";
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'usuario_id'=>'required',
+            'evento_id'=>'required',
+            'fecha'=>'validar_fecha_asistencia:'.$request->input('evento_id').'|validar_fecha_asistencia_repetida:'.$request->input('evento_id').','.$request->input('usuario_id'),
+
+
+        ]);
+        $id_inscripcion="";
         $date = Carbon::now();
         $date = $date->format('d-m-Y');
         $inscripcion = Inscripcion::where('usuario_id', $request->input('usuario_id'))
@@ -56,7 +64,7 @@ class AsistenciaController extends Controller
         }
 
         Asistencia::create([
-            'fecha'=>$date,
+            'fecha'=>$request->input('fecha'),
             'hora_primera_inicial'=>$request->input('hora_primera_inicial'),
             'hora_primera_final'=>$request->input('hora_primera_final'),
             'hora_segunda_inicial'=>$request->input('hora_segunda_inicial'),
