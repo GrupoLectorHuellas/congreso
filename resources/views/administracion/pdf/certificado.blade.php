@@ -6,7 +6,7 @@
     <title>Example 1</title>
     <link rel="stylesheet" href="administration/dist/css/stylecertificado.css" media="all" />
 </head>
-<body style="background: url(http://localhost/congreso/public/administration/img/certificado.jpg) no-repeat scroll center;">
+<body style="background: url({{'http://localhost/congreso/public/uploads/'.$fondo->path}}) no-repeat scroll center;">
     <p class="nombre">{{strtoupper($inscripcion->usuario->apellidos.' '.$inscripcion->usuario->nombres)}}</p>
     <p class="evento">{{strtoupper($inscripcion->evento->nombre)}}</p>
     <p class="fecha">{{$inscripcion->evento->fecha_inicio}}</p>

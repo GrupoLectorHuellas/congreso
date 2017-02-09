@@ -49,8 +49,6 @@ class ContenidoController extends Controller
             //'fecha_inicio'=>'validar_fecha_inicio:'.$request->input('id_temarios'),
 
         ]);
-        $temario = Temario::find($request->input('id_temarios'));
-        dd($temario->eventos->fecha_inicio);
 
         Contenido::create($request->all());
         return Redirect::to('administracion/contenidos/create')->with('mensaje-registro', 'Contenido Registrado Correctamente');

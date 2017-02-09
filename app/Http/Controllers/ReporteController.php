@@ -6,6 +6,7 @@ use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Congreso\Evento;
 use Congreso\Firma;
+use Congreso\Imagen;
 use Congreso\Inscripcion;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class ReporteController extends Controller
     public function certificados($id){
         $firmas = Firma::where('estado',1)->get();
         $inscripcion = Inscripcion::find($id);
-        $pdf = PDF::loadView('administracion.pdf.certificado',['firmas'=>$firmas,'inscripcion'=>$inscripcion])->setPaper('a4', 'landscape');
+        $fondo = Imagen::all()->last();
+        $pdf = PDF::loadView('administracion.pdf.certificado',['firmas'=>$firmas,'inscripcion'=>$inscripcion,'fondo'=>$fondo])->setPaper('a4', 'landscape');
         return $pdf->download('archivo.pdf');
     }
 
