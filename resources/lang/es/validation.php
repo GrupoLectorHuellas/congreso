@@ -107,7 +107,10 @@ return [
             'validar_cedula' => 'La cedula es incorrecta',
         ],
         'fecha_inicio'  => [
-            'validar_fecha_inicio' => 'La fecha_inicio no esta dentro del rango de duración del evento',
+            'validar_fecha_inicio' => 'El campo fecha_inicio no está dentro del rango de duración del evento',
+        ],
+        'fecha_fin'  => [
+            'validar_fecha_fin' => 'El campo fecha_fin no está dentro del rango de duración del evento',
         ],
     ],
 

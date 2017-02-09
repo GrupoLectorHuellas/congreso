@@ -44,9 +44,9 @@ class ContenidoController extends Controller
         $this->validate($request, [
             'id_temarios'=>'required',
             'subtemas'=>'required|max:200',
-            'fecha_inicio'=>'required|before:fecha_fin|date_format:d/m/Y',
-            'fecha_fin'=>'required|after:fecha_inicio|date_format:d/m/Y',
-            'fecha_inicio'=>'validar_fecha_inicio:10',
+            'fecha_inicio'=>'required|before:fecha_fin|date_format:d/m/Y|validar_fecha_inicio:'.$request->input('id_temarios'),
+            'fecha_fin'=>'required|after:fecha_inicio|date_format:d/m/Y|validar_fecha_fin:'.$request->input('id_temarios'),
+            //'fecha_inicio'=>'validar_fecha_inicio:'.$request->input('id_temarios'),
 
         ]);
         $temario = Temario::find($request->input('id_temarios'));

@@ -22,7 +22,7 @@
                 <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right" id="datepicker" name = "fecha_inicio">
+                <input type="text" class="form-control pull-right" id="datepicker" name = "fecha_inicio" value="{{old('fecha_inicio')}}">
         </div>
     </div>
     <div class="form-group">
@@ -31,7 +31,7 @@
                 <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                 </div>
-                <input type="text" class="form-control pull-right" id="datepicker2" name = "fecha_fin">
+                <input type="text" class="form-control pull-right" id="datepicker2" name = "fecha_fin" value="{{old('fecha_fin')}}">
             </div>
     </div>
 
