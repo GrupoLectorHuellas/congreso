@@ -27,7 +27,7 @@ $factory->define(Congreso\Usuario::class, function (Faker\Generator $faker) {
         'telefono' => "9999999999",
         'direccion' => "Machala",
         'titulo' => "Administrador",
-        'path' => "noavatar.png",
+        
         'email' => $faker->unique()->safeEmail,
         'id_roles' => 1,
         'id_cantones' => 181,
