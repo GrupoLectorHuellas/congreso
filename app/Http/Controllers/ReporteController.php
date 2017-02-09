@@ -17,7 +17,15 @@ class ReporteController extends Controller
         $firmas = Firma::where('estado',1)->get();
         $inscripcion = Inscripcion::find($id);
         $fondo = Imagen::all()->last();
-        $pdf = PDF::loadView('administracion.pdf.certificado',['firmas'=>$firmas,'inscripcion'=>$inscripcion,'fondo'=>$fondo])->setPaper('a4', 'landscape');
+        $evento = Evento::find($inscripcion->evento->id);
+        $date = Carbon::now();
+        $date = $date->format('d/m/Y');
+        $total_evento=0;
+        foreach($evento->temarios as $temario){
+            $total_evento = $total_evento+$temario->duracion;
+        }
+
+        $pdf = PDF::loadView('administracion.pdf.certificado',['firmas'=>$firmas,'inscripcion'=>$inscripcion,'fondo'=>$fondo,'horas'=>$total_evento,'date'=>$date,'evento'=>$evento])->setPaper('a4', 'landscape');
         return $pdf->download('archivo.pdf');
     }
 

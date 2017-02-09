@@ -2,42 +2,66 @@ a {
   color: #5D6975;
   text-decoration: underline;
 }
+p{
+  padding: 0px;
+  margin: 0px;
+}
 
 .nombre{
-    margin: 300px 0px 0px 480px;
+    margin: 305px 0px 0px 480px;
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 26px;
     font-weight:bold;
-    border:1px solid red;
 }
 .evento{
-  margin: 34px 0px 0px 680px;
+  margin: 38px 0px 0px 683px;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 26px;
   font-weight:bold;
-  border:1px solid red;
 
 }
+.caja-fecha{
+  width: 600px;
+  position: relative;
+  height: 40px;
+}
 
-.dia{
-  padding: 0px 30px 0px 463px;
+.caja-fecha-inicial{
+  margin: 5px 0px 0px 438px;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 24px;
   font-weight:bold;
+  height: 25px;
+  width: 130px;
+  position: absolute;
+
+
 }
-.mes{
-  padding: 0px 30px 0px 473px;
+.caja-fecha-final{
+  margin: 5px 0px 0px 630px;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 24px;
   font-weight:bold;
-  border:2px solid red;
+  height: 25px;
+  position: absolute;
+
 }
-.fecha{
-  padding: 0px 30px 0px 483px;
+.hora{
+  margin: 5px 0px 0px 425px;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 24px;
   font-weight:bold;
+  height: 30px;
 }
+.date{
+  margin: 30px 0px 0px 533px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 21px;
+  font-weight:bold;
+  height: 30px;
+}
+
+
 
 .primera{
   display: inline-block;
@@ -60,28 +84,37 @@ a {
 }
 
 .primera-nombre{
-  display:inherit;
 
-  padding: 0px 30px 0px 300px;
-    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 10px;
-    font-weight:bold;
-    border: 1px solid red;
-  width: 100px;
-
-}
-
-.segunda-nombre{
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight:bold;
   display: inline-block;
 
-  padding: 0px 30px 0px 350px;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 10px;
-  font-weight:bold;
-  border: 1px solid red;
-  width: 100px;
-
+  padding: 0px 10px 0px 305px;
+  width: 200px;
 }
+.segunda-nombre{
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight:bold;
+  display: inline-block;
+
+  padding: 0px 30px 0px 20px;
+  width: 200px;
+}
+
+.tercera-nombre{
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight:bold;
+  display: inline-block;
+
+  padding: 0px 30px 0px 15px;
+  width: 200px;
+}
+
+
+
 
 
 
