@@ -49,6 +49,8 @@ class EventoController extends Controller
     public function store(EventoRequest $request)
     {
         $evento =Evento::create($request->all());
+        $firmas = $request->input('firmas');
+
 
         $total_expositores = $request->expositores;
         foreach($total_expositores as $expositor){
@@ -57,15 +59,20 @@ class EventoController extends Controller
                 'expositor_id'=>$expositor,
             ]);
         }
-
-        $total_firmas = $request->firmas;
-        foreach($total_firmas as $firma){
-            EventoFirma::create([
-                'evento_id'=>$evento->id,
-                'firma_id'=>$firma,
-            ]);
+            //si tiene el evento firmas
+        if (isset($firmas )) {
+            $total_firmas = $request->firmas;
+            foreach ($total_firmas as $firma) {
+                EventoFirma::create([
+                    'evento_id' => $evento->id,
+                    'firma_id'  => $firma,
+                ]);
+            }
         }
-        return Redirect::to('administracion/eventos/create')->with('mensaje-registro', 'Evento Registrado Correctamente');
+
+            return Redirect::to('administracion/eventos/create')->with('mensaje-registro',
+                'Evento Registrado Correctamente');
+
 
     }
 
@@ -108,9 +115,12 @@ class EventoController extends Controller
     {
         $evento = Evento::find($id);
         $evento->fill($request->all());
+        $firmas = $request->input('firmas');
 
         $evento->expositores()->sync($request->get('expositores'));
-        $evento->firmas()->sync($request->get('firmas'));
+        if (isset($firmas )) {
+            $evento->firmas()->sync($request->get('firmas'));
+        }
         if($evento->save()){
             return Redirect::to('administracion/eventos')->with('mensaje-registro', 'Evento Actualizado Correctamente');
         }
