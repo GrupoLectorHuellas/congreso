@@ -19,4 +19,8 @@ class Temario extends Model
     public function eventos(){
         return $this->belongsTo(Evento::class,'id_temario','id');
     }
+
+    public function contenidos(){
+        return $this->hasMany(Contenido::class,'id_temarios');//corregir cuando la migracin temario tenga id_eventos
+    }
 }

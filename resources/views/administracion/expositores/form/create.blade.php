@@ -20,7 +20,7 @@
     {!! Form::email('email',null,['placeholder'=>'Email','class'=>'form-control']) !!}
 </div>
 <div class="form-group">
-    {!! Form::label('Experiencia Laborarl') !!}
+    {!! Form::label('Experiencia Laboral') !!}
     {!! Form::textarea('experiencia_laboral',null,['placeholder'=>'Experiencia Laboral','class'=>'form-control','size' => '30x4']) !!}
 </div>
 <div class="form-group">

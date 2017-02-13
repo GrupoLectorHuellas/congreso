@@ -1,6 +1,6 @@
 @extends("layouts.base")
     @section('title')
-    <title>Curso </title>
+    <title>Curso de {{$eventos->nombre}} </title>
     @endsection()
     @section('head')
     <!-- Font Awesome -->
@@ -62,27 +62,42 @@
                     </tr>
                     <tr>
                       <th class="col-md-3">Tema</th>
-                      <th class="col-md-1">Duración en Horas</th>
-                      <th class="col-md-2">Ponentes</th>
-                      <th class="col-md-2">Contenido</th>
+                      <th class="col-md-2">Duración en Horas</th>
+                      <th class="col-md-3">Contenido</th>
                       <th class="col-md-2">Fecha Inicio</th>
                       <th class="col-md-2">Fecha Fin</th>
                     </tr>
                     
-                    <tr>
+                  
 
+                                
         
-                        @foreach ($eventos as $evento)
-                      
-                                 <td class="col-md-3">{{$evento->temarios->nombre}}</td>
-                                    <td class="col-md-1">Regístro y Acreditación</td>
-                                    <td class="col-md-2">─</td>
-                                    <td class="col-md-2">─</td>
-                                    <td class="col-md-2">─</td>
-                                    <td class="col-md-2">─</td>
+                        @foreach ($temarios as $temario)
+                        <tr>
+                                 <td class="col-md-3">{{$temario->nombre}}</td>
+                                 <td class="col-md-2">{{$temario->duracion}} H</td>
+
+                                
+                                @foreach($contenidos as $contenido)
+                                    @if($temario->id == $contenido->id_temarios )
+                                        <td class="col-md-3">{{$contenido->subtemas}}</td>
+                                        <td class="col-md-2">{{$contenido->fecha_inicio}}</td>
+                                        <td class="col-md-2">{{$contenido->fecha_fin}}</td>
+                                    @else
+                                        <td class="col-md-3">---</td>
+                                        <td class="col-md-2">---</td>
+                                        <td class="col-md-2">---</td>
+                                    
+                                    @endif
+                                @endforeach                                      
+                                
+                               
+                        </tr>
                         @endforeach
+
+                    
                      
-                    </tr>
+                    
 
                     </table>
                     
@@ -104,63 +119,151 @@
         
 
 <div class="container">
-            <div class="[ col-sm-4  col-md-4 ]">
-                <center>
-                <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="{{url('frontend/images/fotoo.jpg')}}" name="aboutme" width="140" height="140" class="img-circle"></a>
-                <h3>Joe Sixpack</h3>
-                <em>click my face for more</em>
-                </center>
-            </div>
 
-            <div class="[ col-sm-4  col-md-4 ]">
-                <center>
-                <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="{{url('frontend/images/fotoo.jpg')}}" name="aboutme" width="140" height="140" class="img-circle"></a>
-                <h3>Joe Sixpack</h3>
-                <em>click my face for more</em>
-                </center>
-            </div>
+            <?php $array = array(); ?>
+             <?php $cont = 0?>
+                                
+                                 
+                                       
+            @foreach($eventos->expositores as $expositor_propio)
+                    <?php $array[] = $expositor_propio->id;?>
+            @endforeach
 
-            <div class="[ col-sm-4  col-md-4 ]">
-                <center>
-                <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="{{url('frontend/images/fotoo.jpg')}}" name="aboutme" width="140" height="140" class="img-circle"></a>
-                <h3>Joe Sixpack</h3>
-                <em>click my face for more</em>
-                </center>
-            </div>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                            <h4 class="modal-title" id="myModalLabel">More About Joe</h4>
+         @foreach($expositores as $expositor)
+                 @if(in_array($expositor->id,$array) )
+                        @if(count($expositores) >0)
+                            <?php $cont = $cont+1?>
+                        @endif
+                 @endif
+   
+        @endforeach
+
+         @foreach($expositores as $expositor)
+                 @if(in_array($expositor->id,$array) )
+
+                       
+                        @if($cont==1)
+
+                                     
+
+                                    <div class="[ col-sm-12  col-md-12 ]">
+                                        <center>
+                                            <a href="#" data-toggle="modal" data-target="#{{$expositor->id}}"><img src="{{url('uploads')}}/{{$expositor->path}}" name="aboutme" width="140" height="140" class="img-circle"></a>
+                                            <h3> {{$expositor->nombres.'  '. $expositor->apellidos}}</h3>
+                                            <em>click en mi cara para más información</em>
+                                        </center>
+                                    </div>
+
+                                    
+
+                                    
+
+                        @elseif($cont==2)
+
+                                     <div class="[ col-sm-6  col-md-6 ]">
+                                        <center>
+                                            <a href="#" data-toggle="modal" data-target="#{{$expositor->id}}"><img src="{{url('uploads')}}/{{$expositor->path}}" name="aboutme" width="140" height="140" class="img-circle"></a>
+                                            <h3> {{$expositor->nombres.'  '. $expositor->apellidos}}</h3>
+                                            <em>click en mi cara para más información</em>
+                                        </center>
+                                    </div>
+
+                                   
+                                    
+
+                        @elseif($cont==3)
+
+                                    
+
+                                     <div class="[ col-sm-4  col-md-4 ]">
+                                        <center>
+                                            <a href="#" data-toggle="modal" data-target="#{{$expositor->id}}"><img src="{{url('uploads')}}/{{$expositor->path}}" name="aboutme" width="140" height="140" class="img-circle"></a>
+                                            <h3> {{$expositor->nombres.'  '. $expositor->apellidos}}</h3>
+                                            <em>click en mi cara para más información</em>
+                                        </center>
+                                    </div>
+                            
+                        @elseif($cont>3)
+
+
+                                    <div class="[ col-sm-4  col-md-4 ]">
+                                        <center>
+                                            <a href="#" data-toggle="modal" data-target="#{{$expositor->id}}"><img src="{{url('uploads')}}/{{$expositor->path}}" name="aboutme" width="140" height="140" class="img-circle"></a>
+                                            <h3> {{$expositor->nombres.'  '. $expositor->apellidos}}</h3>
+                                            <em>click en mi cara para más información</em>
+                                        </center>
+                                    </div>
+
+                                    
+
+                        @endif
+                        
+                        
+
+
+
+
+                       
+                        @else
+
+
+
+
+
+
+                    @endif
+
+                     <!-- Modal -->
+                    <div class="modal fade" id="{{$expositor->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                            <h4 class="modal-title" id="myModalLabel">Biografía</h4>
+                                            </div>
+                                        <div class="modal-body">
+                                            <center>
+                                            <img src="{{url('uploads')}}/{{$expositor->path}}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                                            <h3 class="media-heading">{{$expositor->nombres.'  '. $expositor->apellidos}} 
+                                            
+                                            </center>
+                                            <hr>
+                                            <center>
+                                            <strong>Datos del Ponente </strong>
+                                            <p class="text-left">
+                                            <b>Nombre y Apellidos: </b> {{$expositor->nombres.'  '. $expositor->apellidos}} <br>
+                                            <b>Titulo: </b> {{$expositor->titulo}} <br>
+                                            <b>Email: </b> {{$expositor->email}} <br>
+                                            <b>Experiencias laborales: </b> {{$expositor->experiencia_laboral}} <br>
+                                               
+                                                </p>
+                                            <br>
+                                            </center>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <center>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+                                            </center>
+                                        </div>
                             </div>
-                        <div class="modal-body">
-                            <center>
-                            <img src="{{url('frontend/images/fotoo.jpg')}}" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
-                            <h3 class="media-heading">Joe Sixpack <small>USA</small></h3>
-                            <span><strong>Skills: </strong></span>
-                                <span class="label label-warning">HTML5/CSS</span>
-                                <span class="label label-info">Adobe CS 5.5</span>
-                                <span class="label label-info">Microsoft Office</span>
-                                <span class="label label-success">Windows XP, Vista, 7</span>
-                            </center>
-                            <hr>
-                            <center>
-                            <p class="text-left"><strong>Bio: </strong><br>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo a, vulputate vel tellus.</p>
-                            <br>
-                            </center>
                         </div>
-                        <div class="modal-footer">
-                            <center>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">I've heard enough about Joe</button>
-                            </center>
-                        </div>
-            </div>
-        </div>
-    </div>
+                    </div>
+            @endforeach
 
+       
+
+
+                  
+
+
+                       
+ 
+               
+
+               
+
+          
+    
 
   
 </div>
@@ -170,64 +273,71 @@
 
 
 <!-- Contenedor -->
-    <div class="pricing-wrapper clearfix">
-        <div class="pricing-table">
-            <h3 class="pricing-title">Basico</h3>
-            <div class="price">$60<sup>/ mes</sup></div>
-            <!-- Lista de Caracteristicas / Propiedades -->
-            <ul class="table-list">
-                <li>10 GB <span>De almacenamiento</span></li>
-                <li>1 Dominio <span>incluido</span></li>
-                <li>25 GB <span>De transferencia mensual</span></li>
-                <li>Base de datos <span class="unlimited">ilimitadas</span></li>
-                <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
-                <li>CPanel <span>incluido</span></li>
-            </ul>
-            <!-- Contratar / Comprar -->
-            <div class="table-buy">
-                <p>$60<sup>/ mes</sup></p>
-                <a href="#" class="pricing-action">Contratar</a>
+
+<div class="container">
+
+        <div class="[ col-sm-6  col-md-6 ]">
+          
+
+            <div class="pricing-table">
+                    <h3 class="pricing-title">Basico</h3>
+                    <div class="price">$60<sup>/ mes</sup></div>
+                    <!-- Lista de Caracteristicas / Propiedades -->
+                    <ul class="table-list">
+                        <li>10 GB <span>De almacenamiento</span></li>
+                        <li>1 Dominio <span>incluido</span></li>
+                        <li>25 GB <span>De transferencia mensual</span></li>
+                        <li>Base de datos <span class="unlimited">ilimitadas</span></li>
+                        <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
+                        <li>CPanel <span>incluido</span></li>
+                    </ul>
+                    <!-- Contratar / Comprar -->
+                    <div class="table-buy">
+                        <p>$60<sup>/ mes</sup></p>
+                        <a href="#" class="pricing-action">Contratar</a>
+                    </div>
             </div>
+        
+
+          
+
+
+                                            
+           
         </div>
+
+        <div class="[ col-sm-6  col-md-6 ]">
+            
+
+         <div class="pricing-table">
+                    <h3 class="pricing-title">Basico</h3>
+                    <div class="price">$60<sup>/ mes</sup></div>
+                    <!-- Lista de Caracteristicas / Propiedades -->
+                    <ul class="table-list">
+                        <li>10 GB <span>De almacenamiento</span></li>
+                        <li>1 Dominio <span>incluido</span></li>
+                        <li>25 GB <span>De transferencia mensual</span></li>
+                        <li>Base de datos <span class="unlimited">ilimitadas</span></li>
+                        <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
+                        <li>CPanel <span>incluido</span></li>
+                    </ul>
+                    <!-- Contratar / Comprar -->
+                    <div class="table-buy">
+                        <p>$60<sup>/ mes</sup></p>
+                        <a href="#" class="pricing-action">Contratar</a>
+                    </div>
+            </div>
+        
+               
+        </div>
+
+    
+
+</div>
  
-        <div class="pricing-table recommended">
-            <h3 class="pricing-title">Premium</h3>
-            <div class="price">$100<sup>/ mes</sup></div>
-            <!-- Lista de Caracteristicas / Propiedades -->
-            <ul class="table-list">
-                <li>35 GB <span>De almacenamiento</span></li>
-                <li>5 Dominios <span>incluidos</span></li>
-                <li>100 GB <span>De transferencia mensual</span></li>
-                <li>Base de datos <span class="unlimited">ilimitadas</span></li>
-                <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
-                <li>CPanel <span>incluido</span></li>
-            </ul>
-            <!-- Contratar / Comprar -->
-            <div class="table-buy">
-                <p>$100<sup>/ mes</sup></p>
-                <a href="#" class="pricing-action">Contratar</a>
-            </div>
-        </div>
  
-        <div class="pricing-table">
-            <h3 class="pricing-title">Ultimate</h3>
-            <div class="price">$200<sup>/ mes</sup></div>
-            <!-- Lista de Caracteristicas / Propiedades -->
-            <ul class="table-list">
-                <li>100 GB <span>De almacenamiento</span></li>
-                <li>8 Dominios <span>incluidos</span></li>
-                <li>200 GB <span>De transferencia mensual</span></li>
-                <li>Base de datos <span class="unlimited">ilimitadas</span></li>
-                <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
-                <li>CPanel <span>incluido</span></li>
-            </ul>
-            <!-- Contratar / Comprar -->
-            <div class="table-buy">
-                <p>$200<sup>/ mes</sup></p>
-                <a href="#" class="pricing-action">Contratar</a>
-            </div>
-        </div>
-    </div>
+     
+
 
 <br>
 <br>

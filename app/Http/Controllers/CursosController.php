@@ -4,6 +4,9 @@ namespace Congreso\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Congreso\Evento;
+use Congreso\Temario;
+use Congreso\Contenido;
+use Congreso\Expositor;
 
 class CursosController extends Controller
 {
@@ -18,7 +21,10 @@ class CursosController extends Controller
     public function cursos($id){
         
         $eventos = Evento::find($id);
-        return view('cursos',compact('eventos'));
+        $temarios = Temario::where('id_temario',$eventos->id)->get();
+        $expositores = Expositor::where('estado',1)->get();
+        $contenidos = Contenido::where('estado',1)->get();
+        return view('cursos',compact('eventos', 'temarios', 'expositores', 'contenidos'));
      
     }
 }
