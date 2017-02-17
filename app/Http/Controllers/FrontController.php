@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Congreso\Video;
 use Congreso\Evento;
+use Congreso\Redes;
 
 class FrontController extends Controller
 {
@@ -18,7 +19,8 @@ class FrontController extends Controller
     public function index(){
         $video= Video::all()->first();
         $eventos= Evento::where('estado',1)->paginate(3);
-        return view('welcome', compact('video', 'eventos'));
+        $redes= Redes::where('estado',1)->paginate(3);
+        return view('welcome', compact('video', 'eventos', 'redes'));
     }
 
     

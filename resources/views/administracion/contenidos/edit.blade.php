@@ -49,38 +49,28 @@
                     {!! Form::text('subtemas',null,['placeholder'=>'Subtemas','class'=>'form-control']) !!}
                 </div>
 
-                <!-- time Picker -->
-                    <div class="bootstrap-timepicker">
-                            <div class="form-group">
-                            {!! Form::label('Hora Inicio') !!}
+        
+            <div class="form-group">
+                {!! Form::label('Fecha Inicio') !!}
+                <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right" id="datepicker" name = "fecha_inicio" value="{{$contenido->fecha_inicio}}">
+                </div>
+            </div>
 
-                            <div class="input-group">
-                                <input type="text" class="form-control timepicker" name ="hora_inicio">
-
-                                <div class="input-group-addon">
-                                <i class="fa fa-clock-o"></i>
-                                </div>
-                            </div>
-                            <!-- /.input group -->
-                            </div>
-                        <!-- /.form group -->
+            <div class="form-group">
+                    {!! Form::label('Fecha Fin') !!}
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="text" class="form-control pull-right" id="datepicker2" name = "fecha_fin" value="{{$contenido->fecha_fin}}">
                     </div>
+            </div>
 
-                    <div class="bootstrap-timepicker">
-                            <div class="form-group">
-                            {!! Form::label('Hora Fin') !!}
-
-                            <div class="input-group">
-                                <input type="text" class="form-control timepicker" name ="hora_fin">
-
-                                <div class="input-group-addon">
-                                <i class="fa fa-clock-o"></i>
-                                </div>
-                            </div>
-                            <!-- /.input group -->
-                            </div>
-                        <!-- /.form group -->
-                    </div>
+          
             {!! Form::submit('Actualizar',['class'=>'btn btn-primary']) !!}
             {!! Form::close() !!}
         </div>
@@ -98,20 +88,32 @@
     </script>
 
     <script>
-        $(function () {
-           
-            //Datemask dd/mm/yyyy
-            $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-            //Datemask2 mm/dd/yyyy
-            $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
-            //Money Euro
-            $("[data-mask]").inputmask();
 
-             //Timepicker
-            $(".timepicker").timepicker({
-            showInputs: false
+            $(function() {
+                $.fn.datepicker.dates['en'] = {
+                    days: [ "Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado" ],
+                    daysShort: ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+                    daysMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+                    months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+                        "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+                    monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun",
+                        "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"],
+                    today: "Hoy",
+                    clear: "Clear",
+                    titleFormat: "MM yyyy", /* Leverages same syntax as 'format' */
+                    weekStart: 0
+                };
+                $("#datepicker").datepicker({
+                    format: 'yyyy/mm/dd',
+                    language:'en'
+                })
+                $("#datepicker2").datepicker({
+                    format: 'yyyy/mm/dd',
+                    language:'en'
+                })
             });
-        });
+
+
     </script>
-    
+
 @endsection

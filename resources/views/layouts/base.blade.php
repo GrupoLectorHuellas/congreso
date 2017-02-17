@@ -122,41 +122,7 @@
 </div>
  
 
- <!-- footer -->
-  <footer class="light lighten">
 
-    <div class="container">
-
-      <div class="row text-center">
-
-        <div class="col-sm-12 mb25">
-
-          
-
-          <br>
-
-          <a class="btn btn-social-icon btn-facebook btn-rounded btn-sm ml5 mr5" href="javascript:;">
-            <i class="fa fa-facebook"></i>
-          </a>
-
-          <a class="btn btn-social-icon btn-twitter btn-rounded btn-sm ml5 mr5" href="javascript:;">
-            <i class="fa fa-twitter"></i>
-          </a>
-
-          <a class="btn btn-social-icon btn-google-plus btn-rounded btn-sm ml5 mr5" href="javascript:;">
-            <i class="fa fa-google-plus"></i>
-          </a>
-
-        </div>
-
-        <div class="col-sm-12 mb25">
-          <p>Hecho con &nbsp;<i class="ti-heart text-danger"></i>&nbsp;en Ingenieria de Sistemas</p>
-          <small class="show">&copy;&nbsp;Copyright&nbsp;Octavo A&nbsp;<span class="year"></span>. Todos los derechos reservados</small>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- /footer -->
   
   <!-- build:js({.tmp,app}) scripts/app.min.js -->
   <script src="{{url('frontend/vendor/jquery/dist/jquery.js')}}"></script>

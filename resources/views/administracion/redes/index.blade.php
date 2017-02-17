@@ -20,7 +20,7 @@
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title">Contenidos Registrados</h3>
+                    <h3 class="box-title">Redes sociales Registrados</h3>
 
                     <div class="box-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -33,51 +33,46 @@
                     </div>
                 </div>
                 <!-- /.box-header -->
-                @if(count($contenidos) >0)
+                @if(count($redes) >0)
                     <div class="ajax-tabla">
                         <div class="box-body table-responsive no-padding" >
                             <table class="table table-hover" >
                                 <tr>
-                                    
-                                    <th>SubTema</th>
-                                    <th>Fecha Inicio</th>
-                                    <th>Fecha Fin</th>
-                                    <th>Temario</th>
-                                    <th>Accion</th>
+                                    <th>ID</th>
+                                    <th>Url</th>
+                                    <th>Descipción</th>
+                                    <th>Acción</th>
                                 </tr>
-                                @foreach($contenidos as $contenido)
-                                    <tr data-id="{{$contenido->id}}">
-                                       
-                                        <td>{{$contenido->subtemas}}</td>
-                                        <td>{{$contenido->fecha_inicio}}</td>
-                                        <td>{{$contenido->fecha_fin}}</td>
-                                        <td>{{$contenido->temarios->nombre}}</td>
-
-                                        
+                                @foreach($redes as $red)
+                                    <tr data-id="{{$red->id}}">
+                                        <td class="sorting_1">{{$red->id}}</td>
+                                        <td>{{$red->url}}</td>
+                                        <td>{{$red->descripcion}}</td>
                                         <td>
-                                            {!!link_to_route('contenidos.edit', $title = 'Editar', $parameters = $contenido->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
-                                            <button type="button" class="btn btn-danger btn-sm btn-delete"  ><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp;Eliminar</button>
+                                            {!!link_to_route('redes.edit', $title = 'Editar', $parameters = $red->id, $attributes = ['class'=>'btn  btn-primary btn-sm'])!!}
+                                            
+
                                         </td>
 
                                     </tr>
                                 @endforeach
                             </table>
-                            {{$contenidos->links()}}
+                            {{$redes->links()}}
                         </div>
                     </div>
                 @else
-                    <br/><div class='rechazado'><label style='color:#FA206A'>...No se ha encontrado ningun contenido...</label>  </div>
+                    <br/><div class='rechazado'><label style='color:#FA206A'>...No se ha encontrado ninguna red social...</label>  </div>
                 @endif
             </div>
             <!-- /.box -->
         </div>
     </div>
 
-    {!! Form::open(['route' => ['contenidos.destroy', ':USER_ID'], 'method' => 'DELETE', 'id' => 'form-delete']) !!}
+    
     {!! Form::close() !!}
 @endsection
 @section('script')
-    <script src="{{url('administration/dist/js/contenidos/java-contenido.js')}}"></script>
+    
     <script type="text/javascript">
         $(document).ready(function() {
             setTimeout(function() {

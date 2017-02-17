@@ -8,11 +8,14 @@ use Congreso\Temario;
 use Congreso\Contenido;
 use Congreso\Expositor;
 
+use Congreso\Redes;
 class CursosController extends Controller
 {
     public function todos_cursos()
     {
-        return view('todos_cursos');
+         $eventos= Evento::where('estado',1)->paginate(3);
+          $redes= Redes::where('estado',1)->paginate(3);
+         return view('todos_cursos',  compact('video', 'eventos', 'redes'));
     }
 
    

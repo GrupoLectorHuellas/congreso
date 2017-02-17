@@ -19,9 +19,7 @@ class VideoController extends Controller
 
     public function index(Request $request){
         $videos= Video::where('id',1)->paginate(1);
-        if($request->ajax()){
-            return response()->json(view('administracion.videos.ajax-videos',compact('videos'))->render());
-        }
+        
         return view('administracion.videos.index',compact('videos'));
 
     }

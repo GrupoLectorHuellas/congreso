@@ -56,43 +56,71 @@
                       <h2 class="col-md-5">Agenda</h2>
                     </div>
                 <div class="div-shadow">
-                  <table class="table table-bordered">
+                  <table align="center" border="1" bordercolor="blue" class="table table-bordered">
                     <tr>
                       <th class="col-md-12 text-center" colspan="6">Del {{$eventos->fecha_inicio}} al {{$eventos->fecha_fin}} </th>
                     </tr>
-                    <tr>
-                      <th class="col-md-3">Tema</th>
-                      <th class="col-md-2">Duración en Horas</th>
-                      <th class="col-md-3">Contenido</th>
-                      <th class="col-md-2">Fecha Inicio</th>
-                      <th class="col-md-2">Fecha Fin</th>
-                    </tr>
+                   
                     
                   
 
-                                
+                           
         
                         @foreach ($temarios as $temario)
-                        <tr>
-                                 <td class="col-md-3">{{$temario->nombre}}</td>
-                                 <td class="col-md-2">{{$temario->duracion}} H</td>
+
+                            <tr>
+                                <td colspan="3"><P ALIGN=center><b>Tema:</b> {{$temario->nombre}}</p></td>
+                                
+                               
+                               
+                             </tr>
+
+                             <tr>
+                                <td colspan="3"><P ALIGN=center><b>Duración en Horas: </b> {{$temario->duracion}} H</p></td>
+                                
+                               
+                               
+                             </tr>
+                   
+                       
+                                   
+                                 
+
+                                <tr>
+                     
+                                    <th class="col-md-4">Contenido</th>
+                                    <th class="col-md-4">Fecha Inicio</th>
+                                    <th class="col-md-4">Fecha Fin</th>
+                                 </tr>
 
                                 
                                 @foreach($contenidos as $contenido)
+                               
                                     @if($temario->id == $contenido->id_temarios )
-                                        <td class="col-md-3">{{$contenido->subtemas}}</td>
-                                        <td class="col-md-2">{{$contenido->fecha_inicio}}</td>
-                                        <td class="col-md-2">{{$contenido->fecha_fin}}</td>
-                                    @else
-                                        <td class="col-md-3">---</td>
-                                        <td class="col-md-2">---</td>
-                                        <td class="col-md-2">---</td>
+                                     
+                                        
+                                          <tr>
+                                          
+                                           
+                                                <td class="col-md-4">{{$contenido->subtemas}}</td>
+                                                <td class="col-md-4">{{$contenido->fecha_inicio}}</td>
+                                                <td class="col-md-4">{{$contenido->fecha_fin}}</td>
+
+                                          </tr>
+                                        
+                                   
+                                        
                                     
                                     @endif
-                                @endforeach                                      
+                                     
+                                           
+                                @endforeach    
+
+                                    
+                                                                  
                                 
                                
-                        </tr>
+                        
                         @endforeach
 
                     
@@ -280,20 +308,19 @@
           
 
             <div class="pricing-table">
-                    <h3 class="pricing-title">Basico</h3>
-                    <div class="price">$60<sup>/ mes</sup></div>
+                    <h3 class="pricing-title">Estudiantes</h3>
+                    <div class="price">$  {{$eventos->precio_estudiante}}<sup></div>
                     <!-- Lista de Caracteristicas / Propiedades -->
                     <ul class="table-list">
-                        <li>10 GB <span>De almacenamiento</span></li>
-                        <li>1 Dominio <span>incluido</span></li>
-                        <li>25 GB <span>De transferencia mensual</span></li>
-                        <li>Base de datos <span class="unlimited">ilimitadas</span></li>
-                        <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
-                        <li>CPanel <span>incluido</span></li>
+                        <li>Clases Presenciales</li>
+                         <li>Expositores Profesionales y Capacitados</li>
+                         <li>Diplomas de Certificación</li>
+                         <li>Equipos de primera</li>
+                        
                     </ul>
                     <!-- Contratar / Comprar -->
                     <div class="table-buy">
-                        <p>$60<sup>/ mes</sup></p>
+                        <p>$  {{$eventos->precio_estudiante}}<sup></p>
                         <a href="#" class="pricing-action">Contratar</a>
                     </div>
             </div>
@@ -310,20 +337,19 @@
             
 
          <div class="pricing-table">
-                    <h3 class="pricing-title">Basico</h3>
-                    <div class="price">$60<sup>/ mes</sup></div>
+                    <h3 class="pricing-title">Profesional</h3>
+                    <div class="price">$ {{$eventos->precio_profesional}}<sup></div>
                     <!-- Lista de Caracteristicas / Propiedades -->
                     <ul class="table-list">
-                        <li>10 GB <span>De almacenamiento</span></li>
-                        <li>1 Dominio <span>incluido</span></li>
-                        <li>25 GB <span>De transferencia mensual</span></li>
-                        <li>Base de datos <span class="unlimited">ilimitadas</span></li>
-                        <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
-                        <li>CPanel <span>incluido</span></li>
+                        <li>Clases Presenciales</li>
+                         <li>Expositores Profesionales y Capacitados</li>
+                         <li>Diplomas de Certificación</li>
+                         <li>Equipos de primera</li>
+                        
                     </ul>
                     <!-- Contratar / Comprar -->
                     <div class="table-buy">
-                        <p>$60<sup>/ mes</sup></p>
+                        <p>$  {{$eventos->precio_profesional}}<sup></p>
                         <a href="#" class="pricing-action">Contratar</a>
                     </div>
             </div>
@@ -346,7 +372,65 @@
 
 
 
+
+
 @endsection()
+
+<!-- footer -->
+  <footer class="light lighten">
+ 
+
+    <div class="container">
+
+      <div class="row text-center">
+        <div class="col-sm-12 mb25">
+          <br>
+
+          <?php $cont = 1?>
+
+          @foreach($redes as $red)
+
+          @if($cont==1)
+
+          <a class="btn btn-social-icon btn-facebook btn-rounded btn-sm ml5 mr5" href="{{$red->url}}">
+            <i class="fa fa-facebook"></i>
+          </a>
+          @endif
+
+           @if($cont==2)
+
+          <a class="btn btn-social-icon btn-twitter btn-rounded btn-sm ml5 mr5" href="{{$red->url}}">
+            <i class="fa fa-twitter"></i>
+          </a>
+          @endif
+
+
+           @if($cont==3)
+
+          <a class="btn btn-social-icon btn-instagram btn-rounded btn-sm ml5 mr5" href="{{$red->url}}">
+            <i class="fa fa-instagram"></i>
+          </a>
+
+          @endif
+
+          <?php $cont = $cont+1?>
+
+          @endforeach
+
+          <?php $cont = 1?>
+
+         
+
+        </div>
+
+        <div class="col-sm-12 mb25">
+          <p>Hecho con &nbsp;<i class="ti-heart text-danger"></i>&nbsp;en Ingenieria de Sistemas</p>
+          <small class="show">&copy;&nbsp;Copyright&nbsp;Octavo A&nbsp;<span class="year"></span>. Todos los derechos reservados</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- /footer -->
 
 
 @section('script')

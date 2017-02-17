@@ -10,6 +10,12 @@
 |
 */
 use Congreso\Usuario;
+
+
+
+
+
+
 //Para las vistas principales
 Route::get('/', 'FrontController@index');
 Route::get('administracion','FrontController@admin');
@@ -25,6 +31,7 @@ Route::resource('administracion/expositores','ExpositorController');
 Route::post('administracion/expositores/create','ExpositorController@store');
 Route::resource('administracion/eventos','EventoController');
 Route::resource('administracion/videos','VideoController');
+Route::resource('administracion/redes','RedesController');
 Route::resource('administracion/imagenes','ImagenCertificadoController');
 Route::resource('administracion/firmas','FirmaController');
 Route::resource('administracion/temarios','TemarioController');
@@ -55,9 +62,11 @@ Route::get('eventosMatriculadosValidados/{id_usuario}/','InscripcionController@g
 
 #perfil y editar perfil
 Route::get('User/MiPerfil', 'HomeUserController@mi_perfil');
-Route::get('cursos', 'CursosController@todos_cursos');
-Route::get('cursos/formato', 'CursosController@cursos');
 Route::get('User/MiPerfil/EditarPerfil', 'HomeUserController@editar_perfil');
+Route::get('cursos', 'CursosController@todos_cursos');
+
+
+
 Route::get('recuperar_password', 'FrontController@recuperar_pass');
 
 Route::get('pdf', 'ReporteController@prueba');

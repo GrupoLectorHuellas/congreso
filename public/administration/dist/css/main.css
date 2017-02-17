@@ -207,7 +207,7 @@ a {
  
 .pricing-title {
     color: #FFF;
-    background: #e95846;
+    background: #428bca;
     padding: 20px 0;
     font-size: 2em;
     text-transform: uppercase;
@@ -224,6 +224,7 @@ a {
  
 .pricing-table .price {
     background: #403e3d;
+    color: #FFF;
     font-size: 3.4em;
     font-weight: 700;
     padding: 20px 0;

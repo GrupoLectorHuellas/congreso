@@ -338,83 +338,7 @@
             </div>
 	        </div>
               
-<!--
-        <div class="container">
-            <div class="row">
-                 
 
-                  <div class="[ col-sm-6  col-md-4 ]">
-                    <div class="[ info-card ]">
-                      <img style="height: 425px; width:100%;" src="{{url('frontend/images/programacion.png')}}" />
-                      <div class="[ info-card-details ] animate">
-                        <div class="[ info-card-header ]">
-                          <h1> Programación Web</h1>
-                          <h3> Diseño y Programación Web </h3>
-                        </div>
-                        <div class="[ info-card-detail ]">
-                   
-                                <div class="feature-icon bordered">
-                                     <i class="ti-cloud color"></i>
-                                </div>
-                                <p style="font-weight: bold; font-size: 125%;"> Al terminar este curso vas a aprender</p>
-
-                                <p align=justify>Aprenderá conceptos básicos de redes wan y lan, de igual forma
-                                  comprenderá los comandos necesarios para la administración y mantenimiento de las mismas
-                                   dfdfdfdffdfdffdfdfdffdffdffddfdfdfdfdfdfdfdfdfdfddddddd
-                                   dddddddddddddddddddddddddddddd
-                                   
-                                  
-                                 </p>
-
-                                 <a href="#" class="btn btn-primary" role="button">Más Información</a>
-                          
-                          
-
-                          
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-
-                    <div class="[ col-sm-6  col-md-4 ]">
-                      <div class="[ info-card ]">
-                        <img style="height: 425px; width:100%;" src="{{url('frontend/images/matematicas.jpg')}}" />
-                        <div class="[ info-card-details ] animate">
-                          <div class="[ info-card-header ]">
-                              <h1> Matemáticas </h1>
-                            <h3> Curso de Derivadas e Integrales </h3>
-                          </div>
-                          <div class="[ info-card-detail ]">
-                   
-                            <div class="feature-icon bordered">
-                                     <i class="ti-cloud color"></i>
-                                </div>
-                                <p style="font-weight: bold; font-size: 125%;"> Al terminar este curso vas a aprender</p>
-
-                                <p align=justify>Aprenderá conceptos básicos de redes wan y lan, de igual forma
-                                  comprenderá los comandos necesarios para la administración y mantenimiento de las mismas
-                                   dfdfdfdffdfdffdfdfdffdffdffddfdfdfdfdfdfdfdfdfdfddddddd
-                                   dddddddddddddddddddddddddddddd
-                                   
-                                  
-                                 </p>
-
-                                 <a href="#" class="btn btn-primary" role="button">Más Información</a>
-                          
-                            
-
-                            
-                        </div>
-                      </div>
-                    </div>
-                    </div>
-
-             </div>
-
-                    
-
-
-   -->
 
             
 
@@ -514,17 +438,40 @@
         <div class="col-sm-12 mb25">
           <br>
 
-          <a class="btn btn-social-icon btn-facebook btn-rounded btn-sm ml5 mr5" href="javascript:;">
+          <?php $cont = 1?>
+
+          @foreach($redes as $red)
+
+          @if($cont==1)
+
+          <a class="btn btn-social-icon btn-facebook btn-rounded btn-sm ml5 mr5" href="{{$red->url}}">
             <i class="fa fa-facebook"></i>
           </a>
+          @endif
 
-          <a class="btn btn-social-icon btn-twitter btn-rounded btn-sm ml5 mr5" href="javascript:;">
+           @if($cont==2)
+
+          <a class="btn btn-social-icon btn-twitter btn-rounded btn-sm ml5 mr5" href="{{$red->url}}">
             <i class="fa fa-twitter"></i>
           </a>
+          @endif
 
-          <a class="btn btn-social-icon btn-google-plus btn-rounded btn-sm ml5 mr5" href="javascript:;">
-            <i class="fa fa-google-plus"></i>
+
+           @if($cont==3)
+
+          <a class="btn btn-social-icon btn-instagram btn-rounded btn-sm ml5 mr5" href="{{$red->url}}">
+            <i class="fa fa-instagram"></i>
           </a>
+
+          @endif
+
+          <?php $cont = $cont+1?>
+
+          @endforeach
+
+          <?php $cont = 1?>
+
+         
 
         </div>
 
